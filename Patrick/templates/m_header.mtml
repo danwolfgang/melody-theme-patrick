@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title><mt:If name="html_title"><mt:Var name="html_title"> | </mt:If><mt:BlogName></title>
+    <mt:Include module="HTML Head">
+</head>
+<body id="<mt:BlogName dirify="-">" class="<mt:BlogTemplateSetID> <mt:ColumnLayout dirify="-"> <mt:Var name="identifier"> <mt:Var name="archive_class">">
+
+<div id="container">
+    <div id="container-inner">
+        
+        <div id="header">
+            <div id="header-inner">
+            <mt:Ignore>
+                Use h1 and h2 html tags on the main index of the blog as the 
+                title, use divs on all other pages where there are page 
+                titles.
+            </mt:Ignore>
+            <mt:If name="main_index">
+                <h1 id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName encode_html="1"></a></h1>
+                <mt:If tag="BlogDescription">
+                <h2 id="header-description"><mt:BlogDescription></h2>
+                </mt:If>
+            <mt:Else>
+                <div id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName encode_html="1"></a></div>
+                <mt:If tag="BlogDescription">
+                <div id="header-description"><mt:BlogDescription></div>
+                </mt:If>
+            </mt:If>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="content-inner">
+
+                <div id="alpha">
+                    <div id="alpha-inner">

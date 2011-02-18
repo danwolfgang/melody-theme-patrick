@@ -1,0 +1,12 @@
+<mt:If tag="EntryCategories">
+<div class="categories">
+    <h4>Categories<span class="delimiter">:</span></h4>
+    <ul>
+    <mt:EntryCategories>
+        <mt:ParentCategories glue=" &gt; ">
+        <li><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel smarty_pants="1"></a></li>
+        </mt:ParentCategories>
+    </mt:EntryCategories>
+    </ul>
+</div>
+</mt:If>

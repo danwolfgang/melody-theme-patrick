@@ -1,0 +1,121 @@
+@import url(<mt:PluginStaticWebPath component="patrick">css/reset.css);
+
+<mt:PictaculousPalette>
+    <mt:Var name="body_background" setvar="body_background_color">
+    <mt:Var name="container_background" setvar="container_background_color">
+    <mt:Var name="header_background" setvar="header_background_color">
+    <mt:Var name="column_background" setvar="column_background_color">
+    <mt:Var name="widget_background" setvar="widget_background_color">
+</mt:PictaculousPalette>
+
+body {
+    background-color: <mt:Var name="body_background_color">;
+<mt:BodyTextFontFont>
+    font-family: <mt:Var name="typeface">;
+    <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
+    <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
+</mt:BodyTextFontFont>
+    line-height: 125%;
+}
+
+#container {
+    width: 970px;
+    margin: 0 auto;
+    background-color: <mt:Var name="container_background_color">;
+}
+
+#header {
+    height: <mt:HeaderImageHeight>px;
+    background-color: <mt:Var name="header_background_color">;
+<mt:HeaderImageAsset>
+    background-image: url(<mt:AssetURL>);
+    background-position: center top;
+</mt:HeaderImageAsset>
+}
+
+#content {
+    padding: 10px;
+}
+
+#content-inner {
+    float: left;
+}
+
+#alpha,
+#beta,
+#gamma {
+    float: left;
+    background-color: <mt:Var name="column_background_color">;
+    padding: 10px;
+}
+
+/* Column sizes are set based on the number of columns set to display. */
+.one-column #alpha { width: 930px; }
+.two-columns #alpha { width: 630px; }
+.three-columns #alpha { width: 510px; }
+
+.two-columns #alpha { margin-right: 10px; }
+.three-columns #alpha,
+.three-columns #beta { margin-right: 10px; }
+
+.two-columns #beta { width: 300px; }
+.three-columns #beta { width: 180px; }
+
+.three-columns #gamma { width: 180px; }
+
+
+#footer {
+    padding-top: 20px;
+    clear: both;
+}
+
+h1, h2, h3, h4 {
+<mt:SubheadFontFont>
+    font-family: <mt:Var name="typeface">;
+    <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
+    <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
+    <mt:Ignore> <mt:Var name="size"> <mt:Var name="variation"> </mt:Ignore>
+</mt:SubheadFontFont>
+    line-height: 100%;
+}
+
+h1 { font-size: 2em;    margin: 0 0 0.25em; }
+h2 { font-size: 1.6em;  margin: 1em 0 0.5em; }
+h3 { font-size: 1.25em; margin: 1em 0 0.5em; }
+h4 { font-size: 1em;    margin: 0.5em 0 0 0.25em }
+
+p {
+    margin-bottom: 1em;
+}
+
+.entry-header {
+}
+
+.meta {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.meta .comment-count,
+.meta .categories,
+.meta .tags {
+    float: left;
+    margin-right: 2em;
+}
+
+.meta h4 {
+    display: inline;
+    font-weight: bold;
+}
+
+.meta ul,
+.meta ul li {
+    display: inline;
+}
+
+
+.widget {
+    background-color: <mt:Var name="widget_background_color">;
+}

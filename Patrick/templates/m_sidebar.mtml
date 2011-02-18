@@ -1,0 +1,23 @@
+<mt:If tag="ColumnLayout" like="(Two|Three|Four)">
+    <div id="beta">
+        <div id="beta-inner">
+            <mt:WidgetSet name="Second Column">
+        </div>
+    </div>
+</mt:If>
+
+<mt:If tag="ColumnLayout" like="(Three|Four)">
+    <div id="gamma">
+        <div id="gamma-inner">
+            <mt:WidgetSet name="Third Column">
+        </div>
+    </div>
+</mt:If>
+
+<mt:If tag="ColumnLayout" like="(Four)">
+    <div id="delta">
+        <div id="delta-inner">
+            <mt:WidgetSet name="Fourth Column">
+        </div>
+    </div>
+</mt:If>

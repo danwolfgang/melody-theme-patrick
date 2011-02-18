@@ -1,0 +1,20 @@
+<div class="entry-footer">
+    <div class="meta">
+        <mt:If tag="EntryMetaBylineDisplay" eq="Below the entry content but above the comments">
+            <mt:Include module="Meta: Byline">
+        </mt:If>
+        <mt:If tag="EntryMetaCommentCountDisplay" eq="Below the entry content but above the comments">
+            <mt:Include module="Meta: Comment Count">
+        </mt:If>
+        <mt:If tag="EntryMetaCategoriesDisplay" eq="Below the entry content but above the comments">
+            <mt:Include module="Meta: Categories">
+        </mt:If>
+        <mt:If tag="EntryMetaTagsDisplay" eq="Below the entry content but above the comments">
+            <mt:Include module="Meta: Tags">
+        </mt:If>
+        <mt:If tag="EntryMetaTwitterDisplay" eq="Below the entry content but above the comments">
+            <mt:Include module="Meta: Twitter">
+        </mt:If>
+        <mt:CallbackEntryFooter>
+    </div>
+</div>

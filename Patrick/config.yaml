@@ -1,0 +1,637 @@
+name: 'Patrick'
+key: patrick
+id: patrick
+description: 'Patrick is a framework-style theme for Melody and Movable Type.'
+author_name: 'Dan Wolfgang, uiNNOVATIONS'
+author_link: 'http://uinnovations.com'
+version: 0.1
+static_version: 1
+
+config_types:
+    font:
+        handler: $Patrick::Patrick::ConfigTypes::font_selector
+    pictaculous:
+        handler: $Patrick::Patrick::ConfigTypes::pictaculous
+
+init_app: $Patrick::Patrick::ConfigTypes::init_app
+
+applications:
+    cms:
+        methods:
+            pictaculous_ajax: $Patrick::Patrick::ConfigTypes::pictaculous_ajax
+
+template_sets:
+    patrick:
+        label: Patrick
+        description: 'Patrick is a framework-style theme for Melody and Movable Type. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
+        documentation: docs.html
+        base_path: templates
+        #preview: 
+        #thumbnail: 
+        blog_preferences: patrick_preferences
+        options:
+            fieldsets:
+                design:
+                    label: 'Design'
+                    order: 1
+                colors:
+                    label: 'Color Palette'
+                    order: 2
+                home_page_formatting:
+                    label: 'Home Page Formatting'
+                    order: 4
+                entry_formatting:
+                    label: 'Entry Formatting'
+                    order: 5
+                page_formatting:
+                    label: 'Page Formatting'
+                    order: 6
+                widgets:
+                    label: 'Sidebar Widgets'
+                    order: 7
+                htaccess:
+                    label: '.htaccess Rules'
+                    order: 20
+                callbacks:
+                    label: 'Callbacks'
+                    hint: 'Callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as the latest social networking site badge). Note that Melody and Movable Type tags can be used here.'
+                    order: 21
+            # Design
+            column_separator:
+                label: 'Columns'
+                type: separator
+                fieldset: design
+                order: 1
+            column_layout:
+                label: 'Column Layout'
+                hint: 'Select the number of columns to be used.'
+                type: select
+                values: 'One column,Two columns,Three columns'
+                default: 'Two columns'
+                tag: ColumnLayout
+                fieldset: design
+                order: 2
+            typeface_separator:
+                label: 'Typeface Selection'
+                hint: 'Select which typefaces you want to use. In addition to the &ldquo;standard&rdquo; fonts readily available for web use, the Google Font Directory typefaces are also available to choose from.'
+                type: separator
+                fieldset: design
+                order: 10
+            subhead_font:
+                label: 'Subhead Font'
+                hint: 'Select a typeface and variation to use for subheads.'
+                type: font
+                typefaces: 'Arial, Georgia, Tahoma, Verdana'
+                #sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
+                variations: 'Regular, Bold, Italic, Bold Italic'
+                default: '[{\"typeface\":\"Verdana\",\"size\":\"15\",\"variation\":\"Bold\"}]'
+                tag: SubheadFont
+                republish: styles
+                fieldset: design
+                order: 11
+            body_text_font:
+                label: 'Body Text Font'
+                hint: 'Select a typeface and variation to use for body text.'
+                type: font
+                typefaces: 'Arial, Georgia, Tahoma, Verdana'
+                #sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
+                variations: 'Regular, Bold, Italic, Bold Italic'
+                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Regular\"}]'
+                tag: BodyTextFont
+                republish: styles
+                fieldset: design
+                order: 12
+            header_image_separator:
+                label: 'Header Configuration'
+                type: separator
+                fieldset: design
+                order: 20
+            header_image:
+                label: 'Header Image'
+                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide.'
+                type: file
+                tag: HeaderImage
+                republish: styles
+                fieldset: design
+                order: 21
+            header_image_height:
+                label: 'Header Image Height'
+                hint: 'Enter the height (in pixels) of the header area. If using the Header Image field above, specify the height of that header image.'
+                type: text
+                default: 50
+                tag: HeaderImageHeight
+                republish: styles
+                fieldset: design
+                order: 22
+            # Color Palette
+            color_palette_separator:
+                label: 'Color Palette Selection'
+                type: separator
+                fieldset: colors
+                order: 1
+            color_palette_field:
+                label: 'Pictaculous Palette'
+                hint: 'Use the Pictaculous service to create a color palette from the image listed here.'
+                type: pictaculous
+                color_names: 'Body Background,Container Background,Header Background,Column Background,Widget Background,Accent'
+                tag: Pictaculous
+                fieldset: colors
+                order: 2
+                republish: styles
+            color_palette_override_separator:
+                label: 'Text Color'
+                hint: "Depending upon the color palette you've selected, you may need to update the colors of some text elements to make them readable."
+                type: separator
+                fieldset: colors
+                order: 10
+            blog_name_text_color:
+                label: 'Blog Name Text Color'
+                hint: 'The blog name is displayed in the site header.'
+                type: colorpicker
+                default: '#000000'
+                tag: BlogNameTextColor
+                fieldset: colors
+                order: 11
+            blog_description_text_color:
+                label: 'Blog Description Text Color'
+                hint: 'The blog description is displayed in the site header.'
+                type: colorpicker
+                default: '#000000'
+                tag: BlogDescriptionTextColor
+                fieldset: colors
+                order: 12
+            subhead_text_color:
+                label: 'Subhead Text Color'
+                hint: 'Subheads are used throughout: as the entry and page title, widget titles, and for any other &ldquo;big&rdquo; text found throughout.'
+                type: colorpicker
+                default: '#000000'
+                tag: SubheadTextColor
+                fieldset: colors
+                order: 13
+            body_text_color:
+                label: 'Body Text Color'
+                hint: '&ldquo;Body text&rdquo; is the main part of the published text: the entry body and comment body, for example.'
+                type: colorpicker
+                default: '#000000'
+                tag: BodyTextColor
+                fieldset: colors
+                order: 14
+            # Home Page Formatting
+            home_entries_separator:
+                label: 'Entry Display Configuration'
+                type: separator
+                fieldset: home_page_formatting
+                order: 1
+            home_entries_featured_count:
+                label: 'Featured Entries'
+                hint: 'How many entries should appear on the home page in the &ldquo;Featured&rdquo; format? (The &ldquo;Featured&rdquo; format places an entry in the carousel.) Be sure to complete the Carousel Configuration area below if you use this feature.'
+                type: select
+                values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+                default: 3
+                tag: HomeEntriesFeaturedCount
+                fieldset: home_page_formatting
+                order: 2
+            home_entries_summary_count:
+                label: 'Summarized Entries Count'
+                hint: 'How many entries should appear on the home page in the &ldquo;Summarized&rdquo; format? (The &ldquo;Excerpted&rdquo; format includes the entry title, byline and publish date, and Entry Excerpt or Body fields.)'
+                type: select
+                values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+                default: 0
+                tag: HomeEntriesSummarizedCount
+                fieldset: home_page_formatting
+                order: 3
+            home_entries_summary_offset:
+                label: 'Summarized Entries Offset'
+                hint: 'When using the Featured Entries Carousel, you may choose to offset the Summarized Entries so that entries are not duplicated.'
+                type: select
+                values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+                default: 0
+                tag: HomeEntriesSummarizedOffset
+                fieldset: home_page_formatting
+                order: 4
+            home_entries_list_count:
+                label: 'Listed Entries Count'
+                hint: 'How many entries should appear on the home page in the &ldquo;Listed&rdquo; format? (The &ldquo;Listed&rdquo; format includes the entry title only.)'
+                type: select
+                values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+                default: 7
+                tag: HomeEntriesListedCount
+                fieldset: home_page_formatting
+                order: 5
+            home_entries_list_offset:
+                label: 'Listed Entries Offset'
+                hint: 'When using the Featured Entries Carousel and/or Summarized Entries format, you may choose to offset the Listed Entries so that entries are not duplicated.'
+                type: select
+                values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+                default: 3
+                tag: HomeEntriesListedOffset
+                fieldset: home_page_formatting
+                order: 6
+            home_carousel_separator:
+                label: 'Featured Entries Carousel Configuration'
+                type: separator
+                fieldset: home_page_formatting
+                order: 10
+            home_carousel_height:
+                label: 'Carousel Height'
+                hint: "Specify the height (vertical space) of the carousel in pixels. The carousel height should be selected based upon the size you'd like the carousel to be, but must also be set based upon the length and amount of text being displayed in the carousel. The width of the carousel is specified by the width of the column."
+                type: text
+                default: 200
+                fieldset: home_page_formatting
+                order: 11
+            home_carousel_contents:
+                label: 'Carousel Contents'
+                hint: 'Select the items to appear within the the carousel window for each slide in the carousel.'
+                type: checkbox
+                values: 'Title,Author,Date'
+                default: 'Title'
+                tag: HomeCarouselContents
+                fieldset: home_page_formatting
+                order: 12
+            home_carousel_default_background:
+                label: 'Default Background Image'
+                hint: "A background image is used for each slide in the carousel. The background image is an image asset associated with an entry. If an image asset isn't used in an entry, a default background should be used. Specify that default background image here."
+                type: file
+                tag: HomeCarouselDefaultBackground
+                fieldset: home_page_formatting
+                order: 13
+            # Entry Formatting
+            entry_meta_separator:
+                label: 'Entry Meta Content'
+                type: separator
+                fieldset: entry_formatting
+                order: 1
+            entry_meta_byline_display:
+                label: 'Entry Byline'
+                hint: "Where should the entry's author byline and publish date be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the entry byline'
+                default: 'Below the entry title but above the entry content'
+                tag: EntryMetaBylineDisplay
+                fieldset: entry_formatting
+                order: 2
+            entry_meta_comment_count_display:
+                label: 'Entry Comment Count'
+                hint: "Where should the entry's comment count be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the entry meta'
+                default: 'Below the entry title but above the entry content'
+                tag: EntryMetaCommentCountDisplay
+                fieldset: entry_formatting
+                order: 3
+            entry_meta_categories_display:
+                label: 'Entry Categories'
+                hint: "Where should the entry's categories be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the entry meta'
+                default: 'Below the entry title but above the entry content'
+                tag: EntryMetaCategoriesDisplay
+                fieldset: entry_formatting
+                order: 4
+            entry_meta_tags_display:
+                label: 'Entry Tags'
+                hint: "Where should the entry's tags be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the entry tags'
+                default: 'Below the entry content but above the comments'
+                tag: EntryMetaTagsDisplay
+                fieldset: entry_formatting
+                order: 5
+            entry_meta_tags_display_count:
+                label: 'Entry Tags to Display'
+                hint: "If many tags are used on an entry, it may be cleaner and more useful to the site visitor if only a small handful of tags are displayed on the published entry by default. Specify a number of tags to be displayed by default; a visitor can see all tags by clicking the &ldquo;show&rdquo; link to the right of the tags on the published entry."
+                type: select
+                values: '1,2,3,4,5,6,7,8,9,10,Display all tags'
+                default: 5
+                tag: EntryMetaTagsDisplayCount
+                fieldset: entry_formatting
+                order: 6
+            twitter_separator:
+                label: 'Twitter Configuration'
+                hint: 'Configure the Twitter retweet button.'
+                type: separator
+                fieldset: entry_formatting
+                order: 10
+            entry_meta_twitter_display:
+                label: 'Twitter Retweet Button'
+                hint: "Where should the Twitter retweet button be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the entry tags'
+                default: 'Below the entry content but above the comments'
+                tag: EntryMetaTwitterDisplay
+                fieldset: entry_formatting
+                order: 11
+            twitter_button_type:
+                label: 'Twitter Button Type'
+                hint: 'Select the Twitter button style.'
+                type: radio
+                values: 'Vertical count,Horizontal count,No count'
+                default: 'Horizontal count'
+                tag: TwitterButtonType
+                fieldset: entry_formatting
+                order: 12
+            twitter_username:
+                label: 'Twitter Username'
+                hint: 'Your Twitter username will be @ mentioned in the suggested Tweet.'
+                type: text
+                tag: TwitterUsername
+                fieldset: entry_formatting
+                order: 13
+            # Page Formatting
+            page_meta_separator:
+                label: 'Page Meta Content'
+                type: separator
+                fieldset: page_formatting
+                order: 1
+            page_meta_byline_display:
+                label: 'Page Byline'
+                hint: "Where should the page's author byline and publish date be displayed?"
+                type: radio
+                values: 'Below the page title but above the page content,Below the page content but above the comments,Do not display the page byline'
+                default: 'Below the page title but above the page content'
+                tag: PageMetaBylineDisplay
+                fieldset: page_formatting
+                order: 2
+            page_meta_tags_display:
+                label: 'Page Tags'
+                hint: "Where should the page's tags be displayed?"
+                type: radio
+                values: 'Below the page title but above the page content,Below the page content but above the comments,Do not display the page tags'
+                default: 'Below the page content but above the comments'
+                tag: PageMetaTagsDisplay
+                fieldset: page_formatting
+                order: 3
+            page_meta_tags_display_count:
+                label: 'Page Tags to Display'
+                hint: "If many tags are used on an entry, it may be cleaner and more useful to the site visitor if only a small handful of tags are displayed on the published entry by default. Specify a number of tags to be displayed by default; a visitor can see all tags by clicking the &ldquo;show&rdquo; link to the right of the tags on the published entry."
+                type: select
+                values: '1,2,3,4,5,6,7,8,9,10,Display all tags'
+                default: 5
+                tag: PageMetaTagsDisplayCount
+                fieldset: page_formatting
+                order: 4
+            # Sidebar Widgets
+            widget_display_style:
+                label: 'Widget Display Style'
+                hint: 'Widgets that list different types of archives can be dislayed as either a list or a drop-down select menu.'
+                type: radio
+                values: 'List,Drop-down'
+                default: 'List'
+                tag: WidgetDisplayStyle
+                fieldset: widgets
+                order: 1
+            # .htaccess Rules
+            htaccess_separator:
+                label: 'Custom .htaccess Rules'
+                hint: 'This is an advanced feature! Adding incorrect rules can break your site!'
+                type: separator
+                fieldset: htaccess
+                order: 1
+            htaccess:
+                label: 'Custom .htaccess Rules'
+                show_label: 0
+                type: textarea
+                rows: 20
+                tag: htaccess
+                fieldset: htaccess
+                order: 2
+            # Callbacks
+            callback_head_bottom:
+                label: 'Before &lt;/head&gt;'
+                type: textarea
+                rows: 10
+                tag: CallbackHeadBottom
+                fieldset: callbacks
+                order: 1
+            callback_body_bottom:
+                label: 'Before &lt;/body&gt;'
+                type: textarea
+                rows: 10
+                tag: CallbackBodyBottom
+                fieldset: callbacks
+                order: 2
+            callback_entry_header:
+                label: 'Entry Header'
+                type: textarea
+                rows: 10
+                tag: CallbackEntryHeader
+                fieldset: callbacks
+                order: 10
+            callback_entry_footer:
+                label: 'Entry Footer'
+                type: textarea
+                rows: 10
+                tag: CallbackEntryFooter
+                fieldset: callbacks
+                order: 11
+        templates:
+            archive:
+                entry_listing:
+                    label: 'Entry Archive'
+                    mappings:
+                        category:
+                            archive_type: 'Category'
+                            build_type: 4
+                            file_template: '%-c/%i'
+                        monthly:
+                            archive_type: 'Monthly'
+                            build_type: 4
+                            file_template: '%y/%m/%i'
+                        yearly:
+                            archive_type: 'Yearly'
+                            build_type: 4
+                            file_template: '%y/%i'
+            index:
+                htaccess:
+                    label: '.htaccess'
+                    outfile: '.htaccess'
+                    rebuild_me: 1
+                    build_type: 1
+                main_index:
+                    label: 'Main Index'
+                    outfile: 'index.php'
+                    rebuild_me: 1
+                    build_type: 1
+                styles:
+                    label: 'Styles'
+                    outfile: styles.css
+                    rebuild_me: 1
+                    build_type: 1
+                    custom_css: 1
+            individual:
+                entry:
+                    label: 'Entry'
+                    mappings:
+                        entry_archive:
+                            archive_type: 'Individual'
+                            build_type: 1
+                            file_template: '%y/%m/%d/%-f'
+            page:
+                page:
+                    label: 'Page'
+                    mappings:
+                        page:
+                            archive_type: 'Page'
+                            build_type: 1
+                            file_template: '%-c/%-f'
+            module:
+                m_comment_detail:
+                    label: 'Comment Detail'
+                m_comment_form:
+                    label: 'Comment Form'
+                m_comments:
+                    label: 'Comments'
+                m_entry_detail:
+                    label: 'Entry Detail'
+                m_entry_featured_carousel:
+                    label: 'Entry Featured Carousel'
+                m_entry_footer:
+                    label: 'Entry Footer'
+                m_entry_header:
+                    label: 'Entry Header'
+                m_entry_listing:
+                    label: 'Entry Listing'
+                m_entry_summary:
+                    label: 'Entry Summary'
+                m_footer:
+                    label: 'Footer'
+                m_header:
+                    label: 'Header'
+                m_html_head:
+                    label: 'HTML Head'
+                m_meta_byline:
+                    label: 'Meta: Byline'
+                m_meta_categories:
+                    label: 'Meta: Categories'
+                m_meta_comment_count:
+                    label: 'Meta: Comment Count'
+                m_meta_tags:
+                    label: 'Meta: Tags'
+                m_meta_twitter:
+                    label: 'Meta: Twitter'
+                m_page_detail:
+                    label: 'Page Detail'
+                m_sidebar:
+                    label: 'Sidebar'
+            widgetset:
+                second_column:
+                    label: 'Second Column'
+                    widgets:
+                        - 'Search'
+                        - 'Recent Entries'
+                        - 'Recent Comments'
+                        - 'Category Archives'
+                        - 'Monthly Archives'
+                        - 'Powered By'
+                third_column:
+                    label: 'Third Column'
+            widget:
+                w_author_archive_list:
+                    label: 'Author Archives'
+                    cache:
+                        expire_type: 2
+                        expire_event: author
+                        include_with_ssi: 1
+                w_category_archive_list:
+                    label: 'Category Archives'
+                    cache:
+                        expire_type: 2
+                        expire_event: category
+                        include_with_ssi: 1
+                w_monthly_archive_list:
+                    label: 'Monthly Archives'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 360
+                        include_with_ssi: 1
+                w_pages_list:
+                    label: 'Page Listing'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 5
+                        include_with_ssi: 1
+                w_powered_by:
+                    label: 'Powered By'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 360
+                        include_with_ssi: 1
+                w_recent_comments:
+                    label: 'Recent Comments'
+                    cache:
+                        expire_type: 2
+                        expire_event: comment
+                        include_with_ssi: 1
+                w_recent_entries:
+                    label: 'Recent Entries'
+                    cache:
+                        expire_type: 2
+                        expire_event: entry
+                        include_with_ssi: 1
+                w_search:
+                    label: Search
+                    cache:
+                        expire_type: 1
+                        expire_interval: 360
+                        include_with_ssi: 1
+                w_signin:
+                    label: 'Sign In'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 360
+                        include_with_ssi: 1
+                w_syndication:
+                    label: Syndication
+                    cache:
+                        expire_type: 1
+                        expire_interval: 360
+                        include_with_ssi: 1
+                w_tag_cloud:
+                    label: 'Tag Cloud'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 60
+                        include_with_ssi: 1
+            system:
+                comment_preview:
+                    filename: s_comment_preview.mtml
+                    label: 'Comment Preview'
+                comment_response:
+                    filename: s_comment_response.mtml
+                    label: 'Comment Response'
+                search_results:
+                    filename: s_search_results.mtml
+                    label: 'Search Results'
+                uploaded_image_popup_template:
+                    filename: s_uploaded_image_popup.mtml
+                    label: 'Uploaded Image Popup Template'
+
+blog_preferences:
+    patrick_preferences:
+        label: 'Patrick Theme Preferences'
+        description: 'Required preferences for the Patrick theme.'
+        plugin_data:
+        preferences:
+            allow_anon_comments: 1
+            allow_commenter_regist: 1
+            allow_comments_default: 1
+            allow_pings: 0
+            allow_pings_default: 0
+            allow_reg_comments: 1
+            allow_unreg_comments: 1
+            archive_type_preferred: 'Individual'
+            autolink_urls: 1
+            basename_limit: 100
+            commenter_authenticators: 'MovableType,Facebook'
+            convert_paras: 'markdown_with_smartypants'
+            convert_paras_commments: 1
+            email_new_comments: 1
+            file_extension: php
+            include_cache: 1
+            include_system: php
+            junk_folder_expiry: 7
+            ping_others: 'http://rpc.pingomatic.com'
+            require_comment_emails: 1
+            use_comment_confirmation: 1
+            words_in_excerpt: 40
+

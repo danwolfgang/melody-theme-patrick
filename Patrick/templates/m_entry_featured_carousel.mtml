@@ -1,0 +1,19 @@
+<li class="entry-featured">
+
+    <h2><a href="<mt:EntryPermalink>"><mt:EntryTitle></a></h2>
+
+<mt:If tag="HomeCarouselContents">
+    <div class="meta">
+    <mt:HomeCarouselContentsContains value="Title">
+        <div class="title"><mt:EntryTitle></div>
+    </mt:HomeCarouselContentsContains>
+    <mt:HomeCarouselContentsContains value="Author">
+        <div class="author"><mt:EntryAuthorDisplayName></div>
+    </mt:HomeCarouselContentsContains>
+    <mt:HomeCarouselContentsContains value="Date">
+        <div class="date"><mt:EntryDate format="%B %e, %Y"></div>
+    </mt:HomeCarouselContentsContains>
+    </div>
+</mt:If>
+
+</li>

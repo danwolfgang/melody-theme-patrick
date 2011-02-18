@@ -1,0 +1,16 @@
+<mt:SetVar name="identifier" value="entry-listing">
+<mt:Include module="Header">
+
+<div class="entry-listing">
+    <mt:Entries>
+        <mt:If name="__first__">
+    <ul>
+        </mt:If>
+        <mt:Include module="Entry Listing">
+        <mt:If name="__last__">
+    </ul>
+        </mt:If>
+    </mt:Entries>
+</div>
+
+<mt:Include module="Footer">

@@ -1,0 +1,51 @@
+<mt:SetVar name="identifier" value="main-index">
+<mt:Include module="Header">
+
+<mt:If tag="HomeEntriesFeaturedCount" gt="0">
+    <mt:HomeEntriesFeaturedCount setvar="lastn">
+<div class="entry-featured">
+    <mt:Entries lastn="$lastn">
+        <mt:If name="__first__">
+    <ul>
+        </mt:If>
+        <mt:Include module="Entry Featured Carousel">
+        <mt:If name="__last__">
+    </ul>
+        </mt:If>
+    </mt:Entries>
+</div>
+</mt:If>
+
+<mt:If tag="HomeEntriesSummarizedCount" gt="0">
+    <mt:HomeEntriesSummarizedCount setvar="lastn">
+    <mt:HomeEntriesSummarizedOffset setvar="offset">
+<div class="entry-summarized">
+    <mt:Entries offset="$offset" lastn="$lastn">
+        <mt:If name="__first__">
+    <ul>
+        </mt:If>
+        <mt:Include module="Entry Summary">
+        <mt:If name="__last__">
+    </ul>
+        </mt:If>
+    </mt:Entries>
+</div>
+</mt:If>
+
+<mt:If tag="HomeEntriesListedCount" gt="0">
+    <mt:HomeEntriesListedCount setvar="lastn">
+    <mt:HomeEntriesListedOffset setvar="offset">
+<div class="entry-listing">
+    <mt:Entries offset="$offset" lastn="$lastn">
+        <mt:If name="__first__">
+    <ul>
+        </mt:If>
+        <mt:Include module="Entry Listing">
+        <mt:If name="__last__">
+    </ul>
+        </mt:If>
+    </mt:Entries>
+</div>
+</mt:If>
+
+<mt:Include module="Footer">

@@ -1,0 +1,26 @@
+<div class="entry-header">
+<mt:If name="main_index">
+    <h2><mt:EntryTitle smarty_pants="1"></h2>
+<mt:Else>
+    <h1><mt:EntryTitle smarty_pants="1"></h1>
+</mt:If>
+
+    <div class="meta">
+        <mt:If tag="EntryMetaBylineDisplay" eq="Below the entry title but above the entry content">
+            <mt:Include module="Meta: Byline">
+        </mt:If>
+        <mt:If tag="EntryMetaCommentCountDisplay" eq="Below the entry title but above the entry content">
+            <mt:Include module="Meta: Comment Count">
+        </mt:If>
+        <mt:If tag="EntryMetaCategoriesDisplay" eq="Below the entry title but above the entry content">
+            <mt:Include module="Meta: Categories">
+        </mt:If>
+        <mt:If tag="EntryMetaTagsDisplay" eq="Below the entry title but above the entry content">
+            <mt:Include module="Meta: Tags">
+        </mt:If>
+        <mt:If tag="EntryMetaTwitterDisplay" eq="Below the entry title but above the entry content">
+            <mt:Include module="Meta: Twitter">
+        </mt:If>
+        <mt:CallbackEntryHeader>
+    </div>
+</div>

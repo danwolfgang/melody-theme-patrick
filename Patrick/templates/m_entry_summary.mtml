@@ -1,0 +1,29 @@
+<li class="entry-summary">
+    <mt:Include module="Entry Header">
+
+    <div class="entry-content">
+        <mt:Ignore>
+            If an Entry Excerpt was created, display it. Otherwise, display 
+            the Entry Body.
+        </mt:Ignore>
+        <mt:EntryExcerpt no_generate="1" setvar="excerpt">
+        <mt:If name="excerpt">
+            <mt:EntryExcerpt smarty_pants="1">
+        <mt:Else>
+            <mt:EntryBody>
+        </mt:If>
+    </div>
+
+<mt:Ignore>
+    Show the "continue reading..." link if an excerpt was used (and therefore 
+    the Entry Body likely contains more text), or if the Extended field is used.
+</mt:Ignore>
+<mt:SetVarBlock name="show_read_more"><mt:Var name="excerpt"><mt:EntryIfExtended>1</mt:EntryIfExtended></mt:SetVarBlock>
+<mt:If name="show_read_more">
+    <div class="read-more">
+        <p>Continue reading <a href="<mt:EntryPermalink>"><mt:EntryTitle></a></p>
+    </div>
+</mt:If>
+
+    <mt:Include module="Entry Footer">
+</li>
