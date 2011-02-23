@@ -59,10 +59,13 @@ Specify `font` as the field type. You will also need to specify three other keys
         typefaces: 'Arial, Georgia, Tahoma, Verdana'
         sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
         variations: 'Regular, Bold, Italic, Bold Italic'
+        preview: 1
         default: '"[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Regular\"}]"'
         tag: BodyText
 
-Note that any combination of `typefaces`, `sizes`, and `variations` may be used. If you want to give your user the chance to adjust only the `typeface` and `variation`, for example, simply do not supply the `size` key.
+Note that any combination of `typefaces`, `sizes`, and `variations` may be used. If you want to give your user the ability to adjust only the `typeface` and `variation`, for example, simply do not supply the `size` key.
+
+The `preview` key is optional; include it to show a preview of the font selection. Note that the preview relies upon the selected font being available to the user.
 
 To publish the selected values, use the field's tag followed by `Font`, as in the following example:
 

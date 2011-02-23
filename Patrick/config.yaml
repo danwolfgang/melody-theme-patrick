@@ -73,7 +73,7 @@ template_sets:
                 order: 2
             typeface_separator:
                 label: 'Typeface Selection'
-                hint: 'Select which typefaces you want to use. In addition to the &ldquo;standard&rdquo; fonts readily available for web use, the Google Font Directory typefaces are also available to choose from.'
+                hint: 'Select which typefaces you want to use. In addition to the &ldquo;standard&rdquo; fonts readily available for web use the <a href="http://www.google.com/webfonts?subset=latin&sort=alpha" target="_blank">Google Font Directory</a> typefaces are also available to choose from.'
                 type: separator
                 fieldset: design
                 order: 10
@@ -81,10 +81,11 @@ template_sets:
                 label: 'Subhead Font'
                 hint: 'Select a typeface and variation to use for subheads.'
                 type: font
-                typefaces: 'Arial, Georgia, Tahoma, Verdana'
+                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
                 #sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
                 variations: 'Regular, Bold, Italic, Bold Italic'
-                default: '[{\"typeface\":\"Verdana\",\"size\":\"15\",\"variation\":\"Bold\"}]'
+                preview: 1
+                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Bold\"}]'
                 tag: SubheadFont
                 republish: styles
                 fieldset: design
@@ -93,9 +94,10 @@ template_sets:
                 label: 'Body Text Font'
                 hint: 'Select a typeface and variation to use for body text.'
                 type: font
-                typefaces: 'Arial, Georgia, Tahoma, Verdana'
+                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
                 #sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
                 variations: 'Regular, Bold, Italic, Bold Italic'
+                preview: 1
                 default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Regular\"}]'
                 tag: BodyTextFont
                 republish: styles
@@ -133,7 +135,7 @@ template_sets:
                 label: 'Pictaculous Palette'
                 hint: 'Use the Pictaculous service to create a color palette from the image listed here.'
                 type: pictaculous
-                color_names: 'Body Background,Container Background,Header Background,Column Background,Widget Background,Accent'
+                color_names: 'Body Background, Container Background, Header Background, Footer Background, Alpha Column Background, Beta Column Background, Gamma Column Background, Widget Background'
                 tag: Pictaculous
                 fieldset: colors
                 order: 2
@@ -447,6 +449,11 @@ template_sets:
                     outfile: '.htaccess'
                     rebuild_me: 1
                     build_type: 1
+                javascript:
+                    label: 'Javascript'
+                    outfile: 'patrick.js'
+                    rebuild_me: 1
+                    build_type: 1
                 main_index:
                     label: 'Main Index'
                     outfile: 'index.php'
@@ -466,6 +473,7 @@ template_sets:
                             archive_type: 'Individual'
                             build_type: 1
                             file_template: '%y/%m/%d/%-f'
+                            preferred: 1
             page:
                 page:
                     label: 'Page'
@@ -475,6 +483,8 @@ template_sets:
                             build_type: 1
                             file_template: '%-c/%-f'
             module:
+                m_ajax_comment:
+                    label: 'AJAX Comment'
                 m_comment_detail:
                     label: 'Comment Detail'
                 m_comment_form:

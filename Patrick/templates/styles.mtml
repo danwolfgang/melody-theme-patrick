@@ -1,15 +1,18 @@
 @import url(<mt:PluginStaticWebPath component="patrick">css/reset.css);
 
 <mt:PictaculousPalette>
-    <mt:Var name="body_background" setvar="body_background_color">
-    <mt:Var name="container_background" setvar="container_background_color">
-    <mt:Var name="header_background" setvar="header_background_color">
-    <mt:Var name="column_background" setvar="column_background_color">
-    <mt:Var name="widget_background" setvar="widget_background_color">
+    <mt:Var name="body_background"         setvar="body_bg_color">
+    <mt:Var name="container_background"    setvar="container_bg_color">
+    <mt:Var name="header_background"       setvar="header_bg_color">
+    <mt:Var name="footer_background"       setvar="footer_bg_color">
+    <mt:Var name="alpha_column_background" setvar="alpha_column_bg_color">
+    <mt:Var name="beta_column_background"  setvar="beta_column_bg_color">
+    <mt:Var name="gamma_column_background" setvar="gamma_column_bg_color">
+    <mt:Var name="widget_background"       setvar="widget_bg_color">
 </mt:PictaculousPalette>
 
 body {
-    background-color: <mt:Var name="body_background_color">;
+    background-color: <mt:Var name="body_bg_color">;
 <mt:BodyTextFontFont>
     font-family: <mt:Var name="typeface">;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
@@ -21,12 +24,12 @@ body {
 #container {
     width: 970px;
     margin: 0 auto;
-    background-color: <mt:Var name="container_background_color">;
+    background-color: <mt:Var name="container_bg_color">;
 }
 
 #header {
     height: <mt:HeaderImageHeight>px;
-    background-color: <mt:Var name="header_background_color">;
+    background-color: <mt:Var name="header_bg_color">;
 <mt:HeaderImageAsset>
     background-image: url(<mt:AssetURL>);
     background-position: center top;
@@ -45,13 +48,17 @@ body {
 #beta,
 #gamma {
     float: left;
-    background-color: <mt:Var name="column_background_color">;
     padding: 10px;
 }
 
+#alpha { background-color: <mt:Var name="alpha_column_bg_color">; }
+#beta { background-color: <mt:Var name="beta_column_bg_color">; }
+#gamma { background-color: <mt:Var name="gamma_column_bg_color">; }
+
+
 /* Column sizes are set based on the number of columns set to display. */
 .one-column #alpha { width: 930px; }
-.two-columns #alpha { width: 630px; }
+.two-columns #alpha { width: 600px; }
 .three-columns #alpha { width: 510px; }
 
 .two-columns #alpha { margin-right: 10px; }
@@ -64,10 +71,46 @@ body {
 .three-columns #gamma { width: 180px; }
 
 
+<mt:Ignore>
+    If the container background matches a column background, collapse the
+    spacer to make better use of the screen real estate.
+</mt:Ignore>
+<mt:If name="container_bg_color" eq="$alpha_column_bg_color">
+#alpha {
+    background-color: none;
+    padding: 0;
+}
+.two-columns #alpha,
+.three-columns #alpha { margin-right: 30px; }
+</mt:If>
+<mt:If name="container_bg_color" eq="$beta_column_bg_color">
+#beta {
+    background-color: none;
+    padding: 0;
+}
+.two-columns #beta,
+.three-columns #beta { margin-left: 20px; }
+</mt:If>
+<mt:If name="container_bg_color" eq="$gamma_column_bg_color">
+#gamma {
+    background-color: none;
+    padding: 0;
+}
+.three-columns #gamma { margin-left: 20px; }
+</mt:If>
+
+
+
 #footer {
-    padding-top: 20px;
+    padding-top: 10px;
     clear: both;
 }
+#footer-inner {
+    background-color: <mt:Var name="footer_bg_color">;
+    padding: 10px;
+}
+
+
 
 h1, h2, h3, h4 {
 <mt:SubheadFontFont>
@@ -84,8 +127,17 @@ h2 { font-size: 1.6em;  margin: 1em 0 0.5em; }
 h3 { font-size: 1.25em; margin: 1em 0 0.5em; }
 h4 { font-size: 1em;    margin: 0.5em 0 0 0.25em }
 
-p {
+p,
+ul {
     margin-bottom: 1em;
+}
+
+ul {
+    margin-left: 17px;
+}
+
+li {
+    list-style-type: disc;
 }
 
 .entry-header {
@@ -117,5 +169,15 @@ p {
 
 
 .widget {
-    background-color: <mt:Var name="widget_background_color">;
+    background-color: <mt:Var name="widget_bg_color">;
+    margin-bottom: 12px;
+    padding: 10px;
 }
+
+h3.widget-header { margin: 0; }
+
+h3.widget-header + .widget-content {
+    padding-top: 10px;
+}
+
+

@@ -1,0 +1,65 @@
+var mt;
+mt = {
+    cookie: {
+        name:    "<mt:UserSessionCookieName>",
+        domain:  "<mt:UserSessionCookieDomain>",
+        path:    "<mt:UserSessionCookiePath>",
+        timeout: <mt:UserSessionCookieTimeout>
+    },
+    links: {
+        signIn:  '<mt:SignInLink>',
+        signOut: '<mt:SignOutLink>'
+    },
+    blog: {
+        id:            <mt:BlogID _default="0">,
+        url:           '<mt:BlogURL encode_url="1">',
+        staticWebPath: '<mt:StaticWebPath>',
+        adminScript:   '<mt:AdminScript>',
+        signInLink:    '<mt:SignInLink>',
+        signOutLink:   '<mt:SignOutLink>',
+        comments: {
+            script:        '<mt:CGIPath><mt:CommentScript>',
+            armor:         '<mt:BlogSitePath encode_sha1="1">',
+            accepted:      <mt:IfCommentsAccepted>1<mt:Else>0</mt:IfCommentsAccepted>,
+            captchaFields: '<mt:CaptchaFields>'
+        },
+        community: {
+<mt:Ignore>
+            script: '<mt:CGIPath><mt:CommunityScript>',
+            ifAnonymousRecommendAllowed: <mt:IfAnonymousRecommendAllowed>1<mt:Else>0</mt:IfAnonymousRecommendAllowed>
+</mt:Ignore>
+        },
+        pings: {
+            accepted: <mt:IfPingsAccepted>1<mt:Else>0</mt:IfPingsAccepted>
+        },
+        registration: {
+            required: <mt:IfRegistrationRequired>1<mt:Else>0</mt:IfRegistrationRequired>,
+            allowed:  <mt:IfRegistrationAllowed>1<mt:Else>0</mt:IfRegistrationAllowed>
+        }
+    }
+};
+
+
+$(document).ready(function() {
+    // Add the Sign In/Sign Out links for commenting
+    $('#comment-greeting').greet();
+
+    if ($('#comments-form')) {
+        /* First, let's boot strap the comment form on the page. 
+         * In this one step, we take the default MT comment form and turn
+         * into a fully AJAXified comment form. 
+         */
+        var form = $('#comments-form').commentForm({ 
+            insertMethod: 'append',
+            target:       '.comments-content'
+        });
+        /* Once the form is bootstrapped and we have a handle to it
+         * we then pass that as a handle to the reply function which
+         * provides the inline commenting ability.
+         */
+        $('.reply').reply({
+            sourceForm: form
+        });
+    }
+
+});

@@ -19,15 +19,15 @@
             <div id="comments-open-data">
                 <div id="comment-form-name">
                     <label for="comment-author">Name (required)</label>
-                    <input id="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    <input id="comment-author" name="author" size="30" value="" />
                 </div>
                 <div id="comment-form-email">
                     <label for="comment-email">Email Address (required, but never published)</label>
-                    <input id="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    <input id="comment-email" name="email" size="30" value="" />
                 </div>
                 <div id="comment-form-url">
                     <label for="comment-url">URL</label>
-                    <input id="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" />
+                    <input id="comment-url" name="url" size="30" value="" />
                 </div>
                 <div id="comment-form-remember-me">
                     <input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="mtRememberMeOnClick(this)" value="1" accesskey="r" />
@@ -40,7 +40,7 @@
             </div>
             <div id="comments-open-text">
                 <p><label for="comment-text">Comments (required<mt:IfAllowCommentHTML>; you may use HTML tags for style</mt:IfAllowCommentHTML>)</label></p>
-                <textarea id="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()"></textarea>
+                <textarea id="comment-text" name="text" rows="15" cols="50"></textarea>
             </div>
             <div id="comments-open-captcha"></div>
             <div id="comments-open-footer">
@@ -51,10 +51,4 @@
 
     </div>
 </div>
-<script type="text/javascript">
-<!--
-mtAttachEvent("load", mtEntryOnLoad);
-mtAttachEvent("unload", mtEntryOnUnload);
-//-->
-</script>
 </mt:IfCommentsAccepted>

@@ -1,0 +1,38 @@
+<mt:section trim="1">
+    <mt:SetVarBlock name="current_comment"><mt:CommentID></mt:SetVarBlock>
+    <mt:setvarblock name="comment_html">
+        <div comment_id="<mt:CommentID>" id="comment-<mt:CommentID>" class="pkg comment<mt:if name="comment_new" eq="$current_comment"> comment-highlight</mt:if><mt:IfCommentParent> reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> by-author</mt:IfCommenterIsEntryAuthor> depth-<mt:var name="depth">">
+            <mt:setvarblock name="commenterlink"><mt:CommentAuthorLink></mt:setvarblock>
+            <p class="author">
+            <mt:IfCommentParent>
+                <span class="vcard"><mt:var name="commenterlink"></span> said:</a>
+            <mt:else>
+                <span class="vcard"><mt:var name="commenterlink"> said:</span>
+            </mt:IfCommentParent>
+            </p>
+            <div class="comment-content pkg">
+                <div class="comment-text"><MTCommentBody></div>
+                <div class="comment-footer">
+                    <div class="date">Posted on <a href="<mt:CommentLink>"><abbr class="published" title="<MTCommentDate format_name="iso8601">"><MTCommentDate></abbr></a></div>
+                    <div class="actions pkg">
+                    <MTIfCommentsAccepted>
+                        <a href="javascript:void(0);" class="reply" title="Reply">Reply</a>
+                    </MTIfCommentsAccepted>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mt:setvarblock>
+</mt:section><mt:if name="use_html">
+    <mt:var name="comment_html">
+<mt:else>{
+  "id":            "<mt:CommentID encode_json="1">",
+  "date":          "<mt:CommentDate encode_json="1">",
+  "text":          "<mt:CommentBody remove_html="1" encode_json="1">",
+  "comment_count": "<mt:CommentEntry><mt:EntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments" encode_json="1"></mt:CommentEntry>",
+  "commenter":     "<mt:CommenterName encode_json="1">",
+  "commenter_url": "<mt:CommentAuthorLink encode_json="1">",
+  "parent":        "<mt:IfCommentParent><mt:CommentParent><mt:CommentID></mt:CommentParent><mt:else>0</mt:IfCommentParent>",
+  "html":          "<mt:var name="comment_html" encode_json="1">"
+}
+</mt:if>

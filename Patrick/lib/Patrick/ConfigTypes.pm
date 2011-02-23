@@ -70,7 +70,7 @@ sub _load_tags {
                             # templates. The user should have already assigned
                             # colors (from a palette) to the color_names, 
                             # but if not just fall back to white ('#ffffff).
-                            my @color_names = split(',', $option->{color_names});
+                            my @color_names = split(/,\s*/, $option->{color_names});
                             if (@color_names) {
                                 # Grab the ordered colors that the user picked.
                                 # If no ordered colors were saved, just use a
@@ -191,6 +191,11 @@ sub font_selector {
         $out .= "</select>\n";
     }
 
+    # Add an area to preview the font.
+    if ( $field->{preview} ) {
+        $out .= "<div class=\"preview\" style=\"clear: both; width: 100%; margin-top: 5px;\"><p>Previewing the font for " . $app->blog->name . ".</p></div>\n";
+    }
+
     # Now we need to display the hidden field that contains the saved value.
     # Use the encode_html function to ensure that values are encoded, and
     # the additional "1" will escape HTML entities.
@@ -207,15 +212,13 @@ sub font_selector {
     // Eval a second time to turn into an object.
     json = eval(json);
 
-    if ( \$('#$field_id-typefaces') ) {
-        \$('#$field_id-typefaces').val( json[0].typeface );
-    }
-    if ( \$('#$field_id-sizes') ) {
-        \$('#$field_id-sizes').val( json[0].size );
-    }
-    if ( \$('#$field_id-variations') ) {
-        \$('#$field_id-variations').val( json[0].variation );
-    }
+    // Create the font preview
+    applyFontPreview( 
+        '$field_id', 
+        json[0].typeface, 
+        json[0].size, 
+        json[0].variation
+    );
 
     // When a field is clicked, update the hidden field.
     \$('#$field_id-typefaces, #$field_id-sizes,#$field_id-variations').click(function() {
@@ -241,8 +244,41 @@ sub font_selector {
         // Convert that JSON object into a string so that it can be saved.
         var json = font.toJSON().escapeJS();
         \$('#$field_id').val( json );
+
+        // Create the font preview
+        applyFontPreview( '$field_id', t, s, v );
     });
 });
+
+// Create the preview of the selected font properties
+function applyFontPreview(field, typeface, size, variation) {
+    if ( \$('#'+field+'-typefaces') ) {
+        \$('#'+field+'-typefaces').val( typeface );
+        \$('#field-'+field+' .preview p').css('font-family', typeface );
+    }
+
+    if ( \$('#'+field+'-sizes') ) {
+        \$('#'+field+'-sizes').val( size );
+        \$('#field-'+field+' .preview p').css('font-size', size );
+    }
+
+    if ( \$('#'+field+'-variations') ) {
+        \$('#'+field+'-variations').val( variation );
+        if ( variation.match(/bold/i) ) {
+            \$('#field-'+field+' .preview p').css('font-weight', 'bold' );
+        }
+        else {
+            \$('#field-'+field+' .preview p').css('font-weight', 'normal' );
+        }
+
+        if ( variation.match(/italic/i) ) {
+            \$('#field-'+field+' .preview p').css('font-style', 'italic' );
+        }
+        else {
+            \$('#field-'+field+' .preview p').css('font-style', 'normal' );
+        }
+    }
+}
 </script>
 END
 
@@ -343,15 +379,15 @@ sub pictaculous {
     $out .= "<textarea id=\"$field_id\" name=\"$field_id\" class=\"full-width hidden\">$value</textarea>";
 
     # Include the jQuery UI javascript
-    $out .= '<script src="' . $static . 'support/plugins/patrick/ui'
+    $out .= '<script src="' . $static . 'support/plugins/patrick/js/ui'
         . '/minified/jquery.ui.core.min.js"></script>';
-    $out .= '<script src="' . $static . 'support/plugins/patrick/ui'
+    $out .= '<script src="' . $static . 'support/plugins/patrick/js/ui'
         . '/minified/jquery.ui.widget.min.js"></script>';
-    $out .= '<script src="' . $static . 'support/plugins/patrick/ui'
+    $out .= '<script src="' . $static . 'support/plugins/patrick/js/ui'
         . '/minified/jquery.ui.mouse.min.js"></script>';
-    $out .= '<script src="' . $static . 'support/plugins/patrick/ui'
+    $out .= '<script src="' . $static . 'support/plugins/patrick/js/ui'
         . '/minified/jquery.ui.draggable.min.js"></script>';
-    $out .= '<script src="' . $static . 'support/plugins/patrick/ui'
+    $out .= '<script src="' . $static . 'support/plugins/patrick/js/ui'
         . '/minified/jquery.ui.droppable.min.js"></script>';
 
     $out .= <<END;
@@ -655,7 +691,9 @@ function createSelectedPalette(selected_palette) {
     // Now that the colors have been added, turn them into "draggables."
     \$("#$field_id-selected-palette span").draggable({ 
         containment: "#$field_id-colors-result", 
-        helper:      "clone", 
+        // With jQuery 1.5, the "clone" option causes items to be draggable
+        // only once. So, don't clone, just to make this more usable.
+        //helper:      "clone", 
         revert:      true, 
         scroll:      false
     });

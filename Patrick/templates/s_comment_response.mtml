@@ -1,18 +1,32 @@
-<mt:If name="comment_confirmation">
-    <mt:SetVar name="class" value="comment-confirmation">
-    <mt:SetVarBlock name="message">
-        <mt:Include module="Comment Detail">
-    </mt:SetVarBlock>
-<mt:Else name="comment_pending">
-    <mt:SetVar name="class" value="comment-pending">
-    <mt:SetVar name="message" value="<p>Your comment has been received and held for approval by the blog owner.</p>">
-<mt:Else name="comment_error">
-    <mt:SetVar name="class" value="comment-error">
-    <mt:SetVarBlock name="message">
-        <p>Your comment submission failed for the following reasons: <mt:ErrorMessage></p>
-    </mt:SetVarBlock>
+<mt:SetVarBlock name="comment_new"><mt:CommentID></mt:SetVarBlock>
+<mt:If name="request.ajax">
+    <mt:If name="comment_pending">
+        <mt:Ignore><!-- Pending message when comment is being held for review --></mt:Ignore>
+        <mt:Var name="message" value="Your comment has been received and held for approval by the blog owner.">
+    <mt:Else name="comment_error">
+        <mt:Ignore><!-- Error message when comment submission fails --></mt:Ignore>
+        <mt:SetVarBlock name="message">Your comment submission failed for the following reasons:
+        <mt:ErrorMessage></mt:SetVarBlock>
+    <mt:Else>
+        <mt:If name="request.json">
+            <mt:Include module="AJAX Comment">
+        <mt:else>
+            <mt:Include module="AJAX Comment" use_html="1">
+        </mt:If>
+    </mt:If>
+    <mt:If name="message">
+        <mt:If name="request.json">
+{
+"message": "<mt:var name="message" encode_json="1">"
+}
+        <mt:Else>
+            <div id="comment-error" class="message"><p><mt:var name="message"></p></div>
+        </mt:If>
+    </mt:If>
+<mt:Else>
+    <html>
+        <head>
+            <meta http-equiv="refresh" content="0;URL=<mt:EntryPermalink escape="html">?r=<mt:Date format="%S%H%M">">
+        </head>
+    </html>
 </mt:If>
-
-<div class="<mt:Var name="class">">
-    <mt:Var name="message">
-</div>
