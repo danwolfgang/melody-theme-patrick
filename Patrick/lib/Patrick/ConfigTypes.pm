@@ -86,7 +86,17 @@ sub _load_tags {
 
                                     my $color_value = lc(shift @color_values)
                                         || '#ffffff'; # Fallback to white
-                                    $vars->{$color_name} = $color_value;
+
+                                    # Return the hex or RGB value.
+                                    if ( $args->{'format'} =~ /rgb/ ) {
+                                        $color_value =~ s/\#(.*)/$1/;
+                                        MT->log($color_value);
+                                        my @rgb = map {hex($_) } unpack 'a2a2a2', $color_value;
+                                        $vars->{$color_name} = join(',', @rgb);
+                                    }
+                                    else {
+                                        $vars->{$color_name} = $color_value;
+                                    }
                                 }
 
                                 defined( my $out .= $ctx->slurp( $args, $cond ) ) or return;
@@ -151,9 +161,9 @@ sub font_selector {
     my $out;
 
     # Gather the options.
-    my @typefaces  = split(',', $field->{typefaces} );
-    my @sizes      = split(',', $field->{sizes}     );
-    my @variations = split(',', $field->{variations});
+    my @typefaces  = split(',', $field->{typefaces} ) if $field->{typefaces};
+    my @sizes      = split(',', $field->{sizes}     ) if $field->{sizes};
+    my @variations = split(',', $field->{variations}) if $field->{variations};
     
     # Trim any leading/trailing whitespace
     @typefaces  = _trim_whitespace(@typefaces);
@@ -204,11 +214,11 @@ sub font_selector {
     # And now we need to include the Javascript that will keep the hidden field up-to-date.
     $out .= <<END;
 <script type="text/javascript">
-\$(document).ready( function() {
+jQuery(document).ready( function() {
     // When the page is loaded, use the hidden field value (a JSON object)
     // to populate the font fields.
     // Eval once to un-escape quotes
-    var json = eval( '"' + \$('#$field_id').val() + '"' );
+    var json = eval( '"' + jQuery('#$field_id').val() + '"' );
     // Eval a second time to turn into an object.
     json = eval(json);
 
@@ -221,7 +231,7 @@ sub font_selector {
     );
 
     // When a field is clicked, update the hidden field.
-    \$('#$field_id-typefaces, #$field_id-sizes,#$field_id-variations').click(function() {
+    jQuery('#$field_id-typefaces, #$field_id-sizes,#$field_id-variations').click(function() {
         // Set the variables. Even if one of them ends up empty because it's
         // not used, that's ok because just declaring them will make
         // everything work.
@@ -230,12 +240,12 @@ sub font_selector {
         var v; // variation
         
         // Grab the selected value and save it to the specified variable.
-        if ( \$('#$field_id-typefaces') )
-            t = \$('#$field_id-typefaces').val();
-        if ( \$('#$field_id-sizes') )
-            s = \$('#$field_id-sizes').val();
-        if ( \$('#$field_id-variations') )
-            v = \$('#$field_id-variations').val();
+        if ( jQuery('#$field_id-typefaces') )
+            t = jQuery('#$field_id-typefaces').val();
+        if ( jQuery('#$field_id-sizes') )
+            s = jQuery('#$field_id-sizes').val();
+        if ( jQuery('#$field_id-variations') )
+            v = jQuery('#$field_id-variations').val();
 
         // Turn the saved variables into a JSON object.
         var font = new Array();
@@ -243,7 +253,7 @@ sub font_selector {
 
         // Convert that JSON object into a string so that it can be saved.
         var json = font.toJSON().escapeJS();
-        \$('#$field_id').val( json );
+        jQuery('#$field_id').val( json );
 
         // Create the font preview
         applyFontPreview( '$field_id', t, s, v );
@@ -252,30 +262,30 @@ sub font_selector {
 
 // Create the preview of the selected font properties
 function applyFontPreview(field, typeface, size, variation) {
-    if ( \$('#'+field+'-typefaces') ) {
-        \$('#'+field+'-typefaces').val( typeface );
-        \$('#field-'+field+' .preview p').css('font-family', typeface );
+    if ( jQuery('#'+field+'-typefaces') ) {
+        jQuery('#'+field+'-typefaces').val( typeface );
+        jQuery('#field-'+field+' .preview p').css('font-family', typeface );
     }
 
-    if ( \$('#'+field+'-sizes') ) {
-        \$('#'+field+'-sizes').val( size );
-        \$('#field-'+field+' .preview p').css('font-size', size );
+    if ( jQuery('#'+field+'-sizes') ) {
+        jQuery('#'+field+'-sizes').val( size );
+        jQuery('#field-'+field+' .preview p').css('font-size', size );
     }
 
-    if ( \$('#'+field+'-variations') ) {
-        \$('#'+field+'-variations').val( variation );
+    if ( jQuery('#'+field+'-variations') ) {
+        jQuery('#'+field+'-variations').val( variation );
         if ( variation.match(/bold/i) ) {
-            \$('#field-'+field+' .preview p').css('font-weight', 'bold' );
+            jQuery('#field-'+field+' .preview p').css('font-weight', 'bold' );
         }
         else {
-            \$('#field-'+field+' .preview p').css('font-weight', 'normal' );
+            jQuery('#field-'+field+' .preview p').css('font-weight', 'normal' );
         }
 
         if ( variation.match(/italic/i) ) {
-            \$('#field-'+field+' .preview p').css('font-style', 'italic' );
+            jQuery('#field-'+field+' .preview p').css('font-style', 'italic' );
         }
         else {
-            \$('#field-'+field+' .preview p').css('font-style', 'normal' );
+            jQuery('#field-'+field+' .preview p').css('font-style', 'normal' );
         }
     }
 }
@@ -342,8 +352,12 @@ sub pictaculous {
     # drag-drop to organize the colors however they like.
     $out .= "    <div id=\"$field_id-colors-nav-container\" class=\"hidden\">";
     $out .= "        <h4>Order this Color Palette</h4>";
-    $out .= "        <p>Drag and drop the colors in this palette to use them.</p>";
+    $out .= "        <p>Drag and drop the colors in this palette to the named locations.</p>";
     $out .= "        <div id=\"$field_id-colors-result\">";
+
+    # The selected color palette is displayed at the top of the Ordered
+    # Colors tab.
+    $out .= "            <div id=\"$field_id-selected-palette\" style=\"margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #ddd; text-align: center;\">No palettes are available. Specify a source image and choose a palette to get started.</div>";
 
     # The color_names key lets a designer designate how a user can apply a 
     # color to the site.
@@ -353,15 +367,13 @@ sub pictaculous {
         $out .= "<div id=\"$field_id-color-names\" style=\"text-align: center;\">";
         foreach my $name (@names) {
             my $dirified_name = dirify($name);
-            $out .= "<span class=\"$dirified_name\" style=\"display: inline-block; padding: 0 10px 20px;\">";
+            $out .= "<span class=\"$dirified_name\" style=\"display: inline-block; padding: 0 10px 20px; max-width: 95px;\">";
             $out .= "    <span class=\"label\">$name</span>";
-            $out .= "    <div style=\"margin: 0 auto; width: 50px; height: 50px; border: 1px solid #eee;\"></div>";
+            $out .= "    <div style=\"margin: 0 auto; width: 50px; height: 50px; border: 1px solid #ddd;\"></div>";
             $out .= "</span>";
         }
         $out .= "</div>";
     }
-    
-    $out .= "            <div id=\"$field_id-selected-palette\" style=\"margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd; text-align: center;\">No palettes are available. Specify a source image and choose a palette to get started.</div>";
 
     # Close the $field_id-colors-result div
     $out .= "        </div>";
@@ -392,12 +404,12 @@ sub pictaculous {
 
     $out .= <<END;
 <script type="text/javascript">
-\$(document).ready( function() {
+jQuery(document).ready( function() {
     // When the page is loaded, use the hidden field value (a JSON object)
     // to populate the palette fields.
 
     // Eval once to un-escape quotes
-    var json = eval( '"' + \$('#$field_id').val() + '"' );
+    var json = eval( '"' + jQuery('#$field_id').val() + '"' );
     // Eval a second time to turn into an object.
     json = eval(json);
 
@@ -405,15 +417,15 @@ sub pictaculous {
     // The field has been previously used, so there is data to parse.
     if (json) {
         // Set the Image field with the URL of the selected image.
-        \$('#$field_id-image').val( json[0].image );
+        jQuery('#$field_id-image').val( json[0].image );
 
         // Add a View Image link so the user can see the original to compare
         // to the colors that were found.
         var view_link = '<div style=\"float: right;\"><a href=\"' 
             + json[0].image 
             + '\" target=\"_blank\">View image</a></div>';
-        view_link = \$(view_link);
-        \$('#$field_id-actions').append(view_link);
+        view_link = jQuery(view_link);
+        jQuery('#$field_id-actions').append(view_link);
 
         // Creat the palette options on the Choose Palette tab
         createPalettes();
@@ -425,7 +437,7 @@ sub pictaculous {
             
             // Find any of the named color options created by the theme
             // designer. Push the saved ordered color in place.
-            \$('#$field_id-color-names span div').each(function() {
+            jQuery('#$field_id-color-names span div').each(function() {
                 var color = ordered_colors.shift();
                 
                 // If color is undefined (perhaps if the designer has
@@ -435,8 +447,8 @@ sub pictaculous {
                 }
 
                 // Lastly, set the color.
-                \$(this).css('background-color', color);
-                \$(this).attr('title', color.toUpperCase());
+                jQuery(this).css('background-color', color);
+                jQuery(this).attr('title', color.toUpperCase());
             });
         }
         
@@ -450,31 +462,31 @@ sub pictaculous {
     }
 
     // When a tab is clicked, show and hide the correct content
-    \$('#$field_id-nav li').click(function() {
-        var id = \$(this).attr('id');
+    jQuery('#$field_id-nav li').click(function() {
+        var id = jQuery(this).attr('id');
         tabbedContent(id);
     });
 
     // If "get palette" is clicked, build the palette options.
-    \$('#$field_id-get-palette').click(function() {
+    jQuery('#$field_id-get-palette').click(function() {
         // First check for a supplied image
-        if ( !\$('#$field_id-image').val() ) {
-            \$('#$field_id-image-status').html(
+        if ( !jQuery('#$field_id-image').val() ) {
+            jQuery('#$field_id-image-status').html(
                 '<p style="color: red;">Specify an image URL to proceed.</p>'
             );
             return false;
         }
 
         // Reset the status indicator.
-        \$('#$field_id-image-status').html('');
+        jQuery('#$field_id-image-status').html('');
 
         var spinner = '$static' + 'images/indicator.white.gif';
 
-        \$('#$field_id-spinner').removeClass('hidden');
+        jQuery('#$field_id-spinner').removeClass('hidden');
 
-        var url = '$url' + encodeURIComponent( \$('#$field_id-image').val() );
+        var url = '$url' + encodeURIComponent( jQuery('#$field_id-image').val() );
 
-        \$.ajax({ 
+        jQuery.ajax({ 
             url: url,
             success: function(data) {
                 // Turn the returned data into a JSON object.
@@ -483,24 +495,24 @@ sub pictaculous {
                 // First check to see if the response was an error. If it
                 // is an error, warn the user and just give up.
                 if (data.status == 'error') {
-                    \$('#$field_id-image-status').html(
+                    jQuery('#$field_id-image-status').html(
                         '<p style=\"color: red;\">' + data.error + '</p>'
                     );
-                    \$('#$field_id-spinner').addClass('hidden');
+                    jQuery('#$field_id-spinner').addClass('hidden');
                     return false;
                 }
 
-                var image = \$('#$field_id-image').val();
+                var image = jQuery('#$field_id-image').val();
                 var palettes = new Array();
                 palettes.push( { 'image': image, 'data': data } );
                 // Convert that JSON object into a string so that it can be saved.
                 var json = palettes.toJSON().escapeJS();
-                \$('#$field_id').val( json );
+                jQuery('#$field_id').val( json );
 
                 createPalettes();
 
                 // Now that we're done, hide the spinner graphic.
-                \$('#$field_id-spinner').addClass('hidden');
+                jQuery('#$field_id-spinner').addClass('hidden');
 
                 // After getting the palette options, switch to the Choose
                 // Palette tab.
@@ -517,27 +529,27 @@ function savePaletteData() {
     // field that is actually saved.
 
     // Eval once to un-escape quotes
-    var json = eval( '"' + \$('#$field_id').val() + '"' );
+    var json = eval( '"' + jQuery('#$field_id').val() + '"' );
     // Eval a second time to turn into an object.
     json = eval(json);
 
     // Grab the image URL
-    json[0].image = \$('#$field_id-image').val();
+    json[0].image = jQuery('#$field_id-image').val();
 
     // If the palette options have been created, and if a palette has been
     // selected, grab it.
-    if ( \$('#$field_id-option') ) {
-        json[0].selected = \$('input[name="$field_id-option"]:checked').val();
+    if ( jQuery('#$field_id-option') ) {
+        json[0].selected = jQuery('input[name="$field_id-option"]:checked').val();
     }
     
     // If the user has gone to the Order Colors tab and made some selections
     // we want to save those, too.
-    if ( \$('#$field_id-color-names') ) {
+    if ( jQuery('#$field_id-color-names') ) {
         // Look at each of the named color options, and use them to build
         // this piece of JSON.
         var ordered = new Array();
-        \$('#$field_id-color-names span div').each(function() {
-            var value = \$(this).css('background-color');
+        jQuery('#$field_id-color-names span div').each(function() {
+            var value = jQuery(this).css('background-color');
             if (value == 'transparent') {
                 value = '#ffffff';
             }
@@ -554,7 +566,7 @@ function savePaletteData() {
 
     // Convert that JSON object into a string so that it can be saved.
     var json_string = json.toJSON().escapeJS();
-    \$('#$field_id').val( json_string );
+    jQuery('#$field_id').val( json_string );
 }
 
 function selectPalette(selected) {
@@ -566,7 +578,7 @@ function selectPalette(selected) {
     
     // Reset the named colors in the Order Colors tab. Because the user has
     // picked a new selected palette, we want them to be able to start fresh.
-    \$('#$field_id-color-names span div').css('background-color', '#fff');
+    jQuery('#$field_id-color-names span div').css('background-color', '#fff');
     
     // After selecting, jump to the Order Colors tab
     tabbedContent('$field_id-colors-nav');
@@ -574,10 +586,10 @@ function selectPalette(selected) {
 
 function createPalettes() {
     // Remove any existing color palettes by simply clearing the result area.
-    \$('#$field_id-palette-result').html('');
+    jQuery('#$field_id-palette-result').html('');
 
     // Eval once to un-escape quotes
-    var json = eval( '"' + \$('#$field_id').val() + '"' );
+    var json = eval( '"' + jQuery('#$field_id').val() + '"' );
     // Eval a second time to turn into an object.
     json = eval(json);
 
@@ -625,7 +637,7 @@ function createPalettes() {
             // using a gray background.
             var border = '';
             if (palette[c] == 'FFFFFF') {
-                border = '; border: 1px solid #eee';
+                border = '; border: 1px solid #ddd';
             }
             color_block += '<span style=\"display: inline-block; '
                 + 'width: 50px; height: 50px; background-color: #' 
@@ -653,10 +665,10 @@ function createPalettes() {
             + '</div>';
         
         // Turn this text into an object
-        option = \$(option);
+        option = jQuery(option);
 
         // Ad the new option to the results area!
-        \$('#$field_id-palette-result').append( option );
+        jQuery('#$field_id-palette-result').append( option );
     }
 }
 
@@ -676,7 +688,7 @@ function createSelectedPalette(selected_palette) {
         // using a gray background.
         var border = '';
         if (palette[c] == 'FFFFFF') {
-            border = '; border: 1px solid #eee';
+            border = '; border: 1px solid #ddd';
         }
         color_block += '<span style=\"display: inline-block; '
             + 'margin: 0 10px; width: 50px; height: 50px; '
@@ -686,10 +698,10 @@ function createSelectedPalette(selected_palette) {
 
     // Add this new block of colors from the selected palette to the Order
     // Colors tab.
-    \$('#$field_id-selected-palette').html('<p>Your selected palette</p>' + color_block);
+    jQuery('#$field_id-selected-palette').html('<p>Your selected palette</p>' + color_block);
 
     // Now that the colors have been added, turn them into "draggables."
-    \$("#$field_id-selected-palette span").draggable({ 
+    jQuery("#$field_id-selected-palette span").draggable({ 
         containment: "#$field_id-colors-result", 
         // With jQuery 1.5, the "clone" option causes items to be draggable
         // only once. So, don't clone, just to make this more usable.
@@ -700,13 +712,13 @@ function createSelectedPalette(selected_palette) {
 
     // ...And now that the draggable colors have been created, bind them
     // to the "droppable" color options.
-    \$("#$field_id-color-names span div").droppable({
+    jQuery("#$field_id-color-names span div").droppable({
         accept:    "#$field_id-selected-palette span",
         tolerance: 'touch',
         drop:      function( event, ui ) {
             var color = ui.draggable.attr('title');
-            \$(this).css('background-color', color);
-            \$(this).attr('title', color);
+            jQuery(this).css('background-color', color);
+            jQuery(this).attr('title', color);
             savePaletteData();
         }
     });
@@ -731,18 +743,18 @@ function tabbedContent(id) {
     // Use the tabs to display the appropriate content. Update the tab's
     // border and background, and display the appropriate container.
     // Show the appropriate container
-    \$('#$field_id-container > div').each(function() {
-        \$(this).addClass('hidden');
+    jQuery('#$field_id-container > div').each(function() {
+        jQuery(this).addClass('hidden');
     })
-    \$('#'+id+'-container').removeClass('hidden');
+    jQuery('#'+id+'-container').removeClass('hidden');
     
     // Update the tabs display
-    \$('#$field_id-nav li').each(function() {
-        \$(this).css('border-bottom', '1px solid #dfecf2');
-        \$(this).css('background',    '#dfecf2');
+    jQuery('#$field_id-nav li').each(function() {
+        jQuery(this).css('border-bottom', '1px solid #dfecf2');
+        jQuery(this).css('background',    '#dfecf2');
     });
-    \$('#'+id).css('border-bottom', '1px solid #fff');
-    \$('#'+id).css('background',    '#fff');
+    jQuery('#'+id).css('border-bottom', '1px solid #fff');
+    jQuery('#'+id).css('background',    '#fff');
 }
 </script>
 END

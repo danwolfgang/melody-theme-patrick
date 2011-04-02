@@ -31,11 +31,11 @@ template_sets:
         blog_preferences: patrick_preferences
         options:
             fieldsets:
-                design:
-                    label: 'Design'
-                    order: 1
                 colors:
                     label: 'Color Palette'
+                    order: 1
+                design:
+                    label: 'Design'
                     order: 2
                 home_page_formatting:
                     label: 'Home Page Formatting'
@@ -56,75 +56,6 @@ template_sets:
                     label: 'Callbacks'
                     hint: 'Callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as the latest social networking site badge). Note that Melody and Movable Type tags can be used here.'
                     order: 21
-            # Design
-            column_separator:
-                label: 'Columns'
-                type: separator
-                fieldset: design
-                order: 1
-            column_layout:
-                label: 'Column Layout'
-                hint: 'Select the number of columns to be used.'
-                type: select
-                values: 'One column,Two columns,Three columns'
-                default: 'Two columns'
-                tag: ColumnLayout
-                fieldset: design
-                order: 2
-            typeface_separator:
-                label: 'Typeface Selection'
-                hint: 'Select which typefaces you want to use. In addition to the &ldquo;standard&rdquo; fonts readily available for web use the <a href="http://www.google.com/webfonts?subset=latin&sort=alpha" target="_blank">Google Font Directory</a> typefaces are also available to choose from.'
-                type: separator
-                fieldset: design
-                order: 10
-            subhead_font:
-                label: 'Subhead Font'
-                hint: 'Select a typeface and variation to use for subheads.'
-                type: font
-                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
-                #sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
-                variations: 'Regular, Bold, Italic, Bold Italic'
-                preview: 1
-                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Bold\"}]'
-                tag: SubheadFont
-                republish: styles
-                fieldset: design
-                order: 11
-            body_text_font:
-                label: 'Body Text Font'
-                hint: 'Select a typeface and variation to use for body text.'
-                type: font
-                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
-                #sizes: '14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
-                variations: 'Regular, Bold, Italic, Bold Italic'
-                preview: 1
-                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Regular\"}]'
-                tag: BodyTextFont
-                republish: styles
-                fieldset: design
-                order: 12
-            header_image_separator:
-                label: 'Header Configuration'
-                type: separator
-                fieldset: design
-                order: 20
-            header_image:
-                label: 'Header Image'
-                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide.'
-                type: file
-                tag: HeaderImage
-                republish: styles
-                fieldset: design
-                order: 21
-            header_image_height:
-                label: 'Header Image Height'
-                hint: 'Enter the height (in pixels) of the header area. If using the Header Image field above, specify the height of that header image.'
-                type: text
-                default: 50
-                tag: HeaderImageHeight
-                republish: styles
-                fieldset: design
-                order: 22
             # Color Palette
             color_palette_separator:
                 label: 'Color Palette Selection'
@@ -135,7 +66,7 @@ template_sets:
                 label: 'Pictaculous Palette'
                 hint: 'Use the Pictaculous service to create a color palette from the image listed here.'
                 type: pictaculous
-                color_names: 'Body Background, Container Background, Header Background, Footer Background, Alpha Column Background, Beta Column Background, Gamma Column Background, Widget Background'
+                color_names: 'Body Background, Container Background, Header Background, Footer Background, Alpha Column Background, Beta Column Background, Gamma Column Background, Widget Background, Carousel Navigation, Carousel Navigation (Active), Accent Color'
                 tag: Pictaculous
                 fieldset: colors
                 order: 2
@@ -178,6 +109,170 @@ template_sets:
                 tag: BodyTextColor
                 fieldset: colors
                 order: 14
+            # Design
+            layout_separator:
+                label: 'Layout'
+                hint: 'Select the major elements to control the site design.'
+                type: separator
+                fieldset: design
+                order: 1
+            column_layout:
+                label: 'Column Layout'
+                hint: 'Select the number of columns to be used.'
+                type: select
+                values: 'One column,Two columns,Three columns'
+                default: 'Two columns'
+                tag: ColumnLayout
+                fieldset: design
+                order: 2
+            border_radius:
+                label: 'Border Radius'
+                hint: 'Create rounded corners for the major layout elements. Select the radius of the rounded edge.'
+                type: select
+                values: '0.0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+                default: '0.0'
+                tag: BorderRadius
+                republish: styles
+                fieldset: design
+                order: 3
+            typeface_separator:
+                label: 'Typeface Selection'
+                hint: 'Select which typefaces you want to use. In addition to the &ldquo;standard&rdquo; fonts readily available for web use the <a href="http://www.google.com/webfonts?subset=latin&sort=alpha" target="_blank">Google Font Directory</a> typefaces are also available to choose from.'
+                type: separator
+                fieldset: design
+                order: 10
+            subhead_font:
+                label: 'Subhead Font'
+                hint: 'Select a typeface and variation to use for subheads.'
+                type: font
+                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
+                #sizes: '8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36'
+                variations: 'Regular, Bold, Italic, Bold Italic'
+                #preview: 1
+                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Bold\"}]'
+                tag: SubheadFont
+                republish: 'styles, main_index'
+                fieldset: design
+                order: 11
+            subhead_letterspacing:
+                label: 'Subhead Letter Spacing'
+                hint: 'Fine-tune the subhead font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
+                type: select
+                # Use the '0.0' value because '0' doesn't save properly.
+                values: '-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0.0,1,2,3,4,5,6,7,8,9,10'
+                default: '0'
+                tag: SubheadLetterSpacing
+                republish: styles
+                fieldset: design
+                order: 12
+            subhead_line_height:
+                label: 'Subhead Line-Height'
+                hint: 'Fine-tune the subhead font display by adjusting the spacing between each line. 100% is &ldquo;normal.&rdquo;'
+                type: select
+                values: '75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200'
+                default: '100'
+                tag: SubheadLineHeight
+                republish: styles
+                fieldset: design
+                order: 13
+            body_text_font:
+                label: 'Body Text Font'
+                hint: 'Select a typeface and variation to use for body text.'
+                type: font
+                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
+                sizes: '8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36'
+                variations: 'Regular, Bold, Italic, Bold Italic'
+                #preview: 1
+                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Regular\"}]'
+                tag: BodyTextFont
+                republish: 'styles, main_index'
+                fieldset: design
+                order: 15
+            body_text_letterspacing:
+                label: 'Body Text Letter Spacing'
+                hint: 'Fine-tune the body text font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
+                type: select
+                # Use the '0.0' value because '0' doesn't save properly.
+                values: '-1.0,-0.9,-0.8,-0.7,-0.6,-0.5,-0.4,-0.3,-0.2,-0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0'
+                default: '0.0'
+                tag: BodyTextLetterSpacing
+                republish: styles
+                fieldset: design
+                order: 16
+            body_text_line_height:
+                label: 'Body Text Line-Height'
+                hint: 'Fine-tune the body text font display by adjusting the spacing between each line. 100% is &ldquo;normal.&rdquo;'
+                type: select
+                values: '75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200'
+                default: '125'
+                tag: BodyTextLineHeight
+                republish: styles
+                fieldset: design
+                order: 17
+            container_separator:
+                label: 'Container Area Configuration'
+                type: separator
+                order: 30
+                fieldset: design
+            container_background:
+                label: 'Container Background Image'
+                hint: 'The Container Background Image field is optional. The container area background color can be set in the Color Palette tab. If used, the container background image should measure 970 pixels wide.'
+                type: file
+                tag: ContainerImage
+                republish: styles
+                fieldset: design
+                order: 31
+            column_transparency:
+                label: 'Column Transparency'
+                hint: 'If a container background image is specified, you may choose to set the transparency level of the background of the columns to let that image show through. A value of &ldquo;1.0&rdquo; is completely opaque and &ldquo;0.0&rdquo; is completely transparent.'
+                type: select
+                values: '1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0'
+                default: '1.0'
+                tag: ColumnTransparency
+                republish: styles
+                fieldset: design
+                order: 32
+            header_image_separator:
+                label: 'Header Configuration'
+                type: separator
+                fieldset: design
+                order: 40
+            header_image:
+                label: 'Header Image'
+                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide.'
+                type: file
+                tag: HeaderImage
+                republish: styles
+                fieldset: design
+                order: 41
+            header_image_height:
+                label: 'Header Image Height'
+                hint: 'Enter the height (in pixels) of the header area. If using the Header Image field above, specify the height of that header image.'
+                type: text
+                default: 50
+                tag: HeaderImageHeight
+                republish: styles
+                fieldset: design
+                order: 42
+            header_blog_name_display:
+                label: 'Text Blog Name Display'
+                hint: 'Show the blog name text in the header area. Disable if you specify a header image that includes your blog&rsquo;s name as part of the image.'
+                type: checkbox
+                default: 1
+                tag: HeaderBlogNameDisplay
+                republish: styles
+                fieldset: design
+                order: 43
+            header_text_alignment:
+                label: 'Text Alignment'
+                hint: 'If the Text Blog Name Display is enabled, specify the alignment of the text.'
+                type: select
+                values: 'Left,Center,Right'
+                default: 'left'
+                tag: BlogNameTextAlignment
+                republish: styles
+                fieldset: design
+                order: 44
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'
@@ -191,6 +286,7 @@ template_sets:
                 values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
                 default: 3
                 tag: HomeEntriesFeaturedCount
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 2
             home_entries_summary_count:
@@ -200,6 +296,7 @@ template_sets:
                 values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
                 default: 0
                 tag: HomeEntriesSummarizedCount
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 3
             home_entries_summary_offset:
@@ -209,6 +306,7 @@ template_sets:
                 values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
                 default: 0
                 tag: HomeEntriesSummarizedOffset
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 4
             home_entries_list_count:
@@ -218,6 +316,7 @@ template_sets:
                 values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
                 default: 7
                 tag: HomeEntriesListedCount
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 5
             home_entries_list_offset:
@@ -227,10 +326,12 @@ template_sets:
                 values: '0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
                 default: 3
                 tag: HomeEntriesListedOffset
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 6
             home_carousel_separator:
                 label: 'Featured Entries Carousel Configuration'
+                hint: 'The Featured Entries Carousel is built with the jQuery <a href="http://jquery.malsup.com/cycle/" target="_blank">Cycle</a> plugin. For more information on the following options refer to the plugin documentation and examples.'
                 type: separator
                 fieldset: home_page_formatting
                 order: 10
@@ -239,15 +340,18 @@ template_sets:
                 hint: "Specify the height (vertical space) of the carousel in pixels. The carousel height should be selected based upon the size you'd like the carousel to be, but must also be set based upon the length and amount of text being displayed in the carousel. The width of the carousel is specified by the width of the column."
                 type: text
                 default: 200
+                tag: HomeCarouselHeight
+                republish: 'main_index,styles'
                 fieldset: home_page_formatting
                 order: 11
             home_carousel_contents:
                 label: 'Carousel Contents'
                 hint: 'Select the items to appear within the the carousel window for each slide in the carousel.'
                 type: checkbox
-                values: 'Title,Author,Date'
+                values: 'Title,Category,Author,Date'
                 default: 'Title'
                 tag: HomeCarouselContents
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 12
             home_carousel_default_background:
@@ -255,8 +359,58 @@ template_sets:
                 hint: "A background image is used for each slide in the carousel. The background image is an image asset associated with an entry. If an image asset isn't used in an entry, a default background should be used. Specify that default background image here."
                 type: file
                 tag: HomeCarouselDefaultBackground
+                republish: main_index
                 fieldset: home_page_formatting
                 order: 13
+            home_carousel_cycle_separator:
+                type: separator
+                fieldset: home_page_formatting
+                order: 20
+            home_carousel_fx:
+                label: 'Display Effect'
+                hint: 'You can choose from any of these named effects. Preview each effect with the <a href="http://jquery.malsup.com/cycle/browser.html" target="_blank">Cycle Effects Browser</a>.'
+                type: select
+                values: 'blindX,blindY,blindZ,cover,curtainX,curtainY,fade,fadeZoom,growX,growY,scrollUp,scrollDown,scrollLeft,scrollRight,scrollHorz,scrollVert,shuffle,slideX,slideY,toss,turnUp,turnDown,turnLeft,turnRight,uncover,wipe,zoom'
+                default: 'fade'
+                tag: HomeCarouselFX
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 21
+            home_carousel_sync:
+                label: 'Display Effect Sync'
+                hint: 'Toggle the sync option to see how some effects behave differently. Preview each effect with the <a href="http://jquery.malsup.com/cycle/browser.html" target="_blank">Cycle Effects Browser</a>.'
+                type: checkbox
+                tag: HomeCarouselSync
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 22
+            home_carousel_speed:
+                label: 'Slide Transition Speed'
+                hint: 'Millisecond duration of the slide transition. Enter &ldquo;0&rdquo; to disable animation.'
+                type: text
+                default: 500
+                tag: HomeCarouselSpeed
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 23
+            home_carousel_timeout:
+                label: 'Slide Duration'
+                hint: 'Milliseconds between slide transitions Enter &ldquo;0&rdquo; to disable auto-advance.'
+                type: text
+                default: 4000
+                tag: HomeCarouselTimeout
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 24
+            home_carousel_pager:
+                label: 'Slide Navigation'
+                hint: 'Include navigation buttons for the slide carousel.'
+                type: checkbox
+                default: 1
+                tag: HomeCarouselPager
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 25
             # Entry Formatting
             entry_meta_separator:
                 label: 'Entry Meta Content'
@@ -509,6 +663,8 @@ template_sets:
                     label: 'Header'
                 m_html_head:
                     label: 'HTML Head'
+                    cache:
+                        include_with_ssi: 1
                 m_meta_byline:
                     label: 'Meta: Byline'
                 m_meta_categories:

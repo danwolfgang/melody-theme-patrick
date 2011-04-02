@@ -1,9 +1,26 @@
 <mt:SetVar name="identifier" value="main-index">
+<mt:SetVarBlock name="html_head">
+    <mt:If tag="HomeEntriesFeaturedCount" gt="0">
+    <script type="text/javascript" src="<mt:PluginStaticWebPath component="patrick">js/jquery.cycle.all.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('div.featured-entries ul').cycle({
+            pause: 1,
+            fx: '<mt:HomeCarouselFX>',
+            sync: <mt:HomeCarouselSync _default="0">,
+            speed: <mt:HomeCarouselSpeed>,
+            timeout: <mt:HomeCarouselTimeout><mt:If tag="HomeCarouselPager">,
+            pager: '#featured-entries-nav'</mt:If>
+        });
+    });
+    </script>
+    </mt:If>
+</mt:SetVarBlock>
 <mt:Include module="Header">
 
 <mt:If tag="HomeEntriesFeaturedCount" gt="0">
     <mt:HomeEntriesFeaturedCount setvar="lastn">
-<div class="entry-featured">
+<div class="featured-entries">
     <mt:Entries lastn="$lastn">
         <mt:If name="__first__">
     <ul>
@@ -11,6 +28,7 @@
         <mt:Include module="Entry Featured Carousel">
         <mt:If name="__last__">
     </ul>
+    <div id="featured-entries-nav"></div>
         </mt:If>
     </mt:Entries>
 </div>
@@ -19,7 +37,7 @@
 <mt:If tag="HomeEntriesSummarizedCount" gt="0">
     <mt:HomeEntriesSummarizedCount setvar="lastn">
     <mt:HomeEntriesSummarizedOffset setvar="offset">
-<div class="entry-summarized">
+<div class="summarized-entries">
     <mt:Entries offset="$offset" lastn="$lastn">
         <mt:If name="__first__">
     <ul>

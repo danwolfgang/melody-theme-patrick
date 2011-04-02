@@ -1,43 +1,160 @@
 @import url(<mt:PluginStaticWebPath component="patrick">css/reset.css);
 
-<mt:PictaculousPalette>
-    <mt:Var name="body_background"         setvar="body_bg_color">
-    <mt:Var name="container_background"    setvar="container_bg_color">
-    <mt:Var name="header_background"       setvar="header_bg_color">
-    <mt:Var name="footer_background"       setvar="footer_bg_color">
-    <mt:Var name="alpha_column_background" setvar="alpha_column_bg_color">
-    <mt:Var name="beta_column_background"  setvar="beta_column_bg_color">
-    <mt:Var name="gamma_column_background" setvar="gamma_column_bg_color">
-    <mt:Var name="widget_background"       setvar="widget_bg_color">
+<mt:PictaculousPalette format="rgb">
+    <mt:SetVarBlock name="body_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="body_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="container_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="container_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="header_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="header_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="footer_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="footer_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="carousel_nav" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="carousel_navigation">)
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="carousel_nav_active" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="carousel_navigation_active">)
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="accent_color" strip_linefeeds="1">
+        rgb(<mt:Var name="accent_color">)
+    </mt:SetVarBlock>
+
+    <mt:Ignore>
+        Use transparency values, but fall back to the solid color for 
+        browsers that won't support that.
+    </mt:Ignore>
+    <mt:SetVarBlock name="alpha_column_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="alpha_column_background">);
+        background-color: rgba(<mt:Var name="alpha_column_background">,<mt:ColumnTransparency>);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="beta_column_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="beta_column_background">);
+        background-color: rgba(<mt:Var name="beta_column_background">,<mt:ColumnTransparency>);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="gamma_column_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="gamma_column_background">);
+        background-color: rgba(<mt:Var name="gamma_column_background">,<mt:ColumnTransparency>);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="widget_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="widget_background">);
+    </mt:SetVarBlock>
+
+    <mt:Ignore>
+        If the container background matches a column background, collapse the
+        spacer to make better use of the screen real estate. The values set 
+        here are used later in this stylesheet.
+    </mt:Ignore>
+    <mt:SetVarBlock name="alpha_collapse"><mt:If name="container_background" eq="$alpha_column_background">1</mt:if></mt:SetVarBlock>
+    <mt:SetVarBlock name="beta_collapse"><mt:If name="container_background" eq="$beta_column_background">1</mt:if></mt:SetVarBlock>
+    <mt:SetVarBlock name="gamma_collapse"><mt:If name="container_background" eq="$gamma_column_background">1</mt:if></mt:SetVarBlock>
+    
 </mt:PictaculousPalette>
 
 body {
-    background-color: <mt:Var name="body_bg_color">;
+    <mt:Var name="body_bg_color">
+    color: <mt:BodyTextColor>;
 <mt:BodyTextFontFont>
     font-family: <mt:Var name="typeface">;
+    font-size: <mt:Var name="size">px;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
     <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
 </mt:BodyTextFontFont>
-    line-height: 125%;
+    letter-spacing: <mt:BodyTextLetterSpacing>px;
+    line-height: <mt:BodyTextLineHeight>%;
 }
 
 #container {
     width: 970px;
     margin: 0 auto;
-    background-color: <mt:Var name="container_bg_color">;
+    <mt:Var name="container_bg_color">
+<mt:ContainerImageAsset>
+    background-image: url(<mt:AssetURL>);
+    background-position: center top;
+    background-repeat: no-repeat;
+    /* Specifying a min-height helps make the gradient fall into the correct 
+       position on short pages. */
+    min-height: <mt:AssetProperty property="image_height">px;
+</mt:ContainerImageAsset>
 }
+
+<mt:ContainerImageAsset>
+/* The #container-gradient is used to make the container background image 
+   blend nicely with the selected container background color. */
+#container-gradient {
+    position: absolute;
+    height: 50px;
+    width: 970px;
+    <mt:AssetProperty property="image_height" setvar="top">
+    top: <mt:Var name="top" op="-" value="50">px;
+    /* webkit/Safari */
+    background-image: -webkit-gradient(
+      linear, left top, left bottom, from(rgba(255, 255, 255, 0)),
+      to(rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1))
+    );
+
+    /* mozilla example - FF3.6+ */
+    background-image: -moz-linear-gradient(
+      top center,
+      rgba(255, 255, 255, 0) 0%, rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) 100%
+    );
+
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(
+      gradientType=1, startColor=0, endColorStr=<mt:PictaculousPalette format="hex"><mt:Var name="container_background"></mt:PictaculousPalette>
+    );
+
+    /* IE8 uses -ms-filter for whatever reason... */
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(
+      gradientType=1, startColor=0, endColoStr=#<mt:PictaculousPalette format="hex"><mt:Var name="container_background"></mt:PictaculousPalette>
+    );
+}
+</mt:ContainerImageAsset>
 
 #header {
     height: <mt:HeaderImageHeight>px;
-    background-color: <mt:Var name="header_bg_color">;
+    <mt:Var name="header_bg_color">
 <mt:HeaderImageAsset>
     background-image: url(<mt:AssetURL>);
     background-position: center top;
+    background-repeat: no-repeat;
 </mt:HeaderImageAsset>
+}
+
+#header-name {
+<mt:SubheadFontFont>
+    font-family: <mt:Var name="typeface">;
+    font-size: 2em;
+    <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
+    <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
+</mt:SubheadFontFont>
+    letter-spacing: <mt:SubheadLetterSpacing>px;
+    line-height: <mt:SubheadLineHeight>%;
+}
+
+#header-name a:link,
+#header-name a:visited,
+#header-name a:hover,
+#header-name a:active {
+    text-decoration: none;
+    color: <mt:BlogNameTextColor>;
+    padding: 10px;
+    height: <mt:HeaderImageHeight>px;
+    width: 970px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: <mt:BlogNameTextAlignment lower_case="1">;
+    overflow: hidden;
+    <mt:Unless tag="HeaderBlogNameDisplay">text-indent: -2000px;</mt:Unless>
 }
 
 #content {
     padding: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 #content-inner {
@@ -51,9 +168,9 @@ body {
     padding: 10px;
 }
 
-#alpha { background-color: <mt:Var name="alpha_column_bg_color">; }
-#beta { background-color: <mt:Var name="beta_column_bg_color">; }
-#gamma { background-color: <mt:Var name="gamma_column_bg_color">; }
+#alpha { <mt:Var name="alpha_column_bg_color"> }
+#beta { <mt:Var name="beta_column_bg_color"> }
+#gamma { <mt:Var name="gamma_column_bg_color"> }
 
 
 /* Column sizes are set based on the number of columns set to display. */
@@ -75,7 +192,7 @@ body {
     If the container background matches a column background, collapse the
     spacer to make better use of the screen real estate.
 </mt:Ignore>
-<mt:If name="container_bg_color" eq="$alpha_column_bg_color">
+<mt:If name="alpha_collapse">
 #alpha {
     background-color: none;
     padding: 0;
@@ -83,7 +200,7 @@ body {
 .two-columns #alpha,
 .three-columns #alpha { margin-right: 30px; }
 </mt:If>
-<mt:If name="container_bg_color" eq="$beta_column_bg_color">
+<mt:If name="beta_collapse">
 #beta {
     background-color: none;
     padding: 0;
@@ -91,7 +208,7 @@ body {
 .two-columns #beta,
 .three-columns #beta { margin-left: 20px; }
 </mt:If>
-<mt:If name="container_bg_color" eq="$gamma_column_bg_color">
+<mt:If name="gamma_collapse">
 #gamma {
     background-color: none;
     padding: 0;
@@ -112,14 +229,41 @@ body {
 
 
 
-h1, h2, h3, h4 {
+
+#alpha,#beta,.widget {
+    border-radius: <mt:BorderRadius>px;
+    -moz-border-radius: <mt:BorderRadius>px;
+    -webkit-border-radius: <mt:BorderRadius>px;
+}
+
+#header {
+    border-bottom-right-radius: <mt:BorderRadius>px;
+    border-bottom-left-radius: <mt:BorderRadius>px;
+    -moz-border-radius-bottomright: <mt:BorderRadius>px;
+    -moz-border-radius-bottomleft: <mt:BorderRadius>px;
+    -webkit-border-bottom-right-radius: <mt:BorderRadius>px;
+    -webkit-border-bottom-left-radius: <mt:BorderRadius>px;
+}
+
+#footer-inner {
+    border-bottom-right-radius: <mt:BorderRadius>px;
+    border-bottom-left-radius: <mt:BorderRadius>px;
+    -moz-border-radius-bottomright: <mt:BorderRadius>px;
+    -moz-border-radius-bottomleft: <mt:BorderRadius>px;
+    -webkit-border-bottom-right-radius: <mt:BorderRadius>px;
+    -webkit-border-bottom-left-radius: <mt:BorderRadius>px;
+}
+
+
+
+h1, h2, h3, h4, .featured-entries li div.meta div.title {
 <mt:SubheadFontFont>
     font-family: <mt:Var name="typeface">;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
     <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
-    <mt:Ignore> <mt:Var name="size"> <mt:Var name="variation"> </mt:Ignore>
 </mt:SubheadFontFont>
-    line-height: 100%;
+    letter-spacing: <mt:SubheadLetterSpacing>px;
+    line-height: <mt:SubheadLineHeight>%;
 }
 
 h1 { font-size: 2em;    margin: 0 0 0.25em; }
@@ -157,6 +301,11 @@ li {
     margin-right: 2em;
 }
 
+.meta .comment-count {
+    background: url(<mt:PluginStaticWebPath component="patrick">images/icon_comment.png) 0 2px no-repeat;
+    padding-left: 20px;
+}
+
 .meta h4 {
     display: inline;
     font-weight: bold;
@@ -169,8 +318,8 @@ li {
 
 
 .widget {
-    background-color: <mt:Var name="widget_bg_color">;
-    margin-bottom: 12px;
+    <mt:Var name="widget_bg_color">
+    margin-bottom: 10px;
     padding: 10px;
 }
 
@@ -181,3 +330,87 @@ h3.widget-header + .widget-content {
 }
 
 
+
+
+
+
+.featured-entries {
+    position: relative;
+}
+
+.featured-entries ul {
+    margin: 0 0 10px;
+    height: <mt:HomeCarouselHeight>px;
+    overflow: hidden;
+    border: 3px solid <mt:Var name="accent_color">;
+    border-radius: <mt:BorderRadius>px;
+    -moz-border-radius: <mt:BorderRadius>px;
+    -webkit-border-radius: <mt:BorderRadius>px;
+}
+.featured-entries li {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: <mt:HomeCarouselHeight>px;
+    <mt:Var name="carousel_nav">;
+}
+
+.featured-entries li h2 { margin: 0; }
+
+.featured-entries li a {
+    display: block;
+    top: 0;
+    left: 0;
+    height: <mt:HomeCarouselHeight>px;
+    width: 100%;
+    position: relative;
+    text-indent: -2000px;
+    z-index: 1; /* To put the link on top of the .meta */
+}
+
+.featured-entries li .meta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    height: <mt:HomeCarouselHeight>px;
+}
+
+.featured-entries li .meta div {
+    text-align: right;
+    margin: 0 10px 0 0;
+    width: 100%;
+    float: right;
+    text-shadow: -1px 0 <mt:Var name="accent_color">, 0 1px <mt:Var name="accent_color">, 1px 0 <mt:Var name="accent_color">, 0 -1px <mt:Var name="accent_color">;
+}
+
+.featured-entries li .meta div.title {
+    text-align: left;
+    height: <mt:HomeCarouselHeight setvar="title_height"><mt:Var name="title_height" op="/" value="2">px;
+    padding: 15px 0 10px;
+    text-indent: 20px;
+    font-size: 1.6em;
+}
+
+#featured-entries-nav {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#featured-entries-nav a { 
+    <mt:Var name="carousel_nav">;
+    margin: 0 5px;
+    padding: 0;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    text-indent: 20px; /* hide the slide number */
+    /* Make round "buttons" rather than square ones. */
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+#featured-entries-nav a.activeSlide { 
+    <mt:Var name="carousel_nav_active">; }
+#featured-entries-nav a:focus { outline: none; }

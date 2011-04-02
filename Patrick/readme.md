@@ -47,6 +47,13 @@ To publish this field's contents, notice that the tag has been appended with `Pa
 
 Each variable outputs a hex value with a leading "#," such as "#eba56a." If the user has not explicitly set a value, then white ("#ffffff") is output.
 
+Alternatively, RGB values can be output using the `format` attribute, as in the example below. Valid values are `rgb` and `hex`.
+
+    <mt:PictaculousPalette format="rgb">
+        Background: <mt:Var name="background">
+    </mt:PictaculousPalette>
+
+When outputting RGB values, a comma-separated list is published (as in `123,123,123`). This makes it easy to include alpha transparency values if required.
 
 ## `font`
 
