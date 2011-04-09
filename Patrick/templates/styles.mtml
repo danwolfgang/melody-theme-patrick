@@ -323,6 +323,10 @@ li {
     padding: 10px;
 }
 
+.widget ul {
+    margin-bottom: 0;
+}
+
 h3.widget-header { margin: 0; }
 
 h3.widget-header + .widget-content {
@@ -332,7 +336,7 @@ h3.widget-header + .widget-content {
 
 
 
-
+/* Home Page featured entries display */
 
 .featured-entries {
     position: relative;
@@ -353,6 +357,8 @@ h3.widget-header + .widget-content {
     width: 100%;
     height: <mt:HomeCarouselHeight>px;
     <mt:Var name="carousel_nav">;
+    background-position: 0 0;
+    background-repeat: none;
 }
 
 .featured-entries li h2 { margin: 0; }

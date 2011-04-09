@@ -90,7 +90,6 @@ sub _load_tags {
                                     # Return the hex or RGB value.
                                     if ( $args->{'format'} =~ /rgb/ ) {
                                         $color_value =~ s/\#(.*)/$1/;
-                                        MT->log($color_value);
                                         my @rgb = map {hex($_) } unpack 'a2a2a2', $color_value;
                                         $vars->{$color_name} = join(',', @rgb);
                                     }
@@ -373,6 +372,13 @@ sub pictaculous {
             $out .= "</span>";
         }
         $out .= "</div>";
+    }
+
+    # The default_colors are displayed with the selected palette
+    my $default_colors;
+    if ( $default_colors = $field->{default_colors} ) {
+        $default_colors =~ s/\s*//g; # remove any spaces so that the string can be properly handled in JS.
+        $default_colors =~ s/\#//g;  # remove a leading # so that the JS can process the colors.
     }
 
     # Close the $field_id-colors-result div
@@ -677,9 +683,16 @@ function createSelectedPalette(selected_palette) {
     // Start by turning the selected_palette string into an array.
     var palette = new Array();
     palette = selected_palette.split(',');
-    
-    // Add a white option, just because it's so useful.
-    palette.push('FFFFFF');
+
+    // Add the default_colors (from config.yaml) to the color_block variable.
+    var theme_default_colors = '$default_colors';
+    if (theme_default_colors) {
+        var default_colors = new Array();
+        default_colors = theme_default_colors.split(',');
+        for ( var c = 0; c < default_colors.length; c++) {
+            palette.push( default_colors[c].toUpperCase() );
+        }
+    }
 
     // The color_block variable holds the file colors in each palette.
     var color_block = '';

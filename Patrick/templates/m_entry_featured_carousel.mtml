@@ -1,4 +1,6 @@
-<li class="entry-featured"<mt:EntryAssets type="image" lastn="1"> style="background-image: url(<mt:AssetURL>);"</mt:EntryAssets>>
+<li class="entry-featured<mt:EntryCategories> <mt:CategoryLabel dirify="-"></mt:EntryCategories>"
+    <mt:EntryAssets type="image" lastn="1">style="background-image: url(<mt:AssetURL>);"</mt:EntryAssets>
+    >
 
     <h2><a href="<mt:EntryPermalink>"><mt:EntryTitle></a></h2>
 
@@ -9,6 +11,9 @@
     </mt:HomeCarouselContentsContains>
     <mt:HomeCarouselContentsContains value="Category">
         <div class="category"><mt:EntryCategory></div>
+    </mt:HomeCarouselContentsContains>
+    <mt:HomeCarouselContentsContains value="Excerpt">
+        <div class="excerpt"><mt:EntryExcerpt></div>
     </mt:HomeCarouselContentsContains>
     <mt:HomeCarouselContentsContains value="Author">
         <div class="author"><mt:EntryAuthorDisplayName></div>

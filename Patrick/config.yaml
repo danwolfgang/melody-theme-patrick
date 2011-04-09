@@ -67,6 +67,7 @@ template_sets:
                 hint: 'Use the Pictaculous service to create a color palette from the image listed here.'
                 type: pictaculous
                 color_names: 'Body Background, Container Background, Header Background, Footer Background, Alpha Column Background, Beta Column Background, Gamma Column Background, Widget Background, Carousel Navigation, Carousel Navigation (Active), Accent Color'
+                default_colors: '#ffffff, #000000'
                 tag: Pictaculous
                 fieldset: colors
                 order: 2
@@ -348,20 +349,12 @@ template_sets:
                 label: 'Carousel Contents'
                 hint: 'Select the items to appear within the the carousel window for each slide in the carousel.'
                 type: checkbox
-                values: 'Title,Category,Author,Date'
+                values: 'Author,Category,Date,Excerpt,Title'
                 default: 'Title'
                 tag: HomeCarouselContents
                 republish: main_index
                 fieldset: home_page_formatting
                 order: 12
-            home_carousel_default_background:
-                label: 'Default Background Image'
-                hint: "A background image is used for each slide in the carousel. The background image is an image asset associated with an entry. If an image asset isn't used in an entry, a default background should be used. Specify that default background image here."
-                type: file
-                tag: HomeCarouselDefaultBackground
-                republish: main_index
-                fieldset: home_page_formatting
-                order: 13
             home_carousel_cycle_separator:
                 type: separator
                 fieldset: home_page_formatting

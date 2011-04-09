@@ -32,9 +32,12 @@ A `pictaculous` field is created similar to how any other field is created:
         hint: 'Use the Pictaculous service to create a color palette from the image listed here.'
         type: pictaculous
         color_names: 'Background,Header,Column Background,Accent'
+        default_colors: '#FFFFFF, #000000'
         tag: Pictaculous
 
 The `color_names` key is unique to the `pictaculous` field type. This key should contain a comma-separated list of the named options a user can apply colors to, and are displayed in the Order Colors tab. A color palette from Pictaculous will provide five colors; `color_names` can contain any number of values, giving the user a chance to re-use colors, for example.
+
+The `default_colors` key gives you an opportunity to supply some colors that the user may find useful, regardless of the colors found in the color palette they select. Obvious choices are black (#000000) and white (#ffffff).
 
 To publish this field's contents, notice that the tag has been appended with `Palette`, which gives access to the named colors found in a palette. The named colors are "dirified," which means they are changed into something more "computer readable": non-word/space characters are removed, spaces are changed to underscores, and the entire string is converted to lower-case, as in the following example:
 
