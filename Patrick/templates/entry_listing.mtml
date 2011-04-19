@@ -1,7 +1,37 @@
 <mt:SetVar name="identifier" value="entry-listing">
-<mt:SetVarBlock name="html_title"><mt:ArchiveType></mt:SetVarBlock>
+<mt:SetVarBlock name="html_title"><mt:ArchiveTitle> Archives</mt:SetVarBlock>
 
 <mt:Include module="Header">
+
+<div class="entry-header">
+    <h1><mt:Var name="html_title"></h1>
+    <div class="meta">
+        <p>
+            This category contains <mt:ArchiveCount> entries<mt:IfArchiveType type="Category"><mt:HasParentCategory>, and the parent category is <mt:ParentCategory><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></mt:ParentCategory></mt:HasParentCategory></mt:IfArchiveType>.
+        </p>
+    <mt:IfArchiveType type="Category">
+        <mt:HasSubCategories>
+            <mt:SubCategories>
+                <mt:SubCatIsFirst>
+        <p>This category has the following subcategories:</p>
+        <ul class="subcategories">
+                </mt:SubCatIsFirst>
+                <mt:If tag="CategoryCount">
+            <li>
+                <a href="<mt:CategoryArchiveLink>" title="Contains <mt:CategoryCount> entries."><mt:CategoryLabel></a>
+                <mt:Else>
+            <li><mt:CategoryLabel>
+                </mt:If>
+                <mt:SubCatsRecurse>
+            </li>
+                <mt:SubCatIsLast>
+        </ul>
+                </mt:SubCatIsLast>
+            </mt:SubCategories>
+        </mt:HasSubCategories>
+    </mt:IfArchiveType>
+    </div>
+</div>
 
 <div class="entry-listing">
     <mt:Entries>
