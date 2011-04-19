@@ -38,28 +38,3 @@ mt = {
         }
     }
 };
-
-
-$(document).ready(function() {
-    // Add the Sign In/Sign Out links for commenting
-    $('#comment-greeting').greet();
-
-    if ($('#comments-form')) {
-        /* First, let's boot strap the comment form on the page. 
-         * In this one step, we take the default MT comment form and turn
-         * into a fully AJAXified comment form. 
-         */
-        var form = $('#comments-form').commentForm({ 
-            insertMethod: 'append',
-            target:       '.comments-content'
-        });
-        /* Once the form is bootstrapped and we have a handle to it
-         * we then pass that as a handle to the reply function which
-         * provides the inline commenting ability.
-         */
-        $('.reply').reply({
-            sourceForm: form
-        });
-    }
-
-});

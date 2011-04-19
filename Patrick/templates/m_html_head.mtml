@@ -20,9 +20,30 @@
 <script type="text/javascript" src="<mt:StaticWebPath>jquery/jquery.form.js"></script>
 
 <script type="text/javascript" src="<mt:BlogURL>patrick.js"></script>
+<mt:Ignore>
 <script type="text/javascript" src="<mt:PluginStaticWebPath component="patrick">js/jquery.mtauth.js"></script>
 <script type="text/javascript" src="<mt:PluginStaticWebPath component="patrick">js/jquery.mtgreeting.js"></script>
 <script type="text/javascript" src="<mt:PluginStaticWebPath component="patrick">js/jquery.mtcomment.js"></script>
+</mt:Ignore>
+
+<script src="http://connect.facebook.net/en_US/all.js#appId=<mt:FBAppID>&amp;xfbml=1"></script>
+<meta property="fb:app_id"      content="<mt:FBAppID>">
+
+<mt:Ignore>
+    Set fallback values for the FB open graph variables, just in case they 
+    weren't set elsewhere.
+</mt:Ignore>
+<mt:Unless name="og_title"><mt:BlogName setvar="og_title"></mt:Unless>
+<mt:Unless name="og_url"><mt:BlogURL setvar="og_url"></mt:Unless>
+<mt:Unless name="og_image"><mt:FBOGImageAsset><mt:AssetURL></mt:FBOGImageAsset></mt:Unless>
+<mt:Unless name="og_description"><mt:BlogDescription setvar="og_description"></mt:Unless>
+
+<meta property="og:type"        content="<mt:FBOGObjectType>">
+<meta property="og:site_name"   content="<mt:BlogName>">
+<meta property="og:title"       content="<mt:Var name="og_title">">
+<meta property="og:url"         content="<mt:Var name="og_url">">
+<meta property="og:image"       content="<mt:Var name="og_image">">
+<meta property="og:description" content="<mt:Var name="og_description">">
 
 <mt:CCLicenseRDF>
 

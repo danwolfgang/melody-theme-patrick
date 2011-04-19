@@ -49,6 +49,10 @@ template_sets:
                 widgets:
                     label: 'Sidebar Widgets'
                     order: 7
+                facebook:
+                    label: 'Facebook'
+                    hint: 'This theme has many configuration options for Facebook integration.'
+                    order: 8
                 htaccess:
                     label: '.htaccess Rules'
                     order: 20
@@ -529,6 +533,105 @@ template_sets:
                 tag: WidgetDisplayStyle
                 fieldset: widgets
                 order: 1
+            # Facebook Options
+            fb_app_id:
+                label: 'Facebook Application ID'
+                hint: 'The Facebook Application ID is required for some features like comment moderation and analytics tracking.'
+                type: text
+                tag: FBAppID
+                fieldset: facebook
+                order: 1
+            fb_og_separator:
+                label: 'Open Graph Meta'
+                hint: 'Refer to Facebook&rsquo;s documentation on the <a href="http://developers.facebook.com/docs/opengraph/">Open Graph protocol</a> for more information on these options.'
+                type: separator
+                fieldset: facebook
+                order: 10
+            fb_og_object_type:
+                label: 'Open Graph Object Type'
+                hint: 'Facebook currently supports these object types. Note that the Open Graph protocol is currently designed to support real-life objects. If your URL is a piece of content &mdash; such as a news article, photo, video, or similar &mdash; you should set the Object Type to <code>article</code>. Pages of type <code>article</code> do not have publishing rights, and will not show up on user&rsquo;s profiles because they are not real world objects.'
+                type: select
+                values: 'activity,sport,bar,company,cafe,hotel,restaurant,cause,sports_league,sports_team,band,government,non_profit,school,university,actor,athlete,author,director,musician,politician,public_figure,city,country,landmark,state_province,album,book,drink,food,game,product,song,movie,tv_show,blog,website,article'
+                default: 'blog'
+                tag: FBOGObjectType
+                fieldset: facebook
+                order: 11
+            fb_og_image:
+                label: 'Open Graph Default Image'
+                hint: 'By default, the open graph image will be the last image found in your Entry or Page. If no Entry/Page image is available, fall back to this image. This image should measure at least 50x50 pixels.'
+                type: file
+                tag: FBOGImage
+                fieldset: facebook
+                order: 12
+            fb_comments_separator:
+                label: 'Facebook Comments'
+                type: separator
+                fieldset: facebook
+                order: 20
+            fb_comments_dislay_count:
+                label: 'Display Count'
+                hint: 'Display this number of comments/posts by default.'
+                type: select
+                values: '1,2,3,4,5,6,7,8,9,10,15,20,25,50,75,100'
+                default: '3'
+                tag: FBCommentsDisplayCount
+                fieldset: facebook
+                order: 21
+            fb_comments_colorscheme:
+                label: 'Color Scheme'
+                hint: 'Comments can be displayed with a light or dark color scheme. You may find that a dark color scheme better matches your site&rsquo;s colors.'
+                type: select
+                values: 'Light,Dark'
+                default: 'Light'
+                tag: FBCommentsColorScheme
+                fieldset: facebook
+                order: 22
+            fb_like_separator:
+                label: 'Facebook Like Button'
+                type: separator
+                fieldset: facebook
+                order: 30
+            fb_like_layout_style:
+                label: 'Layout Style'
+                hint: "<strong>standard</strong>: displays social text to the right of the button and friends' profile photos below.<br /><strong>button_count</strong>: displays the total number of likes to the right of the button.<br /><strong>box_count</strong>: displays the total number of likes above the button."
+                type: select
+                values: 'standard,button_count,box_count'
+                default: 'button_count'
+                tag: FacebookLikeLayoutStyle
+                order: 31
+                fieldset: facebook
+            fb_like_show_faces:
+                label: 'Show Faces'
+                hint: 'If using the &ldquo;standard&rdquo; Layout Style, user profile pics can be shown below the Like button. This options is ignored for other Layout Styles.'
+                type: checkbox
+                tag: FacebookLikeShowFaces
+                order: 32
+                fieldset: facebook
+            fb_like_action:
+                label: 'Action Verb'
+                hint: 'The verb to display on the button'
+                type: select
+                values: 'like,recommended'
+                default: 'like'
+                tag: FacebookLikeAction
+                order: 33
+                fieldset: facebook
+            fb_like_colorscheme:
+                label: 'Color Scheme'
+                hint: 'The &ldquo;light&rdquo; option is the default and likely the preferred choice; &ldquo;dark&rdquo; may show up better against some background colors.'
+                type: select
+                values: 'light,dark'
+                default: 'light'
+                tag: FacebookLikeColorScheme
+                order: 34
+                fieldset: facebook
+            fb_like_width:
+                label: 'Width'
+                hint: 'Advanced feature: Enter a width for the Like button.<br />Note: if you are using one of the standard blog layout options and <em>have not</em> overrided the column widths with custom CSS, the Facebook Like button width will be automatically calculated. In other words, leave this field blank unless you specifically need to override it.'
+                type: text
+                tag: FacebookLikeWidth
+                order: 35
+                fieldset: facebook
             # .htaccess Rules
             htaccess_separator:
                 label: 'Custom .htaccess Rules'
@@ -591,6 +694,11 @@ template_sets:
                             build_type: 4
                             file_template: '%y/%i'
             index:
+                category_listing:
+                    label: 'Category Listing'
+                    outfile: 'categories.php'
+                    rebuild_me: 1
+                    build_type: 1
                 htaccess:
                     label: '.htaccess'
                     outfile: '.htaccess'

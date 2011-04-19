@@ -166,12 +166,12 @@ body {
 #gamma {
     float: left;
     padding: 10px;
+    overflow: hidden;
 }
 
 #alpha { <mt:Var name="alpha_column_bg_color"> }
 #beta { <mt:Var name="beta_column_bg_color"> }
 #gamma { <mt:Var name="gamma_column_bg_color"> }
-
 
 /* Column sizes are set based on the number of columns set to display. */
 .one-column #alpha { width: 930px; }
@@ -321,6 +321,10 @@ li {
     <mt:Var name="widget_bg_color">
     margin-bottom: 10px;
     padding: 10px;
+}
+
+.widget:last-child {
+    margin-bottom: 0;
 }
 
 .widget ul {

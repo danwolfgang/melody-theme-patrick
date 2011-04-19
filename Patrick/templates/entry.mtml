@@ -1,4 +1,10 @@
-<mt:SetVar name="identifier" value="entry">
+<mt:Var name="identifier" value="entry">
+<mt:EntryPermalink setvar="og_url">
+<mt:EntryTitle setvar="og_title">
+<mt:EntryAssets type="image" lastn="1"><mt:AssetURL setvar="og_image"></mt:EntryAssets>
+<mt:EntryExcerpt setvar="og_description">
+<mt:SetVarBlock name="html_title"><mt:EntryTitle></mt:SetVarBlock>
+
 <mt:Include module="Header">
 
 <mt:Include module="Entry Detail">

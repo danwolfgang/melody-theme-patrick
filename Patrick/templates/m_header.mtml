@@ -1,4 +1,6 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <title><mt:If name="html_title"><mt:Var name="html_title"> | </mt:If><mt:BlogName></title>
     <mt:Include module="HTML Head">
@@ -16,14 +18,14 @@
                 titles.
             </mt:Ignore>
             <mt:If name="main_index">
-                <h1 id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName encode_html="1"></a></h1>
+                <h1 id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName smarty_pants="1"></a></h1>
                 <mt:If tag="BlogDescription">
-                <h2 id="header-description"><mt:BlogDescription></h2>
+                <h2 id="header-description"><mt:BlogDescription smarty_pants="1"></h2>
                 </mt:If>
             <mt:Else>
-                <div id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName encode_html="1"></a></div>
+                <div id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName smarty_pants="1"></a></div>
                 <mt:If tag="BlogDescription">
-                <div id="header-description"><mt:BlogDescription></div>
+                <div id="header-description"><mt:BlogDescription smarty_pants="1"></div>
                 </mt:If>
             </mt:If>
             </div>

@@ -1,0 +1,27 @@
+<mt:Var name="identifier" value="category-listing">
+<mt:Var name="html_title" value="Categories">
+<mt:Include module="Header">
+
+<div class="entry-header">
+    <h1>Categories</h1>
+</div>
+
+<div class="category-listing">
+<mt:TopLevelCategories>
+    <mt:SubCatIsFirst>
+    <ul>
+    </mt:SubCatIsFirst>
+    <mt:If tag="CategoryCount">
+        <li><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel smarty_pants="1"></a> (contains <mt:CategoryCount> entries)
+    <mt:Else>
+        <li><mt:CategoryLabel>
+    </mt:If>
+    <mt:SubCatsRecurse>
+        </li>
+    <mt:SubCatIsLast>
+    </ul>
+    </mt:SubCatIsLast>
+</mt:TopLevelCategories>
+</div>
+
+<mt:Include module="Footer">

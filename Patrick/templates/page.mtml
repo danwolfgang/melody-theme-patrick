@@ -1,4 +1,10 @@
 <mt:SetVar name="identifier" value="page">
+<mt:PagePermalink setvar="og_url">
+<mt:PageTitle setvar="og_title">
+<mt:PageAssets type="image" lastn="1"><mt:AssetURL setvar="og_image"></mt:PageAssets>
+<mt:PageExcerpt setvar="og_description">
+<mt:SetVarBlock name="html_title"><mt:PageTitle></mt:SetVarBlock>
+
 <mt:Include module="Header">
 
 <mt:Include module="Page Detail">

@@ -1,24 +1,17 @@
 <mt:IfCommentsActive>
 <div id="comments" class="comments">
 
-    <mt:Comments>
-        <mt:CommentsHeader>
-            <mt:If tag="EntryCommentCount">
     <h2 class="comments-header">
-        <mt:EntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments">
+        <fb:comments-count href="<mt:EntryPermalink>"></fb:comments-count> Comments
     </h2>
     <div class="comments-content">
-            </mt:If>
-        </mt:CommentsHeader>
-        <mt:Include module="Comment Detail">
-        <mt:CommentsFooter>
-            <mt:If tag="EntryCommentCount">
+        <fb:comments 
+            href="<mt:EntryPermalink>" 
+            num_posts="<mt:FBCommentsDisplayCount>" 
+            width="<mt:If tag="ColumnLayout" eq="Three columns">510<mt:Else tag="ColumnLayout" eq="Two columns">600<mt:Else>930</mt:If>" 
+            <mt:If tag="FBCommentsColorScheme" eq="Dark">colorscheme="dark"</mt:If>
+        ></fb:comments>
     </div>
-            </mt:If>
-        </mt:CommentsFooter>
-    </mt:Comments>
-
-    <mt:Include module="Comment Form">
 
 </div>
 </mt:IfCommentsActive>
