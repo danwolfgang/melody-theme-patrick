@@ -549,10 +549,10 @@ template_sets:
                 order: 10
             fb_og_object_type:
                 label: 'Open Graph Object Type'
-                hint: 'Facebook currently supports these object types. Note that the Open Graph protocol is currently designed to support real-life objects. If your URL is a piece of content &mdash; such as a news article, photo, video, or similar &mdash; you should set the Object Type to <code>article</code>. Pages of type <code>article</code> do not have publishing rights, and will not show up on user&rsquo;s profiles because they are not real world objects.'
+                hint: 'Facebook currently supports these object types. Note that the Open Graph protocol is currently designed to support real-life objects. If your URL is a piece of content &mdash; such as a news article, blog post, photo, video, or similar &mdash; you should set the Object Type to <code>article</code>. Pages of type <code>article</code> do not have publishing rights, and will not show up on user&rsquo;s profiles because they are not real world objects. Unless you have a specific reason to change this, <code>article</code> is almost definitely the correct choice.'
                 type: select
                 values: 'activity,sport,bar,company,cafe,hotel,restaurant,cause,sports_league,sports_team,band,government,non_profit,school,university,actor,athlete,author,director,musician,politician,public_figure,city,country,landmark,state_province,album,book,drink,food,game,product,song,movie,tv_show,blog,website,article'
-                default: 'blog'
+                default: 'article'
                 tag: FBOGObjectType
                 fieldset: facebook
                 order: 11
