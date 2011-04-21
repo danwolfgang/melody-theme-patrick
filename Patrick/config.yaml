@@ -727,8 +727,7 @@ template_sets:
                         entry_archive:
                             archive_type: 'Individual'
                             build_type: 1
-                            file_template: '%y/%m/%d/%-f'
-                            preferred: 1
+                            file_template: '%y/%m/%-f'
             page:
                 page:
                     label: 'Page'
