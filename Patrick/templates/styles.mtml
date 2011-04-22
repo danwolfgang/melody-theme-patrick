@@ -7,9 +7,6 @@
     <mt:SetVarBlock name="container_bg_color" strip_linefeeds="1">
         background-color: rgb(<mt:Var name="container_background">);
     </mt:SetVarBlock>
-    <mt:SetVarBlock name="header_bg_color" strip_linefeeds="1">
-        background-color: rgb(<mt:Var name="header_background">);
-    </mt:SetVarBlock>
     <mt:SetVarBlock name="footer_bg_color" strip_linefeeds="1">
         background-color: rgb(<mt:Var name="footer_background">);
     </mt:SetVarBlock>
@@ -27,6 +24,10 @@
         Use transparency values, but fall back to the solid color for 
         browsers that won't support that.
     </mt:Ignore>
+    <mt:SetVarBlock name="header_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="header_background">);
+        background-color: rgba(<mt:Var name="header_background">,<mt:HeaderTransparency>);
+    </mt:SetVarBlock>
     <mt:SetVarBlock name="alpha_column_bg_color" strip_linefeeds="1">
         background-color: rgb(<mt:Var name="alpha_column_background">);
         background-color: rgba(<mt:Var name="alpha_column_background">,<mt:ColumnTransparency>);

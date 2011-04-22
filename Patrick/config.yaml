@@ -259,6 +259,16 @@ template_sets:
                 republish: styles
                 fieldset: design
                 order: 42
+            header_background_transparency:
+                label: ' Transparency'
+                hint: 'The Header area can be made transparent, particularly if you want the Container Background Image to show through. A value of &ldquo;1.0&rdquo; is completely opaque and &ldquo;0.0&rdquo; is completely transparent.'
+                type: select
+                values: '1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0'
+                default: '1.0'
+                tag: HeaderTransparency
+                republish: styles
+                fieldset: design
+                order: 43
             header_blog_name_display:
                 label: 'Text Blog Name Display'
                 hint: 'Show the blog name text in the header area. Disable if you specify a header image that includes your blog&rsquo;s name as part of the image.'
@@ -267,7 +277,7 @@ template_sets:
                 tag: HeaderBlogNameDisplay
                 republish: styles
                 fieldset: design
-                order: 43
+                order: 44
             header_text_alignment:
                 label: 'Text Alignment'
                 hint: 'If the Text Blog Name Display is enabled, specify the alignment of the text.'
@@ -277,7 +287,7 @@ template_sets:
                 tag: BlogNameTextAlignment
                 republish: styles
                 fieldset: design
-                order: 44
+                order: 45
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'
