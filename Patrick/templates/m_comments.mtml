@@ -2,7 +2,8 @@
 <div id="comments" class="comments">
 
     <h2 class="comments-header">
-        <fb:comments-count href="<mt:EntryPermalink>"></fb:comments-count> Comments
+        <mt:SetVarBlock name="comment_count"><fb:comments-count href="<mt:EntryPermalink>"></fb:comments-count></mt:SetVarBlock>
+        Share Your Thoughts <mt:If name="comment_count" eq="0"><mt:Else name="comment_count" eq="1"><span class="comment-count">(1 Comment Already)</span><mt:Else><span class="comment-count">(<mt:Var name="comment_count"> Comments Already)</span></mt:If>
     </h2>
     <div class="comments-content">
         <fb:comments 

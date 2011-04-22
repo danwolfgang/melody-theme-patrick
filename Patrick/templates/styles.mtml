@@ -284,14 +284,32 @@ li {
     list-style-type: disc;
 }
 
+
+.entry,
+.page {
+    padding-bottom: 2em;
+}
+
 .entry-header {
+    float: left;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.entry-header p { margin-bottom: 0.15em; }
+
+.entry-header .meta { margin-top: 1em; }
+
+.entry-footer {
+    float: left;
+    width: 100%;
+    margin-bottom: 1em;
 }
 
 .meta {
     clear: both;
     float: left;
     width: 100%;
-    margin-bottom: 1em;
 }
 
 .meta .comment-count,
@@ -315,6 +333,8 @@ li {
 .meta ul li {
     display: inline;
 }
+
+h2.comments-header span.comment-count { font-size: 0.5em; }
 
 
 .widget {

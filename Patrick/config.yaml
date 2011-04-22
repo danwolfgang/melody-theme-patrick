@@ -450,15 +450,6 @@ template_sets:
                 tag: EntryMetaTagsDisplay
                 fieldset: entry_formatting
                 order: 5
-            entry_meta_tags_display_count:
-                label: 'Entry Tags to Display'
-                hint: "If many tags are used on an entry, it may be cleaner and more useful to the site visitor if only a small handful of tags are displayed on the published entry by default. Specify a number of tags to be displayed by default; a visitor can see all tags by clicking the &ldquo;show&rdquo; link to the right of the tags on the published entry."
-                type: select
-                values: '1,2,3,4,5,6,7,8,9,10,Display all tags'
-                default: 5
-                tag: EntryMetaTagsDisplayCount
-                fieldset: entry_formatting
-                order: 6
             twitter_separator:
                 label: 'Twitter Configuration'
                 hint: 'Configure the Twitter retweet button.'
@@ -469,7 +460,7 @@ template_sets:
                 label: 'Twitter Retweet Button'
                 hint: "Where should the Twitter retweet button be displayed?"
                 type: radio
-                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the entry tags'
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the Twitter retweet button'
                 default: 'Below the entry content but above the comments'
                 tag: EntryMetaTwitterDisplay
                 fieldset: entry_formatting
@@ -485,7 +476,7 @@ template_sets:
                 order: 12
             twitter_username:
                 label: 'Twitter Username'
-                hint: 'Your Twitter username will be @ mentioned in the suggested Tweet.'
+                hint: 'Your Twitter username will be @ mentioned in the suggested Tweet. This field is optional.'
                 type: text
                 tag: TwitterUsername
                 fieldset: entry_formatting
@@ -514,15 +505,6 @@ template_sets:
                 tag: PageMetaTagsDisplay
                 fieldset: page_formatting
                 order: 3
-            page_meta_tags_display_count:
-                label: 'Page Tags to Display'
-                hint: "If many tags are used on an entry, it may be cleaner and more useful to the site visitor if only a small handful of tags are displayed on the published entry by default. Specify a number of tags to be displayed by default; a visitor can see all tags by clicking the &ldquo;show&rdquo; link to the right of the tags on the published entry."
-                type: select
-                values: '1,2,3,4,5,6,7,8,9,10,Display all tags'
-                default: 5
-                tag: PageMetaTagsDisplayCount
-                fieldset: page_formatting
-                order: 4
             # Sidebar Widgets
             widget_display_style:
                 label: 'Widget Display Style'

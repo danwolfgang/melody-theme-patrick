@@ -6,7 +6,9 @@
                 <mt:SubCatIsFirst>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </mt:SubCatIsFirst>
+                <mt:If tag="CategoryCount">
                     <option value="<mt:CategoryArchiveLink>"><mt:CategoryLabel></option>
+                </mt:If>
                 <mt:SubCatsRecurse>
                 <mt:SubCatIsLast>
                 </mt:SubCatIsLast>
@@ -21,8 +23,6 @@
                 </mt:SubCatIsFirst>
                 <mt:If tag="CategoryCount">
                     <li><a href="<mt:CategoryArchiveLink>" title="Contains <mt:CategoryCount> entries."><mt:CategoryLabel></a>
-                <mt:Else>
-                    <li><mt:CategoryLabel>
                 </mt:If>
                 <mt:SubCatsRecurse>
                     </li>
