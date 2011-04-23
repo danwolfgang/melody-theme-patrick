@@ -686,6 +686,11 @@ template_sets:
                             build_type: 4
                             file_template: '%y/%i'
             index:
+                archive_index:
+                    label: 'Site Archives'
+                    outfile: 'archives.php'
+                    rebuild_me: 1
+                    build_type: 4
                 category_listing:
                     label: 'Category Listing'
                     outfile: 'categories.php'
@@ -700,7 +705,7 @@ template_sets:
                     label: 'Javascript'
                     outfile: 'patrick.js'
                     rebuild_me: 1
-                    build_type: 1
+                    build_type: 4
                 main_index:
                     label: 'Main Index'
                     outfile: 'index.php'

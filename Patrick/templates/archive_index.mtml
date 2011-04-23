@@ -1,0 +1,40 @@
+<mt:SetVar name="identifier" value="archive-index">
+<mt:SetVarBlock name="html_title">Site Archives</mt:SetVarBlock>
+
+<mt:Include module="Header">
+
+<div class="entry-header">
+    <h1><mt:Var name="html_title"></h1>
+</div>
+
+<div class="category-listing">
+    <h2>Categories</h2>
+<mt:TopLevelCategories>
+    <mt:SubCatIsFirst>
+    <ul>
+    </mt:SubCatIsFirst>
+    <mt:If tag="CategoryCount">
+        <li><a href="<mt:CategoryArchiveLink>" title="Contains <mt:CategoryCount> entries."><mt:CategoryLabel smarty_pants="1"></a>
+    </mt:If>
+    <mt:SubCatsRecurse>
+        </li>
+    <mt:SubCatIsLast>
+    </ul>
+    </mt:SubCatIsLast>
+</mt:TopLevelCategories>
+</div>
+
+<div class="monthly-listing">
+    <h2>Monthly Archives</h2>
+    <mt:ArchiveList type="Monthly">
+        <mt:If name="__first__">
+    <ul>
+        </mt:If>
+        <li><a href="<mt:ArchiveLink>"><mt:ArchiveTitle></a></li></li>
+        <mt:If name="__last__">
+    </ul>
+        </mt:If>
+    </mt:ArchiveList>
+</div>
+
+<mt:Include module="Footer">
