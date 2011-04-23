@@ -1,0 +1,42 @@
+<mt:If name="identifier" eq="entry">
+    <mt:SetVarBlock name="test"><mt:ArchiveNext>test</mt:ArchiveNext><mt:ArchivePrevious>test</mt:ArchivePrevious></mt:SetVarBlock>
+    <mt:If name="test">
+<div class="widget-previous-next-nav widget">
+    <div class="widget-content">
+        <ul>
+        <mt:EntryNext>
+            <li>Next: <a href="<mt:EntryPermalink>"><mt:EntryTitle></a></li>
+        </mt:EntryNext>
+        <mt:EntryPrevious>
+            <li>Previous: <a href="<mt:EntryPermalink>"><mt:EntryTitle></a></li>
+        </mt:EntryPrevious>
+        </ul>
+    </div>
+</div>
+    </mt:If>
+</mt:If>
+
+<mt:If name="identifier" eq="entry-listing">
+    <mt:If tag="ArchiveType" like="(Yearly|Monthly)">
+        <mt:SetVarBlock name="test"><mt:ArchiveNext>test</mt:ArchiveNext><mt:ArchivePrevious>test</mt:ArchivePrevious></mt:SetVarBlock>
+        <mt:If name="test">
+<div class="widget-previous-next-nav widget">
+    <div class="widget-content">
+        <ul>
+        <mt:ArchiveNext>
+            <li>Next: <a href="<mt:ArchiveLink>"><mt:ArchiveTitle></a></li>
+        </mt:ArchiveNext>
+        <mt:ArchivePrevious>
+            <li>Previous: <a href="<mt:ArchiveLink>"><mt:ArchiveTitle></a></li>
+        </mt:ArchivePrevious>
+        <mt:If tag="ArchiveType" eq="Monthly">
+            <mt:ArchiveList type="Yearly">
+            <li>More in <a href="<mt:ArchiveLink>"><mt:ArchiveTitle></a></li>
+            </mt:ArchiveList>
+        </mt:If>
+        </ul>
+    </div>
+</div>
+        </mt:If>
+    </mt:If>
+</mt:If>

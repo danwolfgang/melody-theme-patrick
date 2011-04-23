@@ -775,6 +775,7 @@ template_sets:
                 second_column:
                     label: 'Second Column'
                     widgets:
+                        - 'Previous-Next Navigation'
                         - 'Search'
                         - 'Recent Entries'
                         - 'Recent Comments'
@@ -808,6 +809,8 @@ template_sets:
                         expire_type: 1
                         expire_interval: 5
                         include_with_ssi: 1
+                w_previous_next_nav:
+                    label: 'Previous-Next Navigation'
                 w_powered_by:
                     label: 'Powered By'
                     cache:
