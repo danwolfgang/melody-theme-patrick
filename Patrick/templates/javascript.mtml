@@ -38,3 +38,11 @@ mt = {
         }
     }
 };
+
+$(document).ready(function() {
+
+    // The old comments section should be toggled open/closed.
+    $('.read-old-comments').click(function(){
+        $('#old-comments').toggle('200');
+    });
+});

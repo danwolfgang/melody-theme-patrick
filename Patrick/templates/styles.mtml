@@ -335,7 +335,14 @@ li {
     display: inline;
 }
 
-h2.comments-header span.comment-count { font-size: 0.5em; }
+.comments h2 span.comment-count,
+.comments h3 span.comment-count { font-size: 0.5em; }
+
+.comments h3 {
+    margin-top: 0;
+}
+
+.old-comments #old-comments { display: none; }
 
 
 .widget {

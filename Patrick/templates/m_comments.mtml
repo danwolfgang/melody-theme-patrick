@@ -2,8 +2,7 @@
 <div id="comments" class="comments">
 
     <h2 class="comments-header">
-        <mt:SetVarBlock name="comment_count"><fb:comments-count href="<mt:EntryPermalink>"></fb:comments-count></mt:SetVarBlock>
-        Share Your Thoughts <mt:If name="comment_count" eq="0"><mt:Else name="comment_count" eq="1"><span class="comment-count">(1 Comment Already)</span><mt:Else><span class="comment-count">(<mt:Var name="comment_count"> Comments Already)</span></mt:If>
+        Share Your Thoughts <span class="comment-count">(<fb:comments-count href="<mt:EntryPermalink>"></fb:comments-count> Comments Already)</span>
     </h2>
     <div class="comments-content">
         <fb:comments 
@@ -13,6 +12,27 @@
             <mt:If tag="FBCommentsColorScheme" eq="Dark">colorscheme="dark"</mt:If>
         ></fb:comments>
     </div>
+
+    <mt:Comments>
+        <mt:CommentsHeader>
+            <mt:If tag="EntryCommentCount">
+    <div class="old-comments">
+        <h3>Older Comments
+            <span class="comment-count">(<mt:EntryCommentCount singular="1" plural="#" none="No Comments">)</span>
+        </h3>
+        <p><mt:BlogName> currently uses Facebook for comments. Older comments are still here for readers, though. <a href="javascript:void(0);" class="read-old-comments">Read old comments &raquo;</a></p>
+        <div id="old-comments" class="comments-content">
+            </mt:If>
+        </mt:CommentsHeader>
+            <mt:Include module="Comment Detail">
+        <mt:CommentsFooter>
+            <mt:If tag="EntryCommentCount">
+            <p><a href="javascript:void(0);" class="read-old-comments">&laquo; Close old comments</a></p>
+        </div>
+    </div>
+            </mt:If>
+        </mt:CommentsFooter>
+    </mt:Comments>
 
 </div>
 </mt:IfCommentsActive>

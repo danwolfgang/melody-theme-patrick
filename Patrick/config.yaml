@@ -783,7 +783,6 @@ template_sets:
                         - 'Previous-Next Navigation'
                         - 'Search'
                         - 'Recent Entries'
-                        - 'Recent Comments'
                         - 'Category Archives'
                         - 'Monthly Archives'
                         - 'Powered By'
