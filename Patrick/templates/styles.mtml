@@ -68,6 +68,15 @@ body {
     line-height: <mt:BodyTextLineHeight>%;
 }
 
+a,
+a:link {
+    color: <mt:LinkStateColorLink>;
+}
+
+a:visited { color: <mt:LinkStateColorVisited>; }
+a:hover { color: <mt:LinkStateColorHover>; }
+a:active { color: <mt:LinkStateColorActive>; }
+
 #container {
     width: 970px;
     margin: 0 auto;
@@ -257,7 +266,11 @@ body {
 
 
 
-h1, h2, h3, h4, .featured-entries li div.meta div.title {
+h1,
+h2,
+h3,
+h4,
+.featured-entries li div.meta div.title {
 <mt:SubheadFontFont>
     font-family: <mt:Var name="typeface">;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
@@ -265,6 +278,7 @@ h1, h2, h3, h4, .featured-entries li div.meta div.title {
 </mt:SubheadFontFont>
     letter-spacing: <mt:SubheadLetterSpacing>px;
     line-height: <mt:SubheadLineHeight>%;
+    color: <mt:SubheadTextColor>;
 }
 
 h1 { font-size: 2em;    margin: 0 0 0.25em; }
@@ -360,6 +374,13 @@ li {
 }
 
 h3.widget-header { margin: 0; }
+
+h3.widget-header a,
+h3.widget-header a:link,
+h3.widget-header a:visited { color: <mt:SubheadTextColor>; }
+h3.widget-header a:hover { color: <mt:LinkStateColorHover>; }
+h3.widget-header a:active { color: <mt:LinkStateColorActive>; }
+
 
 h3.widget-header + .widget-content {
     padding-top: 10px;

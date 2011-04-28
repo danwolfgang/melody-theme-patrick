@@ -73,12 +73,13 @@ template_sets:
                 color_names: 'Body Background, Container Background, Header Background, Footer Background, Alpha Column Background, Beta Column Background, Gamma Column Background, Widget Background, Carousel Navigation, Carousel Navigation (Active), Accent Color'
                 default_colors: '#ffffff, #000000'
                 tag: Pictaculous
+                republish: styles
                 fieldset: colors
                 order: 2
                 republish: styles
             color_palette_override_separator:
                 label: 'Text Color'
-                hint: "Depending upon the color palette you've selected, you may need to update the colors of some text elements to make them readable."
+                hint: 'Want to use one of the Pictaculous Palette colors for text? Hover over the Pictaculous color to see the hex value, which you can then enter in the colorpicker for these text color fields.'
                 type: separator
                 fieldset: colors
                 order: 10
@@ -88,6 +89,7 @@ template_sets:
                 type: colorpicker
                 default: '#000000'
                 tag: BlogNameTextColor
+                republish: styles
                 fieldset: colors
                 order: 11
             blog_description_text_color:
@@ -96,6 +98,7 @@ template_sets:
                 type: colorpicker
                 default: '#000000'
                 tag: BlogDescriptionTextColor
+                republish: styles
                 fieldset: colors
                 order: 12
             subhead_text_color:
@@ -104,6 +107,7 @@ template_sets:
                 type: colorpicker
                 default: '#000000'
                 tag: SubheadTextColor
+                republish: styles
                 fieldset: colors
                 order: 13
             body_text_color:
@@ -112,8 +116,47 @@ template_sets:
                 type: colorpicker
                 default: '#000000'
                 tag: BodyTextColor
+                republish: styles
                 fieldset: colors
                 order: 14
+            link_separator:
+                label: 'Link State Colors'
+                hint: 'Want to use one of the Pictaculous Palette colors for link states? Hover over the Pictaculous color to see the hex value, which you can then enter in the colorpicker for these link state color fields.'
+                type: separator
+                fieldset: colors
+                order: 20
+            link_state_color_link:
+                label: 'Link'
+                type: colorpicker
+                default: '#0000ff'
+                tag: LinkStateColorLink
+                republish: styles
+                fieldset: colors
+                order: 21
+            link_state_color_visited:
+                label: 'Visited'
+                type: colorpicker
+                default: '#0000ff'
+                tag: LinkStateColorVisited
+                republish: styles
+                fieldset: colors
+                order: 22
+            link_state_color_hover:
+                label: 'Hover'
+                type: colorpicker
+                default: '#ff0000'
+                tag: LinkStateColorHover
+                republish: styles
+                fieldset: colors
+                order: 23
+            link_state_color_active:
+                label: 'Active'
+                type: colorpicker
+                default: '#00ff00'
+                tag: LinkStateColorActive
+                republish: styles
+                fieldset: colors
+                order: 24
             # Design
             layout_separator:
                 label: 'Layout'
@@ -821,12 +864,12 @@ template_sets:
                         expire_type: 1
                         expire_interval: 360
                         include_with_ssi: 1
-                w_recent_comments:
-                    label: 'Recent Comments'
-                    cache:
-                        expire_type: 2
-                        expire_event: comment
-                        include_with_ssi: 1
+                #w_recent_comments:
+                #    label: 'Recent Comments'
+                #    cache:
+                #        expire_type: 2
+                #        expire_event: comment
+                #        include_with_ssi: 1
                 w_recent_entries:
                     label: 'Recent Entries'
                     cache:
