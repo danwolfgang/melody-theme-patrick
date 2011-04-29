@@ -584,7 +584,7 @@ template_sets:
                 order: 10
             fb_og_object_type:
                 label: 'Open Graph Object Type'
-                hint: 'Facebook currently supports these object types. Note that the Open Graph protocol is currently designed to support real-life objects. If your URL is a piece of content &mdash; such as a news article, blog post, photo, video, or similar &mdash; you should set the Object Type to <code>article</code>. Pages of type <code>article</code> do not have publishing rights, and will not show up on user&rsquo;s profiles because they are not real world objects. Unless you have a specific reason to change this, <code>article</code> is almost definitely the correct choice.'
+                hint: 'Facebook currently supports these object types. Note that the Open Graph protocol is currently designed to support real-life objects. If your URL is a piece of content &mdash; such as a news article, blog post, photo, video, or similar &mdash; you should set the Object Type to <code>article</code>. Unless you have a specific reason to change this, <code>article</code> is almost definitely the correct choice.'
                 type: select
                 values: 'activity,sport,bar,company,cafe,hotel,restaurant,cause,sports_league,sports_team,band,government,non_profit,school,university,actor,athlete,author,director,musician,politician,public_figure,city,country,landmark,state_province,album,book,drink,food,game,product,song,movie,tv_show,blog,website,article'
                 default: 'article'
@@ -593,13 +593,14 @@ template_sets:
                 order: 11
             fb_og_image:
                 label: 'Open Graph Default Image'
-                hint: 'By default, the open graph image will be the last image found in your Entry or Page. If no Entry/Page image is available, fall back to this image. This image should measure at least 50x50 pixels.'
+                hint: 'By default, the open graph image will be the first image found in your Entry or Page. If no Entry/Page image is available, fall back to this image. This image should measure at least 50x50 pixels.'
                 type: file
                 tag: FBOGImage
                 fieldset: facebook
                 order: 12
             fb_comments_separator:
                 label: 'Facebook Comments'
+                hint: 'Blog comments are handled through Facebook comments.'
                 type: separator
                 fieldset: facebook
                 order: 20
@@ -626,6 +627,15 @@ template_sets:
                 type: separator
                 fieldset: facebook
                 order: 30
+            fb_like_meta_display:
+                label: 'Enable Facebook Like Button'
+                hint: "Where should the Facebook Like button be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the Facebook Like button'
+                default: 'Below the entry content but above the comments'
+                tag: EntryMetaFBLikeDisplay
+                fieldset: facebook
+                order: 31
             fb_like_layout_style:
                 label: 'Layout Style'
                 hint: "<strong>standard</strong>: displays social text to the right of the button and friends' profile photos below.<br /><strong>button_count</strong>: displays the total number of likes to the right of the button.<br /><strong>box_count</strong>: displays the total number of likes above the button."
@@ -633,14 +643,14 @@ template_sets:
                 values: 'standard,button_count,box_count'
                 default: 'button_count'
                 tag: FacebookLikeLayoutStyle
-                order: 31
+                order: 32
                 fieldset: facebook
             fb_like_show_faces:
                 label: 'Show Faces'
                 hint: 'If using the &ldquo;standard&rdquo; Layout Style, user profile pics can be shown below the Like button. This options is ignored for other Layout Styles.'
                 type: checkbox
                 tag: FacebookLikeShowFaces
-                order: 32
+                order: 33
                 fieldset: facebook
             fb_like_action:
                 label: 'Action Verb'
@@ -649,7 +659,7 @@ template_sets:
                 values: 'like,recommended'
                 default: 'like'
                 tag: FacebookLikeAction
-                order: 33
+                order: 34
                 fieldset: facebook
             fb_like_colorscheme:
                 label: 'Color Scheme'
@@ -658,14 +668,23 @@ template_sets:
                 values: 'light,dark'
                 default: 'light'
                 tag: FacebookLikeColorScheme
-                order: 34
+                order: 35
+                fieldset: facebook
+            fb_like_send:
+                label: 'Send Button'
+                hint: 'Include the Send button alongside the Like button.'
+                type: checkbox
+                default: 1
+                tag: FacebookSendButton
+                order: 36
                 fieldset: facebook
             fb_like_width:
                 label: 'Width'
-                hint: 'Advanced feature: Enter a width for the Like button.<br />Note: if you are using one of the standard blog layout options and <em>have not</em> overrided the column widths with custom CSS, the Facebook Like button width will be automatically calculated. In other words, leave this field blank unless you specifically need to override it.'
+                hint: 'The width of the Like/Send button. Some guidelines based on the Layout Style: <code>standard</code>: 225 pixels minimum; <code>button_count</code>: 90 pixels minimum; <code>box_count</code>: 55 pixel minimum. Enter an integer.'
                 type: text
+                default: 90
                 tag: FacebookLikeWidth
-                order: 35
+                order: 37
                 fieldset: facebook
             # .htaccess Rules
             htaccess_separator:
@@ -811,6 +830,8 @@ template_sets:
                     label: 'Meta: Categories'
                 m_meta_comment_count:
                     label: 'Meta: Comment Count'
+                m_meta_fb_like:
+                    label: 'Meta: Facebook Like'
                 m_meta_tags:
                     label: 'Meta: Tags'
                 m_meta_twitter:
