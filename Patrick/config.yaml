@@ -682,9 +682,32 @@ template_sets:
                 label: 'Width'
                 hint: 'The width of the Like/Send button. Some guidelines based on the Layout Style: <code>standard</code>: 225 pixels minimum; <code>button_count</code>: 90 pixels minimum; <code>box_count</code>: 55 pixel minimum. Enter an integer.'
                 type: text
-                default: 90
+                default: '90'
                 tag: FacebookLikeWidth
                 order: 37
+                fieldset: facebook
+            fb_recommendations_widget:
+                label: 'Facebook Recommendations Widget'
+                hint: 'The Recommendations plugin shows personalized recommendations to your users. Facebook Recommendations are displayed as a Widget in the sidebar.'
+                type: separator
+                order: 40
+                fieldset: facebook
+            fb_recommendations_height:
+                label: 'Height'
+                hint: 'Specify an integer pixel height for the Recommendations plugin to control the number of recommendations displayed.'
+                type: text
+                default: '300'
+                tag: FacebookRecommendationsHeight
+                order: 41
+                fieldset: facebook
+            fb_recommendations_colorscheme:
+                label: 'Color Scheme'
+                hint: 'The &ldquo;light&rdquo; option is the default and likely the preferred choice; &ldquo;dark&rdquo; may show up better against some background colors.'
+                type: select
+                values: 'light,dark'
+                default: 'light'
+                tag: FacebookRecommendationsColorScheme
+                order: 42
                 fieldset: facebook
             # .htaccess Rules
             htaccess_separator:
