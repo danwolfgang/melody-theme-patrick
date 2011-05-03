@@ -1,0 +1,19 @@
+<mt:Ignore>
+    The Facebook Recommendations plugin has an extra 10px or so of padding 
+    around the outside. So, some CSS adjusts .widget-content and the width 
+    below is 20 pixels (10 on each side) wider than a normal widget. This
+    realigns the Recommendation plugin to basically hide that extra 10px of
+    padding!
+</mt:Ignore>
+<div class="widget-fb-recommendations widget">
+    <h3 class="widget-header">Recommendations</h3>
+    <div class="widget-content">
+        <fb:recommendations
+            site="<mt:BlogURL>"
+            width="<mt:If tag="ColumnLayout" eq="Three columns">180<mt:Else tag="ColumnLayout" eq="Two columns">300</mt:If>"
+            height="<mt:FacebookRecommendationsHeight>"
+            header="false"
+            border_color="<mt:PictaculousPalette format="rgb">rgb(<mt:Var name="widget_background">);</mt:PictaculousPalette>"
+        ></fb:recommendations>
+    </div>
+</div>

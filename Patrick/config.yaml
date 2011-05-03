@@ -868,6 +868,7 @@ template_sets:
                     label: 'Second Column'
                     widgets:
                         - 'Previous-Next Navigation'
+                        - 'Facebook Recommendations'
                         - 'Search'
                         - 'Recent Entries'
                         - 'Category Archives'
@@ -887,6 +888,12 @@ template_sets:
                     cache:
                         expire_type: 2
                         expire_event: category
+                        include_with_ssi: 1
+                w_fb_recommendations:
+                    label: 'Facebook Recommendations'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 5
                         include_with_ssi: 1
                 w_monthly_archive_list:
                     label: 'Monthly Archives'
