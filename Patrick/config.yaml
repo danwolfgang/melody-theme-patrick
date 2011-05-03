@@ -578,7 +578,7 @@ template_sets:
                 order: 1
             fb_og_separator:
                 label: 'Open Graph Meta'
-                hint: 'Refer to Facebook&rsquo;s documentation on the <a href="http://developers.facebook.com/docs/opengraph/">Open Graph protocol</a> for more information on these options.'
+                hint: 'Refer to Facebook&rsquo;s documentation on the <a href="http://developers.facebook.com/docs/opengraph/">Open Graph protocol</a> for more information on these options. The Open Graph meta is used to display &rdquo;Like&ldquo; information and to tell Facebook about this site.'
                 type: separator
                 fieldset: facebook
                 order: 10
