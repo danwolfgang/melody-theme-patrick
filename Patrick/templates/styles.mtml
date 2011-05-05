@@ -342,11 +342,17 @@ li {
 .meta h4 {
     display: inline;
     font-weight: bold;
+<mt:BodyTextFontFont>
+    font-family: <mt:Var name="typeface">;
+</mt:BodyTextFontFont>
+    letter-spacing: <mt:BodyTextLetterSpacing>px;
+    margin: 0 0 0 0;
 }
 
 .meta ul,
 .meta ul li {
     display: inline;
+    margin-left: 2px;
 }
 
 .comments h2 span.comment-count,
