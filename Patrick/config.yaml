@@ -37,22 +37,29 @@ template_sets:
                 design:
                     label: 'Design'
                     order: 2
+                header:
+                    label: 'Blog Header'
+                    order: 3
+                footer:
+                    label: 'Blog Footer'
+                    hint: 'The blog footer area has three columns.'
+                    order: 4
                 home_page_formatting:
                     label: 'Home Page Formatting'
-                    order: 4
+                    order: 5
                 entry_formatting:
                     label: 'Entry Formatting'
-                    order: 5
+                    order: 6
                 page_formatting:
                     label: 'Page Formatting'
-                    order: 6
+                    order: 7
                 widgets:
                     label: 'Sidebar Widgets'
-                    order: 7
+                    order: 8
                 facebook:
                     label: 'Facebook'
                     hint: 'This theme has many configuration options for Facebook integration.'
-                    order: 8
+                    order: 9
                 htaccess:
                     label: '.htaccess Rules'
                     order: 20
@@ -280,19 +287,15 @@ template_sets:
                 republish: styles
                 fieldset: design
                 order: 32
-            header_image_separator:
-                label: 'Header Configuration'
-                type: separator
-                fieldset: design
-                order: 40
+            # Header
             header_image:
                 label: 'Header Image'
                 hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide.'
                 type: file
                 tag: HeaderImage
                 republish: styles
-                fieldset: design
-                order: 41
+                fieldset: header
+                order: 1
             header_image_height:
                 label: 'Header Image Height'
                 hint: 'Enter the height (in pixels) of the header area. If using the Header Image field above, specify the height of that header image.'
@@ -300,8 +303,8 @@ template_sets:
                 default: 50
                 tag: HeaderImageHeight
                 republish: styles
-                fieldset: design
-                order: 42
+                fieldset: header
+                order: 2
             header_background_transparency:
                 label: ' Transparency'
                 hint: 'The Header area can be made transparent, particularly if you want the Container Background Image to show through. A value of &ldquo;1.0&rdquo; is completely opaque and &ldquo;0.0&rdquo; is completely transparent.'
@@ -310,8 +313,8 @@ template_sets:
                 default: '1.0'
                 tag: HeaderTransparency
                 republish: styles
-                fieldset: design
-                order: 43
+                fieldset: header
+                order: 3
             header_blog_name_display:
                 label: 'Text Blog Name Display'
                 hint: 'Show the blog name text in the header area. Disable if you specify a header image that includes your blog&rsquo;s name as part of the image.'
@@ -319,8 +322,8 @@ template_sets:
                 default: 1
                 tag: HeaderBlogNameDisplay
                 republish: styles
-                fieldset: design
-                order: 44
+                fieldset: header
+                order: 4
             header_text_alignment:
                 label: 'Text Alignment'
                 hint: 'If the Text Blog Name Display is enabled, specify the alignment of the text.'
@@ -329,8 +332,69 @@ template_sets:
                 default: 'left'
                 tag: BlogNameTextAlignment
                 republish: styles
-                fieldset: design
-                order: 45
+                fieldset: header
+                order: 5
+            # Footer
+            footer_alpha_separator:
+                label: 'First Column'
+                type: separator
+                fieldset: footer
+                order: 10
+            footer_alpha_text:
+                label: 'Text'
+                hint: 'Add your own text to the this column. HTML allowed.'
+                type: textarea
+                default: 'A few links to help you find all the good stuff on this site:'
+                tag: FooterAlphaText
+                fieldset: footer
+                order: 11
+            footer_alpha_links:
+                label: 'Links'
+                hint: 'Add some links to this column.'
+                type: link-group
+                tag: FooterAlphaLinks
+                fieldset: footer
+                order: 12
+            footer_alpha_link_home:
+                label: 'Home Link'
+                hint: 'Include a link to the home page.'
+                type: checkbox
+                default: 1
+                tag: FooterAlphaLinkHome
+                fieldset: footer
+                order: 13
+            footer_alpha_link_archives:
+                label: 'Archives Link'
+                hint: 'Include a link to the archives page.'
+                type: checkbox
+                default: 1
+                tag: FooterAlphaLinkArchives
+                fieldset: footer
+                order: 14
+            footer_beta_separator:
+                label: 'Second Column'
+                type: separator
+                fieldset: footer
+                order: 20
+            footer_beta_text:
+                label: 'Text'
+                hint: 'Add your own text to the this column. HTML allowed.'
+                type: textarea
+                tag: FooterBetaText
+                fieldset: footer
+                order: 21
+            footer_gamma_separator:
+                label: 'Third Column'
+                type: separator
+                fieldset: footer
+                order: 30
+            footer_gamma_text:
+                label: 'Text'
+                hint: 'Add your own text to the this column. HTML allowed.'
+                type: textarea
+                tag: FooterGammaText
+                fieldset: footer
+                order: 31
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'
