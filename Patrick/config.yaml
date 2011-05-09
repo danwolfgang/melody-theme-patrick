@@ -383,6 +383,27 @@ template_sets:
                 tag: FooterBetaText
                 fieldset: footer
                 order: 21
+            footer_beta_links:
+                label: 'Links'
+                hint: 'Add some links to this column.'
+                type: link-group
+                tag: FooterBetaLinks
+                fieldset: footer
+                order: 22
+            footer_beta_link_home:
+                label: 'Home Link'
+                hint: 'Include a link to the home page.'
+                type: checkbox
+                tag: FooterBetaLinkHome
+                fieldset: footer
+                order: 23
+            footer_beta_link_archives:
+                label: 'Archives Link'
+                hint: 'Include a link to the archives page.'
+                type: checkbox
+                tag: FooterBetaLinkArchives
+                fieldset: footer
+                order: 24
             footer_gamma_separator:
                 label: 'Third Column'
                 type: separator
@@ -395,6 +416,27 @@ template_sets:
                 tag: FooterGammaText
                 fieldset: footer
                 order: 31
+            footer_gamma_links:
+                label: 'Links'
+                hint: 'Add some links to this column.'
+                type: link-group
+                tag: FooterGammaLinks
+                fieldset: footer
+                order: 32
+            footer_gamma_link_home:
+                label: 'Home Link'
+                hint: 'Include a link to the home page.'
+                type: checkbox
+                tag: FooterGammaLinkHome
+                fieldset: footer
+                order: 33
+            footer_gamma_link_archives:
+                label: 'Archives Link'
+                hint: 'Include a link to the archives page.'
+                type: checkbox
+                tag: FooterGammaLinkArchives
+                fieldset: footer
+                order: 34
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'

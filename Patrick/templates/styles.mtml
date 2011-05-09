@@ -233,14 +233,22 @@ a:active { color: <mt:LinkStateColorActive>; }
     clear: both;
 }
 #footer-inner {
-    background-color: <mt:Var name="footer_bg_color">;
-    padding: 10px;
+    <mt:Var name="footer_bg_color">
+    padding: 10px 10px 5px;
 }
 
+.footer-column {
+    display: inline-block;
+    width: 308px;
+    padding: 10px 0;
+    <mt:Var name="widget_bg_color">
+}
+
+#footer-beta { margin: 0 9px; }
 
 
 
-#alpha,#beta,.widget {
+#alpha, #beta, .widget, .footer-column {
     border-radius: <mt:BorderRadius>px;
     -moz-border-radius: <mt:BorderRadius>px;
     -webkit-border-radius: <mt:BorderRadius>px;
