@@ -947,6 +947,8 @@ template_sets:
                     label: 'Entry Summary'
                 m_footer:
                     label: 'Footer'
+                m_footer_content:
+                    label: 'Footer Content'
                 m_header:
                     label: 'Header'
                 m_html_head:

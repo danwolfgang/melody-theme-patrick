@@ -1,0 +1,44 @@
+<div id="footer-alpha" class="footer-column">
+    <mt:FooterAlphaText filters="markdown_with_smartypants">
+    <ul>
+    <mt:FooterAlphaLinksLinks>
+        <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+    </mt:FooterAlphaLinksLinks>
+    <mt:If tag="FooterAlphaLinkHome">
+        <li><a href="<mt:BlogURL>">Home</a></li>
+    </mt:If>
+    <mt:If tag="FooterAlphaLinkArchives">
+        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
+    </mt:If>
+    </ul>
+</div>
+
+<div id="footer-beta" class="footer-column">
+    <mt:FooterBetaText filters="markdown_with_smartypants">
+    <ul>
+    <mt:FooterBetaLinksLinks>
+        <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+    </mt:FooterBetaLinksLinks>
+    <mt:If tag="FooterBetaLinkHome">
+        <li><a href="<mt:BlogURL>">Home</a></li>
+    </mt:If>
+    <mt:If tag="FooterBetaLinkArchives">
+        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
+    </mt:If>
+    </ul>
+</div>
+
+<div id="footer-gamma" class="footer-column">
+    <mt:FooterGammaText filters="markdown_with_smartypants">
+    <ul>
+    <mt:FooterGammaLinksLinks>
+        <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+    </mt:FooterGammaLinksLinks>
+    <mt:If tag="FooterGammaLinkHome">
+        <li><a href="<mt:BlogURL>">Home</a></li>
+    </mt:If>
+    <mt:If tag="FooterGammaLinkArchives">
+        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
+    </mt:If>
+    </ul>
+</div>
