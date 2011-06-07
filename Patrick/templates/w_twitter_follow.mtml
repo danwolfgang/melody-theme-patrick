@@ -1,0 +1,16 @@
+<mt:If tag="TwitterUsername">
+<div class="widget-twitter-follow widget">
+    <div class="widget-content">
+
+        <a href="http://twitter.com/<mt:TwitterUsername>"
+            class="twitter-follow-button"
+            data-button="<mt:TwitterFollowButtonColor lowercase="1">"
+            data-text-color="<mt:TwitterFollowTextColor>"
+            data-link-color="<mt:TwitterFollowLinkColor>"
+            <mt:Unless name="TwitterDisplayFollowerCount">count="false"</mt:Unless>>
+                Follow @<mt:TwitterUsername>
+        </a>
+
+    </div>
+</div>
+</mt:If>

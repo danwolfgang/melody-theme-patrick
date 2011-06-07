@@ -60,6 +60,9 @@ template_sets:
                     label: 'Facebook'
                     hint: 'This theme has many configuration options for Facebook integration.'
                     order: 9
+                twitter:
+                    label: 'Twitter'
+                    order: 10
                 htaccess:
                     label: '.htaccess Rules'
                     order: 20
@@ -609,37 +612,6 @@ template_sets:
                 tag: EntryMetaTagsDisplay
                 fieldset: entry_formatting
                 order: 5
-            twitter_separator:
-                label: 'Twitter Configuration'
-                hint: 'Configure the Twitter retweet button.'
-                type: separator
-                fieldset: entry_formatting
-                order: 10
-            entry_meta_twitter_display:
-                label: 'Twitter Retweet Button'
-                hint: "Where should the Twitter retweet button be displayed?"
-                type: radio
-                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the Twitter retweet button'
-                default: 'Below the entry content but above the comments'
-                tag: EntryMetaTwitterDisplay
-                fieldset: entry_formatting
-                order: 11
-            twitter_button_type:
-                label: 'Twitter Button Type'
-                hint: 'Select the Twitter button style.'
-                type: radio
-                values: 'Vertical count,Horizontal count,No count'
-                default: 'Horizontal count'
-                tag: TwitterButtonType
-                fieldset: entry_formatting
-                order: 12
-            twitter_username:
-                label: 'Twitter Username'
-                hint: 'Your Twitter username will be @ mentioned in the suggested Tweet. This field is optional.'
-                type: text
-                tag: TwitterUsername
-                fieldset: entry_formatting
-                order: 13
             # Page Formatting
             page_meta_separator:
                 label: 'Page Meta Content'
@@ -815,6 +787,71 @@ template_sets:
                 tag: FacebookRecommendationsColorScheme
                 order: 42
                 fieldset: facebook
+            # Twitter
+            twitter_username:
+                label: 'Twitter Username'
+                hint: 'Your Twitter username will be @ mentioned in the suggested Tweet and used in the Follow button.'
+                type: text
+                tag: TwitterUsername
+                fieldset: twitter
+                order: 1
+            twitter_retweet_separator:
+                label: 'Twitter Retweet Button'
+                type: separator
+                fieldset: twitter
+                order: 10
+            twitter_retweet_button:
+                label: 'Enable Twitter Retweet Button'
+                hint: "Where should the Twitter retweet button be displayed?"
+                type: radio
+                values: 'Below the entry title but above the entry content,Below the entry content but above the comments,Do not display the Twitter retweet button'
+                default: 'Below the entry content but above the comments'
+                tag: EnableTwitterRetweetButton
+                fieldset: twitter
+                order: 11
+            twitter_button_type:
+                label: 'Twitter Button Type'
+                hint: 'Select the Twitter button style.'
+                type: radio
+                values: 'Vertical count,Horizontal count,No count'
+                default: 'Horizontal count'
+                tag: TwitterButtonType
+                fieldset: twitter
+                order: 12
+            twitter_follow_button:
+                label: 'Twitter Follow Button'
+                hint: 'The Twitter Username field must be filled in for the Follow button to function.'
+                type: separator
+                fieldset: twitter
+                order: 30
+            twitter_follow_button_color:
+                label: 'Follow Button Color'
+                type: radio
+                values: 'Blue,Gray'
+                default: 'Blue'
+                tag: TwitterFollowButtonColor
+                fieldset: twitter
+                order: 31
+            twitter_follow_text_color:
+                label: 'Follow Text Color'
+                type: colorpicker
+                default: '#000000'
+                tag: TwitterFollowTextColor
+                fieldset: twitter
+                order: 32
+            twitter_follow_link_color:
+                label: 'Follow Link Color'
+                type: colorpicker
+                default: '#0000ff'
+                tag: TwitterFollowLinkColor
+                fieldset: twitter
+                order: 33
+            twitter_follower_count:
+                label: 'Display Follower Count'
+                type: checkbox
+                tag: TwitterDisplayFollowerCount
+                fieldset: twitter
+                order: 34
             # .htaccess Rules
             htaccess_separator:
                 label: 'Custom .htaccess Rules'
@@ -977,6 +1014,7 @@ template_sets:
                     widgets:
                         - 'Previous-Next Navigation'
                         - 'Facebook Recommendations'
+                        - 'Twitter Follow'
                         - 'Search'
                         - 'Recent Entries'
                         - 'Category Archives'
@@ -1053,6 +1091,8 @@ template_sets:
                         expire_type: 1
                         expire_interval: 60
                         include_with_ssi: 1
+                w_twitter_follow:
+                    label: 'Twitter Follow'
             system:
                 comment_preview:
                     filename: s_comment_preview.mtml
