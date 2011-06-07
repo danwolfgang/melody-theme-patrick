@@ -820,7 +820,7 @@ template_sets:
                 order: 12
             twitter_follow_button:
                 label: 'Twitter Follow Button'
-                hint: 'The Twitter Username field must be filled in for the Follow button to function.'
+                hint: 'The Twitter Username field must be filled in for the Follow button to function. The Twitter Follow button is displayed in a sidebar widget.'
                 type: separator
                 fieldset: twitter
                 order: 30
@@ -832,24 +832,26 @@ template_sets:
                 tag: TwitterFollowButtonColor
                 fieldset: twitter
                 order: 31
-            twitter_follow_text_color:
-                label: 'Follow Text Color'
-                type: colorpicker
-                default: '#000000'
-                tag: TwitterFollowTextColor
-                fieldset: twitter
-                order: 32
             twitter_follow_link_color:
                 label: 'Follow Link Color'
+                hint: '&ldquo;@username&rdquo; is a link. You probably want to make this the same as Color Palette > Link State Colors > Link'
                 type: colorpicker
                 default: '#0000ff'
                 tag: TwitterFollowLinkColor
                 fieldset: twitter
-                order: 33
+                order: 32
             twitter_follower_count:
                 label: 'Display Follower Count'
                 type: checkbox
                 tag: TwitterDisplayFollowerCount
+                fieldset: twitter
+                order: 33
+            twitter_follow_text_color:
+                label: 'Follow Text Color'
+                hint: 'The follow count text color.'
+                type: colorpicker
+                default: '#000000'
+                tag: TwitterFollowTextColor
                 fieldset: twitter
                 order: 34
             # .htaccess Rules
