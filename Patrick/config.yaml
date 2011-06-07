@@ -1041,12 +1041,6 @@ template_sets:
                         expire_type: 1
                         expire_interval: 360
                         include_with_ssi: 1
-                w_signin:
-                    label: 'Sign In'
-                    cache:
-                        expire_type: 1
-                        expire_interval: 360
-                        include_with_ssi: 1
                 w_syndication:
                     label: Syndication
                     cache:
