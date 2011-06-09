@@ -6,4 +6,16 @@ $(document).ready(function() {
 
     // The three footer columns should be equal heights
     $('.footer-column').equalizeCols();
+
+<mt:Ignore>
+    Equalizing the columns has problems. The Facebook stuff loads after the 
+    document is ready, and therefore after equalize columns happens. So then 
+    the content gets pushed down and hidden. Also, equalize columns would need 
+    to be re-run when clicking to read old comments, which doesn't work well
+    with the animation toggle.
+<mt:If tag="EqualizeColumns">
+    // Equalize the primary columns
+    $('#alpha, #beta, #gamma').equalizeCols();
+</mt:If>
+</mt:Ignore>
 });

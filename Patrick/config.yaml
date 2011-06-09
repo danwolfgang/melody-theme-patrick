@@ -193,6 +193,14 @@ template_sets:
                 republish: styles
                 fieldset: design
                 order: 3
+            # equalize_columns:
+            #     label: 'Equalize Columns'
+            #     hint: 'Make the primary columns equal heights.'
+            #     type: checkbox
+            #     tag: EqualizeColumns
+            #     republish: javascript
+            #     fieldset: design
+            #     order: 4
             typeface_separator:
                 label: 'Typeface Selection'
                 hint: 'Select which typefaces you want to use. In addition to the &ldquo;standard&rdquo; fonts readily available for web use the <a href="http://www.google.com/webfonts?subset=latin&sort=alpha" target="_blank">Google Font Directory</a> typefaces are also available to choose from.'
