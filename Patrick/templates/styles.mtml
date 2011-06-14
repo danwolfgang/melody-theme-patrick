@@ -158,7 +158,7 @@ a:active { color: <mt:LinkStateColorActive>; }
 #header-name {
 <mt:SubheadFontFont>
     font-family: <mt:Var name="typeface">;
-    font-size: 2em;
+    font-size: <mt:Var name="size">%;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
     <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
 </mt:SubheadFontFont>
@@ -319,10 +319,12 @@ h4,
     color: <mt:SubheadTextColor>;
 }
 
-h1 { font-size: 2em;    margin: 0 0 0.25em; }
-h2 { font-size: 1.6em;  margin: 1em 0 0.5em; }
-h3 { font-size: 1.25em; margin: 1em 0 0.5em; }
-h4 { font-size: 1em;    margin: 0.5em 0 0 0.25em }
+<mt:SubheadFontFont>
+h1 { font-size: <mt:Var name="size">%; margin: 0 0 0.25em; }
+h2 { font-size: <mt:Var name="size" op="*" value="0.7">%; margin: 1em 0 0.5em; }
+h3 { font-size: <mt:Var name="size" op="*" value="0.55">%; margin: 1em 0 0.5em; }
+h4 { font-size: <mt:Var name="size" op="*" value="0.4">%; margin: 0.5em 0 0 0.25em }
+</mt:SubheadFontFont>
 
 p,
 ul {
@@ -394,7 +396,9 @@ li {
 }
 
 .comments h2 span.comment-count,
-.comments h3 span.comment-count { font-size: 0.5em; }
+.comments h3 span.comment-count {
+    font-size: 70%;
+}
 
 .comments h3 {
     margin-top: 0;

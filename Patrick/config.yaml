@@ -209,13 +209,13 @@ template_sets:
                 order: 10
             subhead_font:
                 label: 'Subhead Font'
-                hint: 'Select a typeface and variation to use for subheads.'
+                hint: 'Select a typeface and variation to use for subheads. Note that the size option is used as a percentage of the body font for the H1 tag.'
                 type: font
                 typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
-                #sizes: '8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36'
+                sizes: '50,75,100,125,150,175,200,225,250,275,300,325,350,375,400'
                 variations: 'Regular, Bold, Italic, Bold Italic'
                 #preview: 1
-                default: '[{\"typeface\":\"Tahoma\",\"size\":\"15\",\"variation\":\"Bold\"}]'
+                default: '[{\"typeface\":\"Tahoma\",\"size\":\"300\",\"variation\":\"Bold\"}]'
                 tag: SubheadFont
                 republish: 'styles, main_index'
                 fieldset: design
