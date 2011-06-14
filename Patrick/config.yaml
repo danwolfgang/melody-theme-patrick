@@ -514,7 +514,7 @@ template_sets:
                 label: 'Carousel Height'
                 hint: "Specify the height (vertical space) of the carousel in pixels. The carousel height should be selected based upon the size you'd like the carousel to be, but must also be set based upon the length and amount of text being displayed in the carousel. The width of the carousel is specified by the width of the column."
                 type: text
-                default: 200
+                default: 396
                 tag: HomeCarouselHeight
                 republish: 'main_index,styles'
                 fieldset: home_page_formatting
