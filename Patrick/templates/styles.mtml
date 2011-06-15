@@ -473,15 +473,22 @@ h3.widget-header + .widget-content {
 
 .featured-entries li h2 { margin: 0; }
 
-.featured-entries li a {
+.featured-entries li a:link,
+.featured-entries li a:visited,
+.featured-entries li a:hover,
+.featured-entries li a:active {
     display: block;
     top: 0;
     left: 0;
     height: <mt:HomeCarouselHeight>px;
     width: 100%;
     position: relative;
-    text-indent: -2000px;
+<mt:SetVarBlock name="title_check"><mt:HomeCarouselContentsContains value="Title">1</mt:HomeCarouselContentsContains></mt:SetVarBlock>
+    <mt:Unless name="title_check">text-indent: -2000px;</mt:Unless>
+    padding: 10px 10px 0;
     z-index: 1; /* To put the link on top of the .meta */
+    color: <mt:BodyTextColor>;
+    text-decoration: none;
 }
 
 .featured-entries li .meta {
@@ -492,20 +499,15 @@ h3.widget-header + .widget-content {
     height: <mt:HomeCarouselHeight>px;
 }
 
-.featured-entries li .meta div {
+.featured-entries li .meta-inner {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     text-align: right;
-    margin: 0 10px 0 0;
-    width: 100%;
-    float: right;
-    text-shadow: -1px 0 <mt:Var name="accent_color">, 0 1px <mt:Var name="accent_color">, 1px 0 <mt:Var name="accent_color">, 0 -1px <mt:Var name="accent_color">;
 }
 
-.featured-entries li .meta div.title {
-    text-align: left;
-    height: <mt:HomeCarouselHeight setvar="title_height"><mt:Var name="title_height" op="/" value="2">px;
-    padding: 15px 0 10px;
-    text-indent: 20px;
-    font-size: 1.6em;
+.featured-entries li .meta-inner div {
+    text-shadow: -1px 0 <mt:Var name="accent_color">, 0 1px <mt:Var name="accent_color">, 1px 0 <mt:Var name="accent_color">, 0 -1px <mt:Var name="accent_color">;
 }
 
 #featured-entries-nav {

@@ -3,25 +3,24 @@
     <mt:EntryAssets type="image" lastn="1">style="background-image: url(<mt:AssetThumbnailURL width="$image_width">);"</mt:EntryAssets>
     >
 
-    <h2><a href="<mt:EntryPermalink>"><mt:EntryTitle  smarty_pants="1"></a></h2>
+    <h2><a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1"></a></h2>
 
 <mt:If tag="HomeCarouselContents">
     <div class="meta">
-    <mt:HomeCarouselContentsContains value="Title">
-        <div class="title"><mt:EntryTitle smarty_pants="1"></div>
-    </mt:HomeCarouselContentsContains>
-    <mt:HomeCarouselContentsContains value="Category">
-        <div class="category"><mt:EntryCategory smarty_pants="1"></div>
-    </mt:HomeCarouselContentsContains>
-    <mt:HomeCarouselContentsContains value="Excerpt">
-        <div class="excerpt"><mt:EntryExcerpt smarty_pants="1"></div>
-    </mt:HomeCarouselContentsContains>
-    <mt:HomeCarouselContentsContains value="Author">
-        <div class="author"><mt:EntryAuthorDisplayName></div>
-    </mt:HomeCarouselContentsContains>
-    <mt:HomeCarouselContentsContains value="Date">
-        <div class="date"><mt:EntryDate format="%B %e, %Y"></div>
-    </mt:HomeCarouselContentsContains>
+        <div class="meta-inner">
+        <mt:HomeCarouselContentsContains value="Category">
+            <div class="category"><mt:EntryCategory smarty_pants="1"></div>
+        </mt:HomeCarouselContentsContains>
+        <mt:HomeCarouselContentsContains value="Excerpt">
+            <div class="excerpt"><mt:EntryExcerpt smarty_pants="1"></div>
+        </mt:HomeCarouselContentsContains>
+        <mt:HomeCarouselContentsContains value="Author">
+            <div class="author"><mt:EntryAuthorDisplayName></div>
+        </mt:HomeCarouselContentsContains>
+        <mt:HomeCarouselContentsContains value="Date">
+            <div class="date"><mt:EntryDate format="%B %e, %Y"></div>
+        </mt:HomeCarouselContentsContains>
+        </div>
     </div>
 </mt:If>
 
