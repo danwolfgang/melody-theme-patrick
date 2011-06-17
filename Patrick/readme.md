@@ -5,6 +5,26 @@ Patrick is a theme for Melody, sure, but it's also more than that. With nearly
 flexible theme framework that makes it easy to create a unique site from this
 one design.
 
+* Integration with [Pictaculous](http://pictaculous.com) to create a unique
+  color palette. Within Theme Options > Color Palette, supply an image URL to
+  the Source Image tab of the Pictaculous Palette field. Select an extracted
+  palette then assign palette colors to named locations of the theme, creating
+  a unique look for your blog.
+
+* Further individualize your site with fonts from the [Google Web Fonts
+  directory](http://www.google.com/webfonts). In Theme Options > Design you
+  can select a different typeface (the font name), variation (regular, bold,
+  italic, bold italic), and size for the body text and headings.
+
+* A variety of design options to help individualize your blog: one, two, and
+  three column layouts; control element transparency; Entry and Page meta
+  display position; and home page carousel (with the jQuery Carousel plugin).
+
+* Facebook and Twitter integration. Facebook Commenting, Like button, and
+  Recommendations social plugins along with Open Graph meta are included. The
+  Twitter retweet button is also included.
+
+
 # Prerequisites
 
 Patrick requires [Melody](http://openmelody.org) 1.0 or greater. It is not

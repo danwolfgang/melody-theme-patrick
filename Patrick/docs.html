@@ -1,0 +1,115 @@
+<h3 style="margin-top: 0;">Overview of Features</h3>
+
+<p>The Patrick theme is a very flexible theme, allowing you to create
+something unique for your site. Highlights of some of the most notable
+features:</p>
+
+<ul>
+    <li>Integration with <a href="http://pictaculous.com">Pictaculous</a> to
+    create a unique color palette. Within <a
+    href="<mt:CGIPath><mt:AdminScript>?__mode=theme_options&amp;blog_id=<mt:BlogID>#color_palette">Theme
+    Options > Color Palette</a>, supply an image URL to the Source Image tab
+    of the Pictaculous Palette field. Select an extracted palette then assign
+    palette colors to named locations of the theme, creating a unique look for
+    your blog.</li>
+
+    <li>Further individualize your site with fonts from the <a
+    href="http://www.google.com/webfonts">Google Web Fonts directory</a>. In
+    <a
+    href="<mt:CGIPath><mt:AdminScript>?__mode=theme_options&amp;blog_id=<mt:BlogID>#design">Theme
+    Options > Design</a> you can select a different typeface (the font name),
+    variation (regular, bold, italic, bold italic), and size for the body text
+    and headings.</li>
+
+    <li>A variety of design options to help individualize your blog: one, two,
+    and three column layouts; control element transparency; Entry and Page
+    meta display position; and home page carousel (with the jQuery Carousel
+    plugin).</li>
+
+    <li>Facebook and Twitter integration. Facebook Commenting, Like button,
+    and Recommendations social plugins along with Open Graph meta are
+    included. The Twitter retweet button is also included.</li>
+</ul>
+
+
+<h3>Theme Options</h3>
+
+<p>Each Theme Option field is not detailed here; the hint of the field should
+(hopefully) offer adequate documentation of the feature. Some features likely
+require a little extra explanation, and that's what you'll find here.</p>
+
+<h4>Color Palette</h4>
+
+<p>The Pictaculous Palette field returns eleven palettes from the image URL
+you supply, found in the Choose Palette tab. Five are from <a
+href="http://kuler.adobe.com">Adobe Kuler</a>, five are from <a
+href="http://colourlovers.com">COLOURlovers</a>, and one is from <a
+href="http://pictaculous.com">Pictaculous</a>. I don't have any idea how
+Pictaculous determines what colors to extract from your image to create the
+palette. Some of the results are beyond dubious (where all five colors in the
+palette are the same, even). If you're not happy with the results, try
+cropping the image differently or try a different image altogether.</p>
+
+<p>The named locations in the Order Colors tab are likely only helpful if you
+are already familiar with the HTML that makes up the page. The following
+graphic should help clarify what named location corresponds to the area of the
+page.</p>
+
+<h1>[To do: create the image]</h1>
+
+<p>When the same color is used in some adjacent named locations, spacing may
+collapse and therefore disappear. For example, if the Widget Background and
+Beta/Gamma Background are set to the same color, the spacing between them will
+collapse to disappear, maintaining the expected amount of padding around the
+element. This is a vague description, I know. Most can ignore this note
+because the spacing will just work and look good, but if you're using some
+custom CSS, this may be important to understand.</p>
+
+<h4>Design</h4>
+
+<p>Setting a large radius in the Layout > Border Radius Theme Option (say,
+larger than about 10) can have undesirable side effects: spacing around the
+Facebook Recommendations plugin, for example, has a square overlap. Depending
+upon the other options and widgets you use, you may want to avoid a large
+radius (if you choose to use a radius at all).</p>
+
+<h4>Home Page Formatting</h4>
+
+<p>The Entry Display Configuration section controls how entries are displayed
+on the home page. Entries are displayed in the following order:</p>
+
+<ol>
+    <li>Featured entries: display with a large image as the background, as
+    carousel that cycles through the most recent entries.</li>
+
+    <li>Summarized entries: display in an "excerpt" format including the entry
+    title (linked), meta, and excerpt text.</li>
+
+    <li>Listed entries: display as a bulleted list of linked entry
+    titles.</li>
+</ol>
+
+<p>The section Featured Entries Carousel Configuration allows you to configure
+the Carousel, which uses the <a href="http://jquery.malsup.com/cycle/">jQuery
+Cycle plugin</a>. The variety of Display Effects and speeds directly configure
+the plugin. I tried to create these options in a way that would require no
+knowledge of jQuery or the Cycle plugin, however to understand all of the
+effects you'll want to refer to the Cycle documentation.</p>
+
+<h4>Facebook</h4>
+
+<p>There are a variety of features in the Patrick theme to integrate with
+Facebook. In order to moderate comments and view analytics you'll need to
+enter a Facebook Application ID. Creating a Facebook application is easy: <a
+href="https://www.facebook.com/developers/createapp.php">just follow
+Facebook's steps</a>.</p>
+
+<p>The Facebook Like button width can be configured, and the height is
+controlled by other options. Setting the width, in particular, is likely just
+a matter of trial and error to make everything fit as you like.</p>
+
+<h4>Twitter</h4>
+
+<p>The Twitter username is required for the Follow button, but optional for
+use with the Retweet button.</p>
+
