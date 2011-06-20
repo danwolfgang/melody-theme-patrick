@@ -55,6 +55,7 @@ template_sets:
                     order: 7
                 widgets:
                     label: 'Sidebar Widgets'
+                    hint: 'Contents of the sidebar can be controlled by organizing Widget Sets.'
                     order: 8
                 facebook:
                     label: 'Facebook'
