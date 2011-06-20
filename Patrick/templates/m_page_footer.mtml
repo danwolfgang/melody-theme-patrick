@@ -1,0 +1,11 @@
+<div class="page-footer">
+    <div class="meta">
+        <mt:If tag="PageMetaBylineDisplay" eq="Below the page content but above the comments">
+            <mt:Include module="Meta: Byline">
+        </mt:If>
+        <mt:If tag="PageMetaTagsDisplay" eq="Below the page content but above the comments">
+            <mt:Include module="Meta: Tags">
+        </mt:If>
+        <mt:CallbackPageFooter>
+    </div>
+</div>

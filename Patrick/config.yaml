@@ -640,7 +640,7 @@ template_sets:
                 hint: "Where should the page's tags be displayed?"
                 type: radio
                 values: 'Below the page title but above the page content,Below the page content but above the comments,Do not display the page tags'
-                default: 'Below the page content but above the comments'
+                default: 'Do not display the page tags'
                 tag: PageMetaTagsDisplay
                 fieldset: page_formatting
                 order: 3
@@ -906,6 +906,20 @@ template_sets:
                 tag: CallbackEntryFooter
                 fieldset: callbacks
                 order: 11
+            callback_page_header:
+                label: 'Page Header'
+                type: textarea
+                rows: 10
+                tag: CallbackPageHeader
+                fieldset: callbacks
+                order: 20
+            callback_page_footer:
+                label: 'Page Footer'
+                type: textarea
+                rows: 10
+                tag: CallbackPageFooter
+                fieldset: callbacks
+                order: 21
         templates:
             archive:
                 entry_listing:
@@ -1016,6 +1030,10 @@ template_sets:
                     label: 'Meta: Twitter'
                 m_page_detail:
                     label: 'Page Detail'
+                m_page_footer:
+                    label: 'Page Footer'
+                m_page_header:
+                    label: 'Page Header'
                 m_sidebar:
                     label: 'Sidebar'
             widgetset:

@@ -1,0 +1,13 @@
+<div class="page-header">
+    <h1><mt:PageTitle smarty_pants="1"></h1>
+
+    <div class="meta">
+        <mt:If tag="PageMetaBylineDisplay" eq="Below the page title but above the page content">
+            <mt:Include module="Meta: Byline">
+        </mt:If>
+        <mt:If tag="PageMetaTagsDisplay" eq="Below the page title but above the page content">
+            <mt:Include module="Meta: Tags">
+        </mt:If>
+        <mt:CallbackPageHeader>
+    </div>
+</div>
