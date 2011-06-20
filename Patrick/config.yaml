@@ -308,12 +308,12 @@ template_sets:
                 republish: styles
                 fieldset: header
                 order: 1
-            header_image_height:
-                label: 'Header Image Height'
+            header_height:
+                label: 'Header Height'
                 hint: 'Enter the height (in pixels) of the header area. If using the Header Image field above, specify the height of that header image.'
                 type: text
                 default: 50
-                tag: HeaderImageHeight
+                tag: HeaderHeight
                 republish: styles
                 fieldset: header
                 order: 2
@@ -346,6 +346,57 @@ template_sets:
                 republish: styles
                 fieldset: header
                 order: 5
+            nav_menu_separator:
+                label: 'Navigation Menu'
+                hint: 'If enabling the Navigation Menu feature, note that it increases the height of the header area. The increased height is in addition to whatever is specified in the Header Height field, above. The Navigation Menu will add about 30-40 pixels to the height of the header area, depending upon the body text font size used.'
+                type: separator
+                fieldset: header
+                order: 10
+            nav_menu_enable:
+                label: 'Use Navigation Menu?'
+                hint: 'Enable or disable the navigation menu.'
+                type: checkbox
+                default: 1
+                tag: UseNavMenu
+                fieldset: header
+                order: 11
+            nav_menu_home:
+                label: 'Display Home Link?'
+                type: checkbox
+                default: 1
+                tag: NavMenuHome
+                fieldset: header
+                order: 12
+            nav_menu_archives:
+                label: 'Display Site Archives Link?'
+                type: checkbox
+                tag: NavMenuArchives
+                fieldset: header
+                order: 13
+            nav_menu_categories:
+                label: 'Display Categories Link?'
+                type: checkbox
+                tag: NavMenuCategories
+                fieldset: header
+                order: 14
+            nav_menu_page_1:
+                label: 'Page 1'
+                type: page
+                tag: NavMenuPage1
+                fieldset: header
+                order: 15
+            nav_menu_page_2:
+                label: 'Page 2'
+                type: page
+                tag: NavMenuPage2
+                fieldset: header
+                order: 16
+            nav_menu_page_3:
+                label: 'Page 3'
+                type: page
+                tag: NavMenuPage3
+                fieldset: header
+                order: 17
             # Footer
             footer_alpha_separator:
                 label: 'First Column'

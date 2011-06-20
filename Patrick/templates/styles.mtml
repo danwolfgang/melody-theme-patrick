@@ -101,58 +101,61 @@ a:active { color: <mt:LinkStateColorActive>; }
     <mt:AssetProperty property="image_height" setvar="top">
     top: <mt:Var name="top" op="-" value="50">px;
     
+    <mt:SetVarBlock name="gradient"><mt:PictaculousPalette format="rgb"><mt:Var name="accent_color"></mt:PictaculousPalette></mt:SetVarBlock>
+    <mt:SetVarBlock name="gradient_hex"><mt:PictaculousPalette format="hex"><mt:Var name="accent_color"></mt:PictaculousPalette></mt:SetVarBlock>
+
     /* FF3.6+ */
     background-image: -moz-linear-gradient(
         top, rgba(255, 255, 255, 0) 0%, 
-        rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) 100%
+        rgba(<mt:Var name="gradient">, 1) 100%
     );
     /* Chrome,Safari4+ */
     background-image: -webkit-gradient(
         linear, left top, left bottom, 
         from( rgba(255, 255, 255, 0) ),
-        to( rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) )
+        to( rgba(<mt:Var name="gradient">, 1) )
     );
     /* Chrome10+,Safari5.1+ */
     background-image: -webkit-linear-gradient(
         top, 
         rgba(255, 255, 255, 0) 0%,
-        rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) 100%
+        rgba(<mt:Var name="gradient">, 1) 100%
     );
     /* Opera11.10+ */
     background-image: -o-linear-gradient(
         top, 
         rgba(255, 255, 255, 0) 0%,
-        rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) 100%
+        rgba(<mt:Var name="gradient">, 1) 100%
     );
     /* IE10+ */
     background-image: -ms-linear-gradient(
         top, 
         rgba(255, 255, 255, 0) 0%,
-        rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) 100%
+        rgba(<mt:Var name="gradient">, 1) 100%
     );
     /* IE6-9 */
     filter: progid:DXImageTransform.Microsoft.gradient( 
         startColorstr=0, 
-        endColorStr=<mt:PictaculousPalette format="hex"><mt:Var name="container_background"></mt:PictaculousPalette>,
+        endColorStr=<mt:Var name="gradient_hex">,
         GradientType=1
     );
     /* W3C */
     background-image: linear-gradient(
         top, 
         rgba(255, 255, 255, 0) 0%,
-        rgba(<mt:PictaculousPalette format="rgb"><mt:Var name="container_background"></mt:PictaculousPalette>, 1) 100%
+        rgba(<mt:Var name="gradient">, 1) 100%
     );
 }
 </mt:ContainerImageAsset>
 
 #header {
-    height: <mt:HeaderImageHeight>px;
     <mt:Var name="header_bg_color">
 <mt:HeaderImageAsset>
     background-image: url(<mt:AssetURL>);
     background-position: center top;
     background-repeat: no-repeat;
 </mt:HeaderImageAsset>
+    overflow: hidden;
 }
 
 #header-name {
@@ -164,6 +167,7 @@ a:active { color: <mt:LinkStateColorActive>; }
 </mt:SubheadFontFont>
     letter-spacing: <mt:SubheadLetterSpacing>px;
     line-height: <mt:SubheadLineHeight>%;
+    margin: 0;
 }
 
 #header-name a:link,
@@ -173,7 +177,7 @@ a:active { color: <mt:LinkStateColorActive>; }
     text-decoration: none;
     color: <mt:BlogNameTextColor>;
     padding: 10px;
-    height: <mt:HeaderImageHeight>px;
+    height: <mt:HeaderHeight>px;
     width: 970px;
     display: table-cell;
     vertical-align: middle;
@@ -181,6 +185,38 @@ a:active { color: <mt:LinkStateColorActive>; }
     overflow: hidden;
     <mt:Unless tag="HeaderBlogNameDisplay">text-indent: -2000px;</mt:Unless>
 }
+
+#nav-menu {
+    float: left;
+    width: 100%;
+    <mt:SetVarBlock name="gradient_hex"><mt:PictaculousPalette format="hex"><mt:Var name="accent_color"></mt:PictaculousPalette></mt:SetVarBlock>
+    border-top: 1px solid <mt:Var name="gradient_hex">;
+}
+
+#nav-menu ul {
+    margin: 0;
+    float: left;
+}
+
+#nav-menu li {
+    list-style-type: none;
+    float: left
+}
+
+#nav-menu li a {
+    display: block;
+    padding: 7px 20px 4px;
+    text-decoration: none;
+    /* Use the value for the gradient/accent color, set above. */
+    border-right: 1px solid <mt:Var name="gradient_hex">;
+    color: <mt:BodyTextColor>;
+}
+
+#nav-menu li a:hover {
+    /* Use the value for the gradient/accent color, set above. */
+    background-color: <mt:Var name="gradient_hex">;
+}
+
 
 #content {
     padding: 10px;
