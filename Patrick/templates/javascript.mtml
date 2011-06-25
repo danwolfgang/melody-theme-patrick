@@ -18,4 +18,13 @@ $(document).ready(function() {
     $('#alpha, #beta, #gamma').equalizeCols();
 </mt:If>
 </mt:Ignore>
+
+    // The height of the alpha column should be at least as tall as the beta
+    // column. Then do it again after a delay, which is hopefully enough time
+    // for  Facebook to have loaded, so we can again try to "resync" the
+    // height. Wait 1 second to try this.
+    setTimeout( 
+        $('#alpha').css('min-height', $('#beta').height() ),
+        1000
+    );
 });
