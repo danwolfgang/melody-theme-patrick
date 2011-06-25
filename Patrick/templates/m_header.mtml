@@ -29,39 +29,7 @@
                 </mt:If>
             </mt:If>
 
-            <mt:If tag="UseNavMenu">
-                <div id="nav-menu">
-                    <ul>
-                    <mt:If tag="NavMenuHome">
-                        <li><a href="<mt:BlogURL>">Home</a></li>
-                    </mt:If>
-                    <mt:If tag="NavMenuArchives">
-                        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
-                    </mt:If>
-                    <mt:If tag="NavMenuCategories">
-                        <li><a href="<mt:Link template="category_listing">">Categories</a></li>
-                    </mt:If>
-                    <mt:If tag="NavMenuPage1">
-                        <mt:NavMenuPage1 setvar="page_id">
-                        <mt:Pages id="$page_id">
-                        <li><a href="<mt:PagePermalink>"><mt:PageTitle></a></li>
-                        </mt:Pages>
-                    </mt:If>
-                    <mt:If tag="NavMenuPage2">
-                        <mt:NavMenuPage2 setvar="page_id">
-                        <mt:Pages id="$page_id">
-                        <li><a href="<mt:PagePermalink>"><mt:PageTitle></a></li>
-                        </mt:Pages>
-                    </mt:If>
-                    <mt:If tag="NavMenuPage3">
-                        <mt:NavMenuPage3 setvar="page_id">
-                        <mt:Pages id="$page_id">
-                        <li><a href="<mt:PagePermalink>"><mt:PageTitle></a></li>
-                        </mt:Pages>
-                    </mt:If>
-                    </ul>
-                </div>
-            </mt:If>
+                <mt:Include module="Header Navigation Menu">
             </div>
         </div>
 

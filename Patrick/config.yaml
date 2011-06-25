@@ -1064,6 +1064,8 @@ template_sets:
                     label: 'Footer Content'
                 m_header:
                     label: 'Header'
+                m_header_nav_menu:
+                    label: 'Header Navigation Menu'
                 m_html_head:
                     label: 'HTML Head'
                     cache:
