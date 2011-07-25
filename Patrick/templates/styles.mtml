@@ -52,8 +52,15 @@
     <mt:SetVarBlock name="alpha_collapse"><mt:If name="container_background" eq="$alpha_column_background">1</mt:if></mt:SetVarBlock>
     <mt:SetVarBlock name="beta_collapse"><mt:If name="container_background" eq="$beta_column_background">1</mt:if></mt:SetVarBlock>
     <mt:SetVarBlock name="gamma_collapse"><mt:If name="container_background" eq="$gamma_column_background">1</mt:if></mt:SetVarBlock>
-    
+
 </mt:PictaculousPalette>
+
+<mt:If tag="AccentGradient">
+    background-image: url(<mt:PluginStaticWebPath component="patrick">images/gradient-top.png) 
+    background-position: 0 -20px;
+    background-repeat: repeat-x;
+</mt:If>
+
 
 body {
     <mt:Var name="body_bg_color">
@@ -191,6 +198,9 @@ a:active { color: <mt:LinkStateColorActive>; }
     width: 100%;
     <mt:SetVarBlock name="gradient_hex"><mt:PictaculousPalette format="hex"><mt:Var name="accent_color"></mt:PictaculousPalette></mt:SetVarBlock>
     border-top: 1px solid <mt:Var name="gradient_hex">;
+<mt:If tag="AccentGradient">
+    background: url(<mt:PluginStaticWebPath component="patrick">images/gradient-top.png) 0 5px repeat-x;
+</mt:If>
 }
 
 #nav-menu ul {
@@ -215,7 +225,9 @@ a:active { color: <mt:LinkStateColorActive>; }
 #nav-menu li a:hover,
 #nav-menu li a.active {
     /* Use the value for the gradient/accent color, set above. */
-    background-color: <mt:Var name="gradient_hex">;
+    <mt:If tag="AccentGradient">
+        background: <mt:Var name="gradient_hex"> url(<mt:PluginStaticWebPath component="patrick">images/gradient-top.png) 0 -25px repeat-x;
+    </mt:If>
 }
 
 
