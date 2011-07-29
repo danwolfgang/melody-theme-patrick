@@ -55,12 +55,13 @@
 
 </mt:PictaculousPalette>
 
-<mt:If tag="AccentGradient">
-    background-image: url(<mt:PluginStaticWebPath component="patrick">images/gradient-top.png) 
+<mt:SetVarBlock name="accent_gradient">
+    <mt:If tag="AccentGradient">
+    background-image: url(<mt:PluginStaticWebPath component="patrick">images/gradient-top.png);
     background-position: 0 -20px;
     background-repeat: repeat-x;
-</mt:If>
-
+    </mt:If>
+</mt:SetVarBlock>
 
 body {
     <mt:Var name="body_bg_color">
@@ -163,6 +164,7 @@ a:active { color: <mt:LinkStateColorActive>; }
     background-repeat: no-repeat;
 </mt:HeaderImageAsset>
     overflow: hidden;
+    <mt:Var name="accent_gradient">
 }
 
 #header-name {
@@ -247,6 +249,7 @@ a:active { color: <mt:LinkStateColorActive>; }
     float: left;
     padding: 10px;
     overflow: hidden;
+    <mt:Var name="accent_gradient">
 }
 
 #alpha { <mt:Var name="alpha_column_bg_color"> }
@@ -308,6 +311,7 @@ a:active { color: <mt:LinkStateColorActive>; }
     padding: 10px 0px 10px;
     float: left;
     width: 100%;
+    <mt:Var name="accent_gradient">
 }
 
 .footer-column {
@@ -457,6 +461,7 @@ li {
     <mt:Var name="widget_bg_color">
     margin-bottom: 10px;
     padding: 10px;
+    <mt:Var name="accent_gradient">
 }
 
 .widget:last-child {
