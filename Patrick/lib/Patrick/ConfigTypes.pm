@@ -222,12 +222,14 @@ jQuery(document).ready( function() {
     json = eval(json);
 
     // Create the font preview
-    applyFontPreview( 
-        '$field_id', 
-        json[0].typeface, 
-        json[0].size, 
-        json[0].variation
-    );
+    if (json) {
+        applyFontPreview( 
+            '$field_id', 
+            json[0].typeface, 
+            json[0].size, 
+            json[0].variation
+        );
+    }
 
     // When a field is clicked, update the hidden field.
     jQuery('#$field_id-typefaces, #$field_id-sizes,#$field_id-variations').click(function() {
