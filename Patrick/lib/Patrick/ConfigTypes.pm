@@ -129,8 +129,8 @@ sub _load_tags {
                             my $list = JSON::from_json($value);
 
                             if ($list) {
-                                my $out   = '';
-                                my $vars  = $ctx->{__stash}{vars};
+                                my $out  = '';
+                                my $vars = $ctx->{__stash}{vars};
 
                                 $vars->{'typeface'}  = @$list[0]->{typeface};
                                 $vars->{'size'}      = @$list[0]->{size};
