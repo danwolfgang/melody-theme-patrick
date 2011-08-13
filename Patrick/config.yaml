@@ -216,40 +216,6 @@ template_sets:
                 type: separator
                 fieldset: design
                 order: 10
-            subhead_font:
-                label: 'Subhead Font'
-                hint: 'Select a typeface and variation to use for subheads. Note that the size option is used as a percentage of the body font for the H1 tag.'
-                type: font
-                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
-                sizes: '50,75,100,125,150,175,200,225,250,275,300,325,350,375,400'
-                variations: 'Regular, Bold, Italic, Bold Italic'
-                #preview: 1
-                default: '[{\"typeface\":\"Tahoma\",\"size\":\"300\",\"variation\":\"Bold\"}]'
-                tag: SubheadFont
-                republish: 'styles, main_index'
-                fieldset: design
-                order: 11
-            subhead_letterspacing:
-                label: 'Subhead Letter Spacing'
-                hint: 'Fine-tune the subhead font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
-                type: select
-                # Use the '0.0' value because '0' doesn't save properly.
-                values: '-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0.0,1,2,3,4,5,6,7,8,9,10'
-                default: '0'
-                tag: SubheadLetterSpacing
-                republish: styles
-                fieldset: design
-                order: 12
-            subhead_line_height:
-                label: 'Subhead Line-Height'
-                hint: 'Fine-tune the subhead font display by adjusting the spacing between each line. 100% is &ldquo;normal.&rdquo;'
-                type: select
-                values: '75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200'
-                default: '100'
-                tag: SubheadLineHeight
-                republish: styles
-                fieldset: design
-                order: 13
             body_text_font:
                 label: 'Body Text Font'
                 hint: 'Select a typeface and variation to use for body text.'
@@ -262,7 +228,7 @@ template_sets:
                 tag: BodyTextFont
                 republish: 'styles, main_index'
                 fieldset: design
-                order: 15
+                order: 11
             body_text_letterspacing:
                 label: 'Body Text Letter Spacing'
                 hint: 'Fine-tune the body text font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
@@ -273,17 +239,51 @@ template_sets:
                 tag: BodyTextLetterSpacing
                 republish: styles
                 fieldset: design
-                order: 16
+                order: 12
             body_text_line_height:
                 label: 'Body Text Line-Height'
-                hint: 'Fine-tune the body text font display by adjusting the spacing between each line. 100% is &ldquo;normal.&rdquo;'
+                hint: 'Fine-tune the body text font display by adjusting the percentage of spacing between each line. 100% is &ldquo;normal.&rdquo;'
                 type: select
                 values: '75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200'
                 default: '125'
                 tag: BodyTextLineHeight
                 republish: styles
                 fieldset: design
+                order: 13
+            subhead_font:
+                label: 'Subhead Font'
+                hint: 'Select a typeface and variation to use for subheads. Note that the size option is used as a <em>percentage</em> of the body font for the H1 tag.'
+                type: font
+                typefaces: 'Arial, Georgia, Tahoma, Verdana, Allan, Allerta, Allerta Stencil, Anonymous Pro, Arimo, Arvo, Astloch, Bentham, Buda, Cabin, Calligraffitti, Cantarell, Cardo, Cherry Cream Soda, Chewy, Coda, Coming Soon, Copse, Corben, Cousine, Covered By Your Grace, Crafty Girls, Crimson Text, Crushed, Cuprum, Dancing Script, Droid Sans, Droid Sans Mono, Droid Serif, Fontdiner Swanky, Geo, Goudy Bookletter 1911, Gruppo, Homemade Apple, IM Fell, Inconsolata, Irish Growler, Josefin Sans, Josefin Slab, Just Another Hand, Just Me Again Down Here, Kenia, Kranky, Kreon, Kristi, Lato, Lekton, Lobster, Luckiest Guy, Meddon, Merriweather, Molengo, Mountains of Christmas, Neucha, Neuton, Nobile, OFL Sorts Mill Goudy TT, Old Standard TT, Orbitron, PT Sans, PT Serif, Permanent Marker, Philosopher, Puritan, Radley, Raleway, Reenie Beanie, Rock Salt, Schoolbell, Slackey, Sniglet, Sunshiney, Syncopate, Tangerine, Tinos, Ubuntu, UnifrakturCook, UnifrakturMaguntia, Unkempt, Vibur, Vollkorn, Walter Turncoat, Yanone Kaffeesatz'
+                sizes: '50,75,100,125,150,175,200,225,250,275,300,325,350,375,400'
+                variations: 'Regular, Bold, Italic, Bold Italic'
+                #preview: 1
+                default: '[{\"typeface\":\"Tahoma\",\"size\":\"300\",\"variation\":\"Bold\"}]'
+                tag: SubheadFont
+                republish: 'styles, main_index'
+                fieldset: design
+                order: 16
+            subhead_letterspacing:
+                label: 'Subhead Letter Spacing'
+                hint: 'Fine-tune the subhead font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
+                type: select
+                # Use the '0.0' value because '0' doesn't save properly.
+                values: '-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0.0,1,2,3,4,5,6,7,8,9,10'
+                default: '0'
+                tag: SubheadLetterSpacing
+                republish: styles
+                fieldset: design
                 order: 17
+            subhead_line_height:
+                label: 'Subhead Line-Height'
+                hint: 'Fine-tune the subhead font display by adjusting the percentage of spacing between each line. 100% is &ldquo;normal.&rdquo;'
+                type: select
+                values: '75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200'
+                default: '100'
+                tag: SubheadLineHeight
+                republish: styles
+                fieldset: design
+                order: 18
             container_separator:
                 label: 'Container Area Configuration'
                 type: separator
