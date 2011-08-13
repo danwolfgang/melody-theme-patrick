@@ -323,13 +323,13 @@ sub pictaculous {
     # keeps the field contents manageable.
     $out .= "<div id=\"$field_id-nav\">\n";
     $out .= "   <ul>\n";
-    $out .= "       <li id=\"$field_id-image-nav\" style=\"display: inline; padding: 5px 5px 6px; border: 1px solid #dfecf2; border-bottom: 1px solid #fff; background: #fff; cursor: pointer;\">Source Image</li>\n";
+    $out .= "       <li id=\"$field_id-image-nav\" style=\"display: inline; padding: 5px 5px 6px; border: 1px solid #dfecf2; border-bottom: 1px solid #fff; cursor: pointer;\">Source Image</li>\n";
     $out .= "       <li id=\"$field_id-palette-nav\" style=\"display: inline; padding: 5px 5px 6px; border: 1px solid #dfecf2; background: #dfecf2; cursor: pointer;\">Choose Palette</li>\n";
     $out .= "       <li id=\"$field_id-colors-nav\" style=\"display: inline; padding: 5px 5px 6px; border: 1px solid #dfecf2; background: #dfecf2; cursor: pointer;\">Order Colors</li>\n";
     $out .= "   </ul>\n";
     $out .= "</div>\n";
     
-    $out .= "<div id=\"$field_id-container\" style=\"margin-top: 5px; padding: 0px 10px 8px; border: 1px solid #dfecf2; background: #fff;\">\n";
+    $out .= "<div id=\"$field_id-container\" style=\"margin-top: 5px; padding: 0px 10px 8px; border: 1px solid #dfecf2;\">\n";
     # Create a text field where the URL to an image can reside. This is the
     # image used to build the color palette. The value is filled in from the
     # $value field with the big object with all of the palettes.
@@ -580,14 +580,14 @@ function savePaletteData() {
 function selectPalette(selected) {
     //The user has chosen a palette. Let's save their selection.
     savePaletteData();
-    
+
     // Push the selected palette over to the Order Colors tab
     createSelectedPalette(selected);
-    
+
     // Reset the named colors in the Order Colors tab. Because the user has
     // picked a new selected palette, we want them to be able to start fresh.
     jQuery('#$field_id-color-names span div').css('background-color', '#fff');
-    
+
     // After selecting, jump to the Order Colors tab
     tabbedContent('$field_id-colors-nav');
 }
@@ -768,8 +768,8 @@ function tabbedContent(id) {
         jQuery(this).css('border-bottom', '1px solid #dfecf2');
         jQuery(this).css('background',    '#dfecf2');
     });
-    jQuery('#'+id).css('border-bottom', '1px solid #fff');
-    jQuery('#'+id).css('background',    '#fff');
+    jQuery('#'+id).css('border-bottom', '1px solid #f0f0f0');
+    jQuery('#'+id).css('background', '#f0f0f0' );
 }
 </script>
 END
