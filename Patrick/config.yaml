@@ -747,6 +747,25 @@ template_sets:
                 tag: WidgetDisplayStyle
                 fieldset: widgets
                 order: 1
+            widget_ad_separator:
+                label: 'Advertisiting Widget'
+                type: separator
+                fieldset: widgets
+                order: 10
+            widget_ad_title:
+                label: 'Ad Widget Title'
+                hint: 'A title for the Ad Widget is optional; &ldquo;Sponsor&rdquo; is popular title text.'
+                type: text
+                tag: WidgetAdTitle
+                fieldset: widgets
+                order: 11
+            widget_ad_textarea:
+                label: 'Ad Widget Textarea'
+                hint: 'The advertising widget can display one or many ads. This is simply a textarea to paste ad code into.'
+                type: textarea
+                tag: WidgetAdTextarea
+                fieldset: widgets
+                order: 12
             # Facebook Options
             fb_app_id:
                 label: 'Facebook Application ID'
@@ -1138,6 +1157,7 @@ template_sets:
                         - 'Previous-Next Navigation'
                         - 'Facebook Recommendations'
                         - 'Twitter Follow'
+                        - 'Advertisement'
                         - 'Search'
                         - 'Recent Entries'
                         - 'Category Archives'
@@ -1146,6 +1166,12 @@ template_sets:
                 third_column:
                     label: 'Third Column'
             widget:
+                w_ad:
+                    label: 'Advertisement'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 5
+                        include_with_ssi: 1
                 w_author_archive_list:
                     label: 'Author Archives'
                     cache:
