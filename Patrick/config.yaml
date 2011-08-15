@@ -569,7 +569,7 @@ template_sets:
                 hint: 'The Featured Entries Carousel is built with the jQuery <a href="http://jquery.malsup.com/cycle/" target="_blank">Cycle</a> plugin. For more information on the following options refer to the plugin documentation and examples.'
                 type: separator
                 fieldset: home_page_formatting
-                order: 10
+                order: 20
             home_carousel_height:
                 label: 'Carousel Height'
                 hint: "Specify the height (vertical space) of the carousel in pixels. The carousel height should be selected based upon the size you'd like the carousel to be, but must also be set based upon the length and amount of text being displayed in the carousel. The width of the carousel is specified by the width of the column."
@@ -578,7 +578,7 @@ template_sets:
                 tag: HomeCarouselHeight
                 republish: 'main_index,styles'
                 fieldset: home_page_formatting
-                order: 11
+                order: 21
             home_carousel_contents:
                 label: 'Carousel Contents'
                 hint: 'Select the items to appear within the the carousel window for each slide in the carousel.'
@@ -588,11 +588,11 @@ template_sets:
                 tag: HomeCarouselContents
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 12
+                order: 22
             home_carousel_cycle_separator:
                 type: separator
                 fieldset: home_page_formatting
-                order: 20
+                order: 30
             home_carousel_fx:
                 label: 'Display Effect'
                 hint: 'You can choose from any of these named effects. Preview each effect with the <a href="http://jquery.malsup.com/cycle/browser.html" target="_blank">Cycle Effects Browser</a>.'
@@ -602,7 +602,7 @@ template_sets:
                 tag: HomeCarouselFX
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 21
+                order: 31
             home_carousel_sync:
                 label: 'Display Effect Sync'
                 hint: 'Toggle the sync option to see how some effects behave differently. Preview each effect with the <a href="http://jquery.malsup.com/cycle/browser.html" target="_blank">Cycle Effects Browser</a>.'
@@ -610,7 +610,7 @@ template_sets:
                 tag: HomeCarouselSync
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 22
+                order: 32
             home_carousel_speed:
                 label: 'Slide Transition Speed'
                 hint: 'Millisecond duration of the slide transition. Enter &ldquo;0&rdquo; to disable animation.'
@@ -619,7 +619,7 @@ template_sets:
                 tag: HomeCarouselSpeed
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 23
+                order: 33
             home_carousel_timeout:
                 label: 'Slide Duration'
                 hint: 'Milliseconds between slide transitions Enter &ldquo;0&rdquo; to disable auto-advance.'
@@ -628,7 +628,7 @@ template_sets:
                 tag: HomeCarouselTimeout
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 24
+                order: 34
             home_carousel_pager:
                 label: 'Slide Navigation'
                 hint: 'Include navigation buttons for the slide carousel.'
@@ -637,7 +637,7 @@ template_sets:
                 tag: HomeCarouselPager
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 25
+                order: 35
             # Entry Formatting
             entry_meta_separator:
                 label: 'Entry Meta Content'
