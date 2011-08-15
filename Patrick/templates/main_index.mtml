@@ -18,6 +18,8 @@
 </mt:SetVarBlock>
 <mt:Include module="Header">
 
+<mt:HomeEntriesFeaturedText filters="markdown_with_smartypants">
+
 <mt:If tag="HomeEntriesFeaturedCount" gt="0">
     <mt:HomeEntriesFeaturedCount setvar="lastn">
 <div class="featured-entries">
@@ -33,6 +35,8 @@
     </mt:Entries>
 </div>
 </mt:If>
+
+<mt:HomeEntriesSummarizedText filters="markdown_with_smartypants">
 
 <mt:If tag="HomeEntriesSummarizedCount" gt="0">
     <mt:HomeEntriesSummarizedCount setvar="lastn">
@@ -50,6 +54,8 @@
 </div>
 </mt:If>
 
+<mt:HomeEntriesListText filters="markdown_with_smartypants">
+
 <mt:If tag="HomeEntriesListedCount" gt="0">
     <mt:HomeEntriesListedCount setvar="lastn">
     <mt:HomeEntriesListedOffset setvar="offset">
@@ -65,5 +71,7 @@
     </mt:Entries>
 </div>
 </mt:If>
+
+<mt:HomeEntriesFooterText filters="markdown_with_smartypants">
 
 <mt:Include module="Footer">

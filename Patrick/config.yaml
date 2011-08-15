@@ -511,9 +511,18 @@ template_sets:
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'
+                hint: 'Entries can be shown on the home page is three different formats: featured, summarized, and listed. Featured is a large, image-based display. Summarized displays an excerpt of the entry. Listed simply links the entry title. Any combination of these options can be used. Several textareas surround the entry display types and provide space to include HTML to describe the entry or place other content.'
                 type: separator
                 fieldset: home_page_formatting
                 order: 1
+            home_entries_featured_text:
+                label: 'Text Above Featured Entries'
+                hint: 'Enter Markdown-formatted text or HTML.'
+                type: textarea
+                tag: HomeEntriesFeaturedText
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 2
             home_entries_featured_count:
                 label: 'Featured Entries'
                 hint: 'How many entries should appear on the home page in the &ldquo;Featured&rdquo; format? (The &ldquo;Featured&rdquo; format places an entry in the carousel.) Be sure to complete the Carousel Configuration area below if you use this feature.'
@@ -523,7 +532,15 @@ template_sets:
                 tag: HomeEntriesFeaturedCount
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 2
+                order: 3
+            home_entries_summary_text:
+                label: 'Text Above Summarized Entries'
+                hint: 'Enter Markdown-formatted text or HTML.'
+                type: textarea
+                tag: HomeEntriesSummarizedText
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 4
             home_entries_summary_count:
                 label: 'Summarized Entries Count'
                 hint: 'How many entries should appear on the home page in the &ldquo;Summarized&rdquo; format? (The &ldquo;Excerpted&rdquo; format includes the entry title, byline and publish date, and Entry Excerpt or Body fields.)'
@@ -533,7 +550,7 @@ template_sets:
                 tag: HomeEntriesSummarizedCount
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 3
+                order: 5
             home_entries_summary_offset:
                 label: 'Summarized Entries Offset'
                 hint: 'When using the Featured Entries Carousel, you may choose to offset the Summarized Entries so that entries are not duplicated.'
@@ -543,7 +560,15 @@ template_sets:
                 tag: HomeEntriesSummarizedOffset
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 4
+                order: 6
+            home_entries_list_text:
+                label: 'Text Above Listed Entries'
+                hint: 'Enter Markdown-formatted text or HTML.'
+                type: textarea
+                tag: HomeEntriesListText
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 7
             home_entries_list_count:
                 label: 'Listed Entries Count'
                 hint: 'How many entries should appear on the home page in the &ldquo;Listed&rdquo; format? (The &ldquo;Listed&rdquo; format includes the entry title only.)'
@@ -553,7 +578,7 @@ template_sets:
                 tag: HomeEntriesListedCount
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 5
+                order: 8
             home_entries_list_offset:
                 label: 'Listed Entries Offset'
                 hint: 'When using the Featured Entries Carousel and/or Summarized Entries format, you may choose to offset the Listed Entries so that entries are not duplicated.'
@@ -563,7 +588,15 @@ template_sets:
                 tag: HomeEntriesListedOffset
                 republish: main_index
                 fieldset: home_page_formatting
-                order: 6
+                order: 9
+            home_entries_footer_text:
+                label: 'Text Below Listed Entries'
+                hint: 'Enter Markdown-formatted text or HTML.'
+                type: textarea
+                tag: HomeEntriesFooterText
+                republish: main_index
+                fieldset: home_page_formatting
+                order: 10
             home_carousel_separator:
                 label: 'Featured Entries Carousel Configuration'
                 hint: 'The Featured Entries Carousel is built with the jQuery <a href="http://jquery.malsup.com/cycle/" target="_blank">Cycle</a> plugin. For more information on the following options refer to the plugin documentation and examples.'
