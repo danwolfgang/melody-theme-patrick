@@ -113,3 +113,22 @@ a matter of trial and error to make everything fit as you like.</p>
 <p>The Twitter username is required for the Follow button, but optional for
 use with the Retweet button.</p>
 
+
+<h3>Adding Additional Widgets</h3>
+
+<p>Additional widgets can be created for use in the sidebars. In order to make
+their formatting match other widgets, they will need to follow some basic
+formatting provided by some simple HTML:</p>
+
+<pre>&lt;div class="widget-archive-author widget-archive widget"&gt;
+    &lt;h3 class="widget-header"&gt;Widget Title&lt;/h3&gt;
+    &lt;div class="widget-content"&gt;
+        &lt;p&gt;Any widget content goes here.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p>The widget header line is optional; if you don't want to include a title
+with your widget just exclude the following:</p>
+
+<pre>&lt;h3 class="widget-header"&gt;Widget Title&lt;/h3&gt;</pre>
+
