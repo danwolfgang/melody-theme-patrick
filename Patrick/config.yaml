@@ -308,23 +308,30 @@ template_sets:
                 fieldset: design
                 order: 32
             # Header
+            header_ad:
+                label: 'Header Ad'
+                hint: 'The top of the header area can display an advertisement. Paste your ad code here to display; be sure the Header Image and Header Height acccount for the space required by the ad.'
+                type: textarea
+                tag: HeaderAd
+                fieldset: header
+                order: 1
             header_image:
                 label: 'Header Image'
-                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide.'
+                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide. The height of the header image should account for a header ad (if used), the clickable height, and the navigation menu.'
                 type: file
                 tag: HeaderImage
                 republish: styles
                 fieldset: header
-                order: 1
-            header_height:
-                label: 'Header Height'
-                hint: 'Enter the height (in pixels) of the header area. If using the Header Image field above, specify the height of that header image.'
+                order: 2
+            header_clickable_height:
+                label: 'Clickable Height'
+                hint: 'Enter the height (in pixels) of the clickable area of the header. The clickable area links to the blog home.'
                 type: text
                 default: 50
-                tag: HeaderHeight
+                tag: HeaderClickableHeight
                 republish: styles
                 fieldset: header
-                order: 2
+                order: 3
             header_background_transparency:
                 label: ' Transparency'
                 hint: 'The Header area can be made transparent, particularly if you want the Container Background Image to show through. A value of &ldquo;1.0&rdquo; is completely opaque and &ldquo;0.0&rdquo; is completely transparent.'
@@ -334,7 +341,7 @@ template_sets:
                 tag: HeaderTransparency
                 republish: styles
                 fieldset: header
-                order: 3
+                order: 4
             header_blog_name_display:
                 label: 'Text Blog Name Display'
                 hint: 'Show the blog name text in the header area. Disable if you specify a header image that includes your blog&rsquo;s name as part of the image.'
@@ -343,7 +350,7 @@ template_sets:
                 tag: HeaderBlogNameDisplay
                 republish: styles
                 fieldset: header
-                order: 4
+                order: 5
             header_text_alignment:
                 label: 'Text Alignment'
                 hint: 'If the Text Blog Name Display is enabled, specify the alignment of the text.'
@@ -353,10 +360,10 @@ template_sets:
                 tag: BlogNameTextAlignment
                 republish: styles
                 fieldset: header
-                order: 5
+                order: 6
             nav_menu_separator:
                 label: 'Navigation Menu'
-                hint: 'If enabling the Navigation Menu feature, note that it increases the height of the header area. The increased height is in addition to whatever is specified in the Header Height field, above. The Navigation Menu will add about 30-40 pixels to the height of the header area, depending upon the body text font size used.'
+                hint: 'If enabling the Navigation Menu feature, note that it increases the height of the header area. The increased height is in addition to whatever is specified in the Clickable Height and Header Ad fields, above. The Navigation Menu will add about 30-40 pixels to the height of the header area, depending upon the body text font size used.'
                 type: separator
                 fieldset: header
                 order: 10

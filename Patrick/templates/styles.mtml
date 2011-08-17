@@ -167,6 +167,15 @@ a:active { color: <mt:LinkStateColorActive>; }
     <mt:Var name="accent_gradient">
 }
 
+#header-ad {
+    text-align: center;
+}
+
+#header-ad-inner {
+    text-align: left;
+    display: inline-block;
+}
+
 #header-name {
 <mt:SubheadFontFont>
     font-family: <mt:Var name="typeface">;
@@ -186,7 +195,7 @@ a:active { color: <mt:LinkStateColorActive>; }
     text-decoration: none;
     color: <mt:BlogNameTextColor>;
     padding: 10px;
-    height: <mt:HeaderHeight>px;
+    height: <mt:HeaderClickableHeight>px;
     width: 970px;
     display: table-cell;
     vertical-align: middle;
