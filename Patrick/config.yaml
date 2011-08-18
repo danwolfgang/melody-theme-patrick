@@ -33,19 +33,23 @@ template_sets:
             fieldsets:
                 colors:
                     label: 'Color Palette'
+                    hint: 'In addition to choosing a color palette for the elements of the blog, you can specify the colors for various text.'
                     order: 1
                 design:
                     label: 'Design'
+                    hint: 'Specify assorted design options to assemble the general design of the blog.'
                     order: 2
                 header:
                     label: 'Blog Header'
+                    hint: 'Specify the contents of the header area. The color of the header area is specified in the Color Palette tab.'
                     order: 3
                 footer:
                     label: 'Blog Footer'
-                    hint: 'The blog footer area has three columns.'
+                    hint: 'The blog footer area is made up of three columns.'
                     order: 4
                 home_page_formatting:
                     label: 'Home Page Formatting'
+                    hint: 'The blog home page is specially-formatted to display entries in different formats.'
                     order: 5
                 entry_formatting:
                     label: 'Entry Formatting'
@@ -63,9 +67,11 @@ template_sets:
                     order: 9
                 twitter:
                     label: 'Twitter'
+                    hint: 'This theme has many configuration options for Twitter integration.'
                     order: 10
                 htaccess:
                     label: '.htaccess Rules'
+                    hint: 'This is an advanced feature: specify .htaccess rules with care; you can render your site inaccessible with misconfiguration!'
                     order: 20
                 callbacks:
                     label: 'Callbacks'
@@ -982,12 +988,6 @@ template_sets:
                 fieldset: twitter
                 order: 34
             # .htaccess Rules
-            htaccess_separator:
-                label: 'Custom .htaccess Rules'
-                hint: 'This is an advanced feature! Adding incorrect rules can break your site!'
-                type: separator
-                fieldset: htaccess
-                order: 1
             htaccess:
                 label: 'Custom .htaccess Rules'
                 show_label: 0
@@ -995,7 +995,7 @@ template_sets:
                 rows: 20
                 tag: htaccess
                 fieldset: htaccess
-                order: 2
+                order: 1
             # Callbacks
             callback_head_bottom:
                 label: 'Before &lt;/head&gt;'
