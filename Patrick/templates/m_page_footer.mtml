@@ -1,4 +1,11 @@
 <div class="page-footer">
+
+<mt:If tag="PageCallbackAboveFooter">
+    <div class="page-callback-above-footer">
+        <mt:PageCallbackAboveFooter mteval="1">
+    </div>
+</mt:If>
+
     <div class="meta">
         <mt:If tag="PageMetaBylineDisplay" eq="Below the page content but above the comments">
             <mt:Include module="Meta: Byline">
@@ -8,4 +15,11 @@
         </mt:If>
         <mt:CallbackPageFooter>
     </div>
+
+<mt:If tag="PageCallbackBelowFooter">
+    <div class="page-callback-below-footer">
+        <mt:PageCallbackBelowFooter mteval="1">
+    </div>
+</mt:If>
+
 </div>

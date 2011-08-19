@@ -24,7 +24,9 @@
         <div id="old-comments" class="comments-content">
             </mt:If>
         </mt:CommentsHeader>
+
             <mt:Include module="Comment Detail">
+
         <mt:CommentsFooter>
             <mt:If tag="EntryCommentCount">
             <p><a href="javascript:void(0);" class="read-old-comments">&laquo; Close old comments</a></p>
@@ -36,3 +38,17 @@
 
 </div>
 </mt:IfCommentsActive>
+
+<mt:If tag="EntryClass" eq="Entry">
+    <mt:If tag="EntryCallbackBelowComments">
+<div class="entry-callback-below-comments">
+    <mt:EntryCallbackBelowComments mteval="1">
+</div>
+    </mt:If>
+<mt:Else>
+    <mt:If tag="PageCallbackBelowComments">
+<div class="page-callback-below-comments">
+    <mt:PageCallbackBelowComments mteval="1">
+</div>
+    </mt:If>
+</mt:If>

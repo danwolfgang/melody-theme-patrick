@@ -1,4 +1,11 @@
 <div class="entry-header">
+
+<mt:If tag="EntryCallbackAboveHeader">
+    <div class="entry-callback-above-header">
+        <mt:EntryCallbackAboveHeader mteval="1">
+    </div>
+</mt:If>
+
 <mt:If name="main_index">
     <h2><mt:EntryTitle smarty_pants="1"></h2>
 <mt:Else>
@@ -24,6 +31,12 @@
         <mt:If tag="EntryMetaFBLikeDisplay" eq="Below the entry title but above the entry content">
             <mt:Include module="Meta: Facebook Like">
         </mt:If>
-        <mt:CallbackEntryHeader>
     </div>
+
+<mt:If tag="EntryCallbackBelowHeader">
+    <div class="entry-callback-below-header">
+        <mt:EntryCallbackBelowHeader mteval="1">
+    </div>
+</mt:If>
+
 </div>

@@ -1,4 +1,11 @@
 <div class="entry-footer">
+
+<mt:If tag="EntryCallbackAboveFooter">
+    <div class="entry-callback-above-footer">
+        <mt:EntryCallbackAboveFooter mteval="1">
+    </div>
+</mt:If>
+
     <div class="meta">
         <mt:If tag="EntryMetaBylineDisplay" eq="Below the entry content but above the comments">
             <mt:Include module="Meta: Byline">
@@ -20,4 +27,11 @@
         </mt:If>
         <mt:CallbackEntryFooter>
     </div>
+
+<mt:If tag="EntryCallbackBelowFooter">
+    <div class="entry-callback-below-footer">
+        <mt:EntryCallbackBelowFooter mteval="1">
+    </div>
+</mt:If>
+
 </div>

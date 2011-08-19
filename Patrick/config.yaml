@@ -74,8 +74,8 @@ template_sets:
                     hint: 'This is an advanced feature: specify .htaccess rules with care; you can render your site inaccessible with misconfiguration!'
                     order: 20
                 callbacks:
-                    label: 'Callbacks'
-                    hint: 'Callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as the latest social networking site badge). Note that Melody and Movable Type tags can be used here.'
+                    label: 'Blog Callbacks'
+                    hint: 'Blog callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
                     order: 21
             # Color Palette
             color_palette_separator:
@@ -314,16 +314,16 @@ template_sets:
                 fieldset: design
                 order: 32
             # Header
-            header_ad:
-                label: 'Header Ad'
-                hint: 'The top of the header area can display an advertisement. Paste your ad code here to display; be sure the Header Image and Header Height acccount for the space required by the ad.'
+            header_callback_top:
+                label: 'Header Callback Top'
+                hint: 'The header callback area allows you to add additional HTML, CSS, and Javascript to further customize the header area (such as with an advertisement). Note that Melody template tags can be used here. Be sure the Header Image and Header Height acccount for the space required by the contents of this field.'
                 type: textarea
-                tag: HeaderAd
+                tag: HeaderCallbackTop
                 fieldset: header
                 order: 1
             header_image:
                 label: 'Header Image'
-                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide. The height of the header image should account for a header ad (if used), the clickable height, and the navigation menu.'
+                hint: 'The Header Image field is optional. The header area background color can be set in the Color Palette tab. If used, the header image should measure 970 pixels wide. The height of the header image should account for the header callback area (if used), the clickable height, and the navigation menu.'
                 type: file
                 tag: HeaderImage
                 republish: styles
@@ -726,6 +726,47 @@ template_sets:
                 tag: EntryMetaTagsDisplay
                 fieldset: entry_formatting
                 order: 5
+            entry_callback_separator:
+                label: 'Entry Callbacks'
+                hint: 'Entry callbacks allow you to add additional HTML, CSS, and Javascript to further customize the entry area (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
+                type: separator
+                fieldset: entry_formatting
+                order: 10
+            entry_callback_above_header:
+                label: 'Above Header'
+                type: textarea
+                rows: 5
+                tag: EntryCallbackAboveHeader
+                fieldset: entry_formatting
+                order: 11
+            entry_callback_below_header:
+                label: 'Below Header'
+                type: textarea
+                rows: 5
+                tag: EntryCallbackBelowHeader
+                fieldset: entry_formatting
+                order: 12
+            entry_callback_above_footer:
+                label: 'Above Footer'
+                type: textarea
+                rows: 5
+                tag: EntryCallbackAboveFooter
+                fieldset: entry_formatting
+                order: 13
+            entry_callback_below_footer:
+                label: 'Below Footer'
+                type: textarea
+                rows: 5
+                tag: EntryCallbackBelowFooter
+                fieldset: entry_formatting
+                order: 14
+            entry_callback_below_comments:
+                label: 'Below Comments'
+                type: textarea
+                rows: 5
+                tag: EntryCallbackBelowComments
+                fieldset: entry_formatting
+                order: 15
             # Page Formatting
             page_meta_separator:
                 label: 'Page Meta Content'
@@ -750,6 +791,47 @@ template_sets:
                 tag: PageMetaTagsDisplay
                 fieldset: page_formatting
                 order: 3
+            page_callback_separator:
+                label: 'Page Callbacks'
+                hint: 'Page callbacks allow you to add additional HTML, CSS, and Javascript to further customize the page area (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
+                type: separator
+                fieldset: page_formatting
+                order: 10
+            page_callback_above_header:
+                label: 'Above Header'
+                type: textarea
+                rows: 5
+                tag: PageCallbackAboveHeader
+                fieldset: page_formatting
+                order: 11
+            page_callback_below_header:
+                label: 'Below Header'
+                type: textarea
+                rows: 5
+                tag: PageCallbackBelowHeader
+                fieldset: page_formatting
+                order: 12
+            page_callback_above_footer:
+                label: 'Above Footer'
+                type: textarea
+                rows: 5
+                tag: PageCallbackAboveFooter
+                fieldset: page_formatting
+                order: 13
+            page_callback_below_footer:
+                label: 'Below Footer'
+                type: textarea
+                rows: 5
+                tag: PageCallbackBelowFooter
+                fieldset: page_formatting
+                order: 14
+            page_callback_below_comments:
+                label: 'Below Comments'
+                type: textarea
+                rows: 5
+                tag: PageCallbackBelowComments
+                fieldset: page_formatting
+                order: 15
             # Sidebar Widgets
             widget_display_style:
                 label: 'Widget Display Style'
@@ -1011,38 +1093,10 @@ template_sets:
                 tag: CallbackBodyBottom
                 fieldset: callbacks
                 order: 2
-            callback_entry_header:
-                label: 'Entry Header'
-                type: textarea
-                rows: 10
-                tag: CallbackEntryHeader
-                fieldset: callbacks
-                order: 10
-            callback_entry_footer:
-                label: 'Entry Footer'
-                type: textarea
-                rows: 10
-                tag: CallbackEntryFooter
-                fieldset: callbacks
-                order: 11
-            callback_page_header:
-                label: 'Page Header'
-                type: textarea
-                rows: 10
-                tag: CallbackPageHeader
-                fieldset: callbacks
-                order: 20
-            callback_page_footer:
-                label: 'Page Footer'
-                type: textarea
-                rows: 10
-                tag: CallbackPageFooter
-                fieldset: callbacks
-                order: 21
         templates:
             archive:
                 entry_listing:
-                    label: 'Entry Archive'
+                    label: 'Entry Listings'
                     mappings:
                         category:
                             archive_type: 'Category'

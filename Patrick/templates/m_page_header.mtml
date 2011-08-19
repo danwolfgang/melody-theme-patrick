@@ -1,4 +1,11 @@
 <div class="page-header">
+
+<mt:If tag="PageCallbackAboveHeader">
+    <div class="page-callback-above-header">
+        <mt:PageCallbackAboveHeader mteval="1">
+    </div>
+</mt:If>
+
     <h1><mt:PageTitle smarty_pants="1"></h1>
 
     <div class="meta">
@@ -10,4 +17,11 @@
         </mt:If>
         <mt:CallbackPageHeader>
     </div>
+
+<mt:If tag="PageCallbackBelowHeader">
+    <div class="page-callback-below-header">
+        <mt:PageCallbackBelowHeader mteval="1">
+    </div>
+</mt:If>
+
 </div>
