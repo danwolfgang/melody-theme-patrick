@@ -1095,8 +1095,8 @@ template_sets:
                 order: 2
         templates:
             archive:
-                entry_listing:
-                    label: 'Entry Listings'
+                entry_archive_listing:
+                    label: 'Entry Archive Listings'
                     mappings:
                         category:
                             archive_type: 'Category'
