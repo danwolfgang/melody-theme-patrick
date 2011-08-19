@@ -1109,8 +1109,6 @@ template_sets:
                     label: 'AJAX Comment'
                 m_comment_detail:
                     label: 'Comment Detail'
-                m_comment_form:
-                    label: 'Comment Form'
                 m_comments:
                     label: 'Comments'
                 m_entry_detail:
@@ -1279,7 +1277,7 @@ blog_preferences:
             archive_type_preferred: 'Individual'
             autolink_urls: 1
             basename_limit: 100
-            commenter_authenticators: 'MovableType,Facebook'
+            commenter_authenticators: 'Facebook'
             convert_paras: 'markdown_with_smartypants'
             convert_paras_commments: 1
             email_new_comments: 1
