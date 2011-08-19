@@ -1,7 +1,7 @@
 name: 'Patrick'
 key: patrick
 id: patrick
-description: 'Patrick is a framework-style theme for Melody and Movable Type.'
+description: 'Patrick is a framework-style theme for Melody'
 author_name: 'Dan Wolfgang'
 author_link: 'http://danandsherree.com'
 version: 0.1
@@ -23,7 +23,7 @@ applications:
 template_sets:
     patrick:
         label: Patrick
-        description: 'Patrick is a framework-style theme for Melody and Movable Type. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
+        description: 'Patrick is a framework-style theme for Melody. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
         documentation: docs.html
         base_path: templates
         #preview: 
