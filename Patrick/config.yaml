@@ -746,27 +746,35 @@ template_sets:
                 tag: EntryCallbackBelowHeader
                 fieldset: entry_formatting
                 order: 12
+            entry_callback_body:
+                label: 'Body'
+                hint: 'This callback is specifically to support including an advertisement next to the entry body. Its display is also conditional: it does not display if the entry in context is in a category names &ldquo;Photos&rdquo; or tagged &ldquo;photo,&rdquo; &ldquo;Photo,&rdquo; &ldquo;photos,&rdquo; or &ldquo;Photos.&rdquo; A 250 pixel wide ad is a great fit for this spot.'
+                type: textarea
+                rows: 5
+                tag: EntryCallbackBody
+                fieldset: entry_formatting
+                order: 14
             entry_callback_above_footer:
                 label: 'Above Footer'
                 type: textarea
                 rows: 5
                 tag: EntryCallbackAboveFooter
                 fieldset: entry_formatting
-                order: 13
+                order: 14
             entry_callback_below_footer:
                 label: 'Below Footer'
                 type: textarea
                 rows: 5
                 tag: EntryCallbackBelowFooter
                 fieldset: entry_formatting
-                order: 14
+                order: 15
             entry_callback_below_comments:
                 label: 'Below Comments'
                 type: textarea
                 rows: 5
                 tag: EntryCallbackBelowComments
                 fieldset: entry_formatting
-                order: 15
+                order: 16
             # Page Formatting
             page_meta_separator:
                 label: 'Page Meta Content'

@@ -2,8 +2,36 @@
     <mt:Include module="Entry Header">
 
     <div class="entry-content">
+
+<mt:Ignore>
+    Display the ad *except* on entries in the Photos category or with the
+    tag "photo" (or any variant). If any of those are true set the
+    `photos_flag` and use that to decide whether to display the ad.
+</mt:Ignore>
+<mt:EntryCategories>
+    <mt:ParentCategories>
+        <mt:If tag="CategoryLabel" eq="Photos">
+            <mt:Var name="photos_flag" value="1">
+        </mt:If>
+    </mt:ParentCategories>
+</mt:EntryCategories>
+<mt:EntryTags>
+    <mt:If tag="TagName" eq="photo"><mt:Var name="photos_flag" value="1"></mt:If>
+    <mt:If tag="TagName" eq="photos"><mt:Var name="photos_flag" value="1"></mt:If>
+    <mt:If tag="TagName" eq="Photo"><mt:Var name="photos_flag" value="1"></mt:If>
+    <mt:If tag="TagName" eq="Photos"><mt:Var name="photos_flag" value="1"></mt:If>
+</mt:EntryTags>
+<mt:Unless name="photos_flag">
+    <mt:If tag="EntryCallbackBody">
+        <div class="entry-callback-body">
+            <mt:EntryCallbackBody mteval="1">
+        </div>
+    </mt:If>
+</mt:Unless>
+
         <mt:EntryBody>
         <mt:EntryMore>
+
     </div>
 
     <mt:Include module="Entry Footer">
