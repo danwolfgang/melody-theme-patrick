@@ -32,7 +32,11 @@ compatible with Movable Type.
 
 ## Plugins
 
-* [Custom CSS](https://github.com/endevver/mt-plugin-customcss)
+* [Config Assistant](https://github.com/openmelody/mt-plugin-config-assistant/downloads) version 2.2.2 or greater (note that this version is newer than what comes with Melody 1.0.2)
+
+### Optional
+
+* [Custom CSS](https://github.com/endevver/mt-plugin-customcss/downloads)
 
 
 # Installation
