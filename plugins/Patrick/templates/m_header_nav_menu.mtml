@@ -24,7 +24,9 @@
             <mt:NavMenuPage1 setvar="page_id">
             <mt:Pages id="$page_id">
             <li>
-                <a href="<mt:PagePermalink>"><mt:PageTitle></a>
+                <a href="<mt:PagePermalink>"
+                    <mt:If tag="PageID" eq="$cur_page_id">class="active"</mt:If>
+                    ><mt:PageTitle></a>
             </li>
             </mt:Pages>
         </mt:If>
@@ -32,7 +34,9 @@
             <mt:NavMenuPage2 setvar="page_id">
             <mt:Pages id="$page_id">
             <li>
-                <a href="<mt:PagePermalink>"><mt:PageTitle></a>
+                <a href="<mt:PagePermalink>"
+                    <mt:If tag="PageID" eq="$cur_page_id">class="active"</mt:If>
+                    ><mt:PageTitle></a>
             </li>
             </mt:Pages>
         </mt:If>
@@ -40,7 +44,9 @@
             <mt:NavMenuPage3 setvar="page_id">
             <mt:Pages id="$page_id">
             <li>
-                <a href="<mt:PagePermalink>"><mt:PageTitle></a>
+                <a href="<mt:PagePermalink>"
+                    <mt:If tag="PageID" eq="$cur_page_id">class="active"</mt:If>
+                    ><mt:PageTitle></a>
             </li>
             </mt:Pages>
         </mt:If>
