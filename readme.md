@@ -30,13 +30,31 @@ one design.
 Patrick requires [Melody](http://openmelody.org) 1.0 or greater. It is not
 compatible with Movable Type.
 
+This theme publishes some templates through the Publish Queue, so you'll want
+to have
+[`run-periodic-tasks`](http://www.movabletype.org/documentation/administrator/setting-up-run-periodic-taskspl.html)
+configured and running.
+
 ## Plugins
 
-* [Config Assistant](https://github.com/openmelody/mt-plugin-config-assistant/downloads) version 2.2.2 or greater (note that this version is newer than what comes with Melody 1.0.2)
+* [Config
+  Assistant](https://github.com/openmelody/mt-plugin-config-assistant/downloads)
+  version 2.2.2 or greater (note that this version is newer than what comes 
+  with Melody 1.0.2)
 
 ### Optional
 
+The following plugins are not required, but are useful plugins that I use
+to run [danandsherree.com](http://danandsherree.com).
+
 * [Custom CSS](https://github.com/endevver/mt-plugin-customcss/downloads)
+* [Default
+  Category](https://github.com/danwolfgang/mt-plugin-default-category/downloads)
+* [Hot Date](https://github.com/danwolfgang/mt-plugin-hot-date/downloads)
+* [Image Asset from
+  Entry](https://github.com/danwolfgang/melody-plugin-image-asset-from-entry/downloads)
+* [PQ Manager](https://github.com/endevver/mt-plugin-pqmanager/downloads)
+* [Wordometer](https://github.com/danwolfgang/mt-plugin-wordometer/downloads)
 
 
 # Installation
@@ -60,9 +78,9 @@ interact with each other.
 # Designer and Developer Options
 
 Patrick includes some new config types for Config Assistant that other theme
-designers and developers can use. The following is built into Patrick; users
-of the theme don't need to worry about the details below. The Patrick theme
-introduces two new Config Types:
+designers and developers can use. The following is information for developers
+only; users of the theme don't need to worry about the details below. The
+Patrick theme introduces two new Config Types:
 
 * `pictaculous`: Uses the [Pictaculous](http://pictaculous.com) service to
   create color palettes from a user-selected image. The user can then select a
