@@ -1,11 +1,22 @@
-<div style="width: 250px; float: right; margin: 0 0 10px 25px; padding: 10px 10px 0 10px; background: #c9e1ee;">
+<div style="width: 200px; float: right; margin: 0 0 10px 25px; padding: 10px 10px 0 10px; background: #c9e1ee;">
     <p><strong>Contents</strong></p>
     <ol>
         <li><a href="#overview">Overview of Features</a></li>
-        <li><a href="#theme-options">Theme Options</a></li>
+        <li><a href="#theme-options">Theme Options</a>
+            <ol style="margin-top: 5px; margin-bottom: 0;">
+                <li><a href="#theme-options-callbacks">Callbacks</a></li>
+                <li><a href="#theme-options-color-palette">Color Palette</a></li>
+                <li><a href="#theme-options-design">Design</a></li>
+                <li><a href="#theme-options-home-page">Home Page Formatting</a></li>
+                <li><a href="#theme-options-facebook">Facebook</a></li>
+                <li><a href="#theme-options-twitter">Twitter</a></li>
+            </ol>
+        </li>
         <li><a href="#adding-widgets">Adding Additional Widgets</a></li>
+        <li><a href="#custom-css">Custom CSS</a></li>
     </ol>
 </div>
+
 
 <h3 style="margin-top: 0;" id="overview">Overview of Features</h3>
 
@@ -43,11 +54,19 @@ features:</p>
 
 <h3 id="theme-options">Theme Options</h3>
 
-<p>Each Theme Option field is not detailed here; the hint of the field should
-(hopefully) offer adequate documentation of the feature. Some features likely
-require a little extra explanation, and that's what you'll find here.</p>
+<p>Each Theme Option field is <em>not</em> detailed here; the hint of the
+field should (hopefully) offer adequate documentation of the feature. Some
+features likely require a little extra explanation, and that's what you'll
+find here.</p>
 
-<h4>Color Palette</h4>
+<h4 id="theme-options-callbacks">Callbacks</h4>
+
+<p>&ldquo;Callback&rdquo; areas are provided for you to further customize
+Patrick with any HTML or Javascript, for example. You'll find some callback
+options in the Blog Callbacks tab, but there are also a few in other tabs:
+Blog Header, Entry Formatting, and Page Formatting.</p>
+
+<h4 id="theme-options-color-palette">Color Palette</h4>
 
 <p>The Pictaculous Palette field returns eleven palettes from the image URL
 you supply, found in the Choose Palette tab. Five are from <a
@@ -74,7 +93,7 @@ element. This is a vague description, I know. Most can ignore this note
 because the spacing will just work and look good, but if you're using some
 custom CSS, this may be important to understand.</p>
 
-<h4>Design</h4>
+<h4 id="theme-options-design">Design</h4>
 
 <p>Setting a large radius in the Layout > Border Radius Theme Option (say,
 larger than about 10) can have undesirable side effects: spacing around the
@@ -82,7 +101,7 @@ Facebook Recommendations plugin, for example, has a square overlap. Depending
 upon the other options and widgets you use, you may want to avoid a large
 radius (if you choose to use a radius at all).</p>
 
-<h4>Home Page Formatting</h4>
+<h4 id="theme-options-home-page">Home Page Formatting</h4>
 
 <p>The Entry Display Configuration section controls how entries are displayed
 on the home page. Entries are displayed in the following order:</p>
@@ -105,7 +124,7 @@ the plugin. I tried to create these options in a way that would require no
 knowledge of jQuery or the Cycle plugin, however to understand all of the
 effects you'll want to refer to the Cycle documentation.</p>
 
-<h4>Facebook</h4>
+<h4 id="theme-options-facebook">Facebook</h4>
 
 <p>There are a variety of features in the Patrick theme to integrate with
 Facebook. In order to moderate comments and view analytics you'll need to
@@ -117,7 +136,7 @@ Facebook's steps</a>.</p>
 controlled by other options. Setting the width, in particular, is likely just
 a matter of trial and error to make everything fit as you like.</p>
 
-<h4>Twitter</h4>
+<h4 id="theme-options-twitter">Twitter</h4>
 
 <p>The Twitter username is required for the Follow button, but optional for
 use with the Retweet button.</p>
@@ -141,3 +160,14 @@ with your widget just exclude the following:</p>
 
 <pre>&lt;h3 class="widget-header"&gt;Widget Title&lt;/h3&gt;</pre>
 
+<p>Content should be added in the "widget-content" element, as you might
+guess.</p>
+
+
+<h3 id="custom-css">Custom CSS</h3>
+
+<p>Want to make some style customizations to this theme? The best way to do
+that is with the <a
+href="https://github.com/endevver/mt-plugin-customcss/downloads">Custom
+CSS</a> plugin. The Custom CSS plugin provides an editing interface to add
+your own styles.</p>
