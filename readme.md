@@ -18,7 +18,7 @@ one design.
 
 * A variety of design options to help individualize your blog: one, two, and
   three column layouts; control element transparency; Entry and Page meta
-  display position; and home page carousel (with the jQuery Carousel plugin).
+  display position; and home page carousel (with the jQuery Cycle plugin).
 
 * Facebook and Twitter integration. Facebook Commenting, Like button, and
   Recommendations social plugins along with Open Graph meta are included. The
