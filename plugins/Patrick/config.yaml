@@ -1167,8 +1167,8 @@ template_sets:
                             build_type: 1
                             file_template: '%-c/%-f'
             module:
-                m_ajax_comment:
-                    label: 'AJAX Comment'
+                # m_ajax_comment:
+                #     label: 'AJAX Comment'
                 m_comment_detail:
                     label: 'Comment Detail'
                 m_comments:
@@ -1310,12 +1310,12 @@ template_sets:
                 w_twitter_follow:
                     label: 'Twitter Follow'
             system:
-                comment_preview:
-                    filename: s_comment_preview.mtml
-                    label: 'Comment Preview'
-                comment_response:
-                    filename: s_comment_response.mtml
-                    label: 'Comment Response'
+                # comment_preview:
+                #     filename: s_comment_preview.mtml
+                #     label: 'Comment Preview'
+                # comment_response:
+                #     filename: s_comment_response.mtml
+                #     label: 'Comment Response'
                 search_results:
                     filename: s_search_results.mtml
                     label: 'Search Results'
