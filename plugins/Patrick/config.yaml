@@ -1128,7 +1128,7 @@ template_sets:
                     label: 'Category Listing'
                     outfile: 'categories.php'
                     rebuild_me: 1
-                    build_type: 1
+                    build_type: 4
                 htaccess:
                     label: '.htaccess'
                     outfile: '.htaccess'
