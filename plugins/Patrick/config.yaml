@@ -26,8 +26,9 @@ template_sets:
         description: 'Patrick is a framework-style theme for Melody. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
         documentation: docs.html
         base_path: templates
-        #preview: 
-        #thumbnail: 
+        preview: preview.jpg
+        thumbnail: thumb.jpg
+        paypal_email: dan@danandsherree.com
         blog_preferences: patrick_preferences
         options:
             fieldsets:
