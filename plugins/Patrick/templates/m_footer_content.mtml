@@ -7,6 +7,10 @@
 <mt:SetVarTemplate name="footer_archives">
     <li><a href="<mt:Link template="archive_index">"><mt:IndexArchivesTitle></a></li>
 </mt:SetVarTemplate>
+<mt:SetVarTemplate name="footer_categories">
+    <li><a href="<mt:Link template="category_listing">"><mt:IndexCategoriesTitle></a></li>
+</mt:SetVarTemplate>
+
 <div id="footer-alpha" class="footer-column">
     <mt:FooterAlphaText filters="markdown_with_smartypants">
     <ul>
@@ -19,6 +23,8 @@
     <mt:If tag="FooterAlphaLinkArchives">
         <mt:Var name="footer_archives">
     </mt:If>
+    <mt:If tag="FooterAlphaLinkCategories">
+        <mt:Var name="footer_categories">
     </mt:If>
     </ul>
 </div>
@@ -35,6 +41,8 @@
     <mt:If tag="FooterBetaLinkArchives">
         <mt:Var name="footer_archives">
     </mt:If>
+    <mt:If tag="FooterBetaLinkCategories">
+        <mt:Var name="footer_categories">
     </mt:If>
     </ul>
 </div>
@@ -51,6 +59,8 @@
     <mt:If tag="FooterGammaLinkArchives">
         <mt:Var name="footer_archives">
     </mt:If>
+    <mt:If tag="FooterGammaLinkCategories">
+        <mt:Var name="footer_categories">
     </mt:If>
     </ul>
 </div>

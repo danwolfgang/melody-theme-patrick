@@ -460,6 +460,14 @@ template_sets:
                 tag: FooterAlphaLinkArchives
                 fieldset: footer
                 order: 14
+            footer_alpha_link_categories:
+                label: 'Categories Link'
+                hint: 'Include a link to the categories page.'
+                type: checkbox
+                default: 1
+                tag: FooterAlphaLinkCategories
+                fieldset: footer
+                order: 15
             footer_beta_separator:
                 label: 'Second Column'
                 type: separator
@@ -493,6 +501,13 @@ template_sets:
                 tag: FooterBetaLinkArchives
                 fieldset: footer
                 order: 24
+            footer_beta_link_categories:
+                label: 'Categories Link'
+                hint: 'Include a link to the categories page.'
+                type: checkbox
+                tag: FooterBetaLinkCategories
+                fieldset: footer
+                order: 25
             footer_gamma_separator:
                 label: 'Third Column'
                 type: separator
@@ -526,6 +541,13 @@ template_sets:
                 tag: FooterGammaLinkArchives
                 fieldset: footer
                 order: 34
+            footer_gamma_link_categories:
+                label: 'Categories Link'
+                hint: 'Include a link to the categories page.'
+                type: checkbox
+                tag: FooterGammaLinkCategories
+                fieldset: footer
+                order: 35
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'
