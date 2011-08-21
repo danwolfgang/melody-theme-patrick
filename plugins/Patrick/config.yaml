@@ -50,33 +50,37 @@ template_sets:
                 home_page_formatting:
                     label: 'Home Page Formatting'
                     hint: 'The blog home page is specially-formatted to display entries in different formats.'
-                    order: 5
+                    order: 10
                 entry_formatting:
                     label: 'Entry Formatting'
-                    order: 6
+                    order: 11
                 page_formatting:
                     label: 'Page Formatting'
-                    order: 7
+                    order: 12
+                index_formatting:
+                    label: 'Index Formatting'
+                    hint: 'Index pages can also be formatted with custom text.'
+                    order: 13
                 widgets:
                     label: 'Sidebar Widgets'
                     hint: 'Contents of the sidebar can be controlled by organizing Widget Sets.'
-                    order: 8
+                    order: 14
                 facebook:
                     label: 'Facebook'
                     hint: 'This theme has many configuration options for Facebook integration.'
-                    order: 9
+                    order: 20
                 twitter:
                     label: 'Twitter'
                     hint: 'This theme has many configuration options for Twitter integration.'
-                    order: 10
+                    order: 21
                 htaccess:
                     label: '.htaccess Rules'
                     hint: 'This is an advanced feature: specify .htaccess rules with care; you can render your site inaccessible with misconfiguration!'
-                    order: 20
+                    order: 30
                 callbacks:
                     label: 'Blog Callbacks'
                     hint: 'Blog callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
-                    order: 21
+                    order: 31
             # Color Palette
             color_palette_separator:
                 label: 'Color Palette Selection'
@@ -840,6 +844,47 @@ template_sets:
                 tag: PageCallbackBelowComments
                 fieldset: page_formatting
                 order: 15
+            # Index Formatting
+            index_categories_separator:
+                label: 'Categories Page'
+                type: separator
+                fieldset: index_formatting
+                order: 1
+            index_categories_title:
+                label: 'Categories Page Title'
+                type: text
+                default: 'Categories'
+                tag: IndexCategoriesTitle
+                republish: 'archive_index, category_listing'
+                fieldset: index_formatting
+                order: 2
+            index_categories_text:
+                label: 'Categories Page Text'
+                type: textarea
+                tag: IndexCategoriesText
+                republish: 'archive_index, category_listing'
+                fieldset: index_formatting
+                order: 3
+            index_archives_separator:
+                label: 'Archives Page'
+                type: separator
+                fieldset: index_formatting
+                order: 10
+            index_archives_title:
+                label: 'Archives Page Title'
+                type: text
+                default: 'Blog Archives'
+                tag: IndexArchivesTitle
+                republish: archive_index
+                fieldset: index_formatting
+                order: 11
+            index_archives_text:
+                label: 'Archives Page Text'
+                type: textarea
+                tag: IndexArchivesText
+                republish: archive_index
+                fieldset: index_formatting
+                order: 12
             # Sidebar Widgets
             widget_display_style:
                 label: 'Widget Display Style'

@@ -1,14 +1,15 @@
 <mt:SetVar name="identifier" value="archive-index">
-<mt:SetVarBlock name="html_title">Site Archives</mt:SetVarBlock>
+<mt:SetVarBlock name="html_title"><mt:IndexArchivesTitle></mt:SetVarBlock>
 
 <mt:Include module="Header">
 
 <div class="entry-header">
     <h1><mt:Var name="html_title"></h1>
+    <mt:IndexArchivesText filters="markdown_with_smartypants">
 </div>
 
 <div class="category-listing">
-    <h2>Categories</h2>
+    <h2><mt:IndexCategoriesTitle></h2>
 <mt:TopLevelCategories>
     <mt:SubCatIsFirst>
     <ul>

@@ -9,15 +9,15 @@
         <mt:If tag="NavMenuArchives">
             <li>
                 <a href="<mt:Link template="archive_index">"
-                <mt:If name="archive_index">class="active"</mt:If>
-                    >Archives</a>
+                    <mt:If name="archive_index">class="active"</mt:If>
+                    ><mt:IndexArchivesTitle></a>
             </li>
         </mt:If>
         <mt:If tag="NavMenuCategories">
             <li>
                 <a href="<mt:Link template="category_listing">"
-                <mt:If name="category_listing">class="active"</mt:If>
-                    >Categories</a>
+                    <mt:If name="category_listing">class="active"</mt:If>
+                    ><mt:IndexCategoriesTitle></a>
             </li>
         </mt:If>
         <mt:If tag="NavMenuPage1">

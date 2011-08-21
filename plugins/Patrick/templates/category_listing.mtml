@@ -1,9 +1,10 @@
 <mt:Var name="identifier" value="category-listing">
-<mt:Var name="html_title" value="Categories">
+<mt:SetVarBlock name="html_title"><mt:IndexCategoriesTitle></mt:SetVarBlock>
 <mt:Include module="Header">
 
 <div class="entry-header">
-    <h1>Categories</h1>
+    <h1><mt:Var name="html_title"></h1>
+    <mt:IndexCategoriesText filters="markdown_with_smartypants">
 </div>
 
 <div class="category-listing">
