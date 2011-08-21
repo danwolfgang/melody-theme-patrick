@@ -1,14 +1,24 @@
+<mt:SetVarTemplate name="footer_link">
+    <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+</mt:SetVarTemplate>
+<mt:SetVarTemplate name="footer_home">
+    <li><a href="<mt:BlogURL>">Home</a></li>
+</mt:SetVarTemplate>
+<mt:SetVarTemplate name="footer_archives">
+    <li><a href="<mt:Link template="archive_index">"><mt:IndexArchivesTitle></a></li>
+</mt:SetVarTemplate>
 <div id="footer-alpha" class="footer-column">
     <mt:FooterAlphaText filters="markdown_with_smartypants">
     <ul>
     <mt:FooterAlphaLinksLinks>
-        <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+        <mt:Var name="footer_link">
     </mt:FooterAlphaLinksLinks>
     <mt:If tag="FooterAlphaLinkHome">
-        <li><a href="<mt:BlogURL>">Home</a></li>
+        <mt:Var name="footer_home">
     </mt:If>
     <mt:If tag="FooterAlphaLinkArchives">
-        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
+        <mt:Var name="footer_archives">
+    </mt:If>
     </mt:If>
     </ul>
 </div>
@@ -17,13 +27,14 @@
     <mt:FooterBetaText filters="markdown_with_smartypants">
     <ul>
     <mt:FooterBetaLinksLinks>
-        <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+        <mt:Var name="footer_link">
     </mt:FooterBetaLinksLinks>
     <mt:If tag="FooterBetaLinkHome">
-        <li><a href="<mt:BlogURL>">Home</a></li>
+        <mt:Var name="footer_home">
     </mt:If>
     <mt:If tag="FooterBetaLinkArchives">
-        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
+        <mt:Var name="footer_archives">
+    </mt:If>
     </mt:If>
     </ul>
 </div>
@@ -32,13 +43,14 @@
     <mt:FooterGammaText filters="markdown_with_smartypants">
     <ul>
     <mt:FooterGammaLinksLinks>
-        <li><a href="<mt:Var name="link_url">"><mt:Var name="link_label"></a></li>
+        <mt:Var name="footer_link">
     </mt:FooterGammaLinksLinks>
     <mt:If tag="FooterGammaLinkHome">
-        <li><a href="<mt:BlogURL>">Home</a></li>
+        <mt:Var name="footer_home">
     </mt:If>
     <mt:If tag="FooterGammaLinkArchives">
-        <li><a href="<mt:Link template="archive_index">">Archives</a></li>
+        <mt:Var name="footer_archives">
+    </mt:If>
     </mt:If>
     </ul>
 </div>
