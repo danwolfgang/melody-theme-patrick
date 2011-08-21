@@ -1,0 +1,189 @@
+<mt:SetVarBlock name="html_title">Search Results</mt:SetVarBlock>
+<mt:SetVarBlock name="html_head">
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var user = <mt:UserSessionState>;
+    /* ]]> */
+    </script>
+
+    <mt:Ignore>Below Javascript adds ajax search capability</mt:Ignore>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    <mt:IfMoreResults>
+    function getResults(page) {
+        page = parseInt(page);
+        if (timer) window.clearTimeout(timer);
+        var xh = mtGetXmlHttp();
+        if (!xh) return false;
+        var res = results[page];
+        if (!res) return;
+        var url = res['next_url'];
+        if (!url) return;
+
+        xh.open('GET', url + '&format=js', true);
+        xh.onreadystatechange = function() {
+            if ( xh.readyState == 4 ) {
+                if ( xh.status && ( xh.status != 200 ) ) {
+                    // error - ignore
+                } else {
+                    try {
+                        var page_results = eval("(" + xh.responseText + ")");
+                        if ( page_results['error'] == null )
+                            results[page + 1] = page_results['result'];
+                    } catch (e) {
+                    }
+                }
+            }
+        };
+        xh.send(null);
+    }
+
+    function swapContent(direction) {
+        if ( direction == undefined ) direction = 1;
+        var page_span = document.getElementById('current-page');
+        if (!page_span) return true;
+        var next_page = direction + parseInt(page_span.innerHTML);
+        var res = results[next_page];
+        if (!res) return true;
+        var content = res['content'];
+        if (!content) return true;
+        var div = document.getElementById('search-results');
+        if (!div) return true;
+        div.innerHTML = content;
+        timer = window.setTimeout("getResults(" + next_page + ")", 1*1000);
+        window.scroll(0, 0);
+        return false;
+    }
+    <mt:Else>
+        <mt:IfPreviousResults>
+    function swapContent(direction) {
+        return true;
+    }
+        </mt:IfPreviousResults>
+    </mt:IfMoreResults>
+    /* ]]> */
+    </script>
+</mt:SetVarBlock>
+
+<mt:Include module="Header">
+
+<mt:Ignore>
+    Below is the block to show search results. This makes an independent block
+    to support Ajax-based background retrieval of the next search results.
+</mt:Ignore>
+<mt:SetVarTemplate id="search_results" name="search_results">
+    <mt:SearchResults>
+        <mt:SearchResultsHeader>
+                <div id="search-results">
+                    <h1 id="page-title" class="search-results-header">
+            <mt:IfStraightSearch>
+                        Results matching &ldquo;<mt:SearchString>&rdquo;
+            </mt:IfStraightSearch>
+            <mt:IfTagSearch>
+                        Results tagged &ldquo;<mt:SearchString>&rdquo;
+            </mt:IfTagSearch>
+                    </h1>
+                    <span id="current-page" class="hidden"><mt:CurrentPage></span>
+                    <ul class="search-results-container autopagerize_page_element">
+        </mt:SearchResultsHeader>
+
+                        <li class="search-result">
+                            <a href="<mt:EntryPermalink>"><mt:EntryTitle></a>
+                        </li>
+
+        <mt:SearchResultsFooter>
+                    </ul>
+                    <div class="autopagerize_insert_before"></div>
+
+        <mt:Ignore>
+            Used with the ajax search capability of the new search class.
+        </mt:Ignore>
+                    <div class="content-nav">
+                    <mt:IfPreviousResults>
+                        <a 
+                            href="<mt:PreviousLink>" 
+                            rel="prev" 
+                            onclick="return swapContent(-1);"
+                            >&lt; Previous</a>
+                    </mt:IfPreviousResults>
+                    <mt:PagerBlock>
+                        <mt:IfCurrentPage>
+                            <mt:Var name="__value__">
+                        <mt:Else>
+                            <a href="<mt:PagerLink>">
+                                <mt:Var name="__value__">
+                            </a>
+                        </mt:IfCurrentPage>
+                        <mt:Unless name="__last__">&nbsp;</mt:Unless>
+                    </mt:PagerBlock>
+                    <mt:IfMoreResults>
+                        <a 
+                            href="<mt:NextLink>" 
+                            rel="next" 
+                            onclick="return swapContent();">Next &gt;</a>
+                    </mt:IfMoreResults>
+                    </div>
+                </div>
+        </mt:SearchResultsFooter>
+    </mt:SearchResults>
+</mt:SetVarTemplate>
+
+<mt:Ignore> Display search results constructed in the block above </mt:Ignore>
+<mt:Var name="search_results">
+
+<mt:Ignore> Display no results message </mt:Ignore>
+<mt:NoSearchResults>
+        <h1 id="page-title" class="search-results-header">
+    <mt:IfStraightSearch>
+            Results matching &ldquo;<mt:SearchString>&rdquo;
+    </mt:IfStraightSearch>
+    <mt:IfTagSearch>
+            Results tagged &ldquo;<mt:SearchString>&rdquo;
+    </mt:IfTagSearch>
+        </h1>
+        <p>No results found for &ldquo;<mt:SearchString>&rdquo;.</p>
+</mt:NoSearchResults>
+
+<mt:Ignore>
+    Display instructions for searching if search script was accessed without
+    a query.
+</mt:Ignore>
+<mt:NoSearch>
+    <h1 id="page-title" class="search-results-header">Instructions</h1>
+    <p>
+        By default, this search engine looks for all words in any order. 
+        To search for an exact phrase, enclose the phrase in quotes:
+    </p>
+    <blockquote>
+        <p><code>"movable type"</code></p>
+    </blockquote>
+    
+    <p>
+        The search engine also supports AND, OR, and NOT keywords to specify 
+        boolean expressions:
+    </p>
+    <blockquote>
+        <p><code>personal OR publishing</code></p>
+        <p><code>publishing NOT personal</code></p>
+    </blockquote>
+</mt:NoSearch>
+
+<mt:Ignore>
+    Used with the ajax search capability of the new search class.
+</mt:Ignore>
+<mt:IfMoreResults>
+    <script type="text/javascript">
+    <!--
+    var div = document.getElementById('search-results');
+    var results = {
+        '<mt:CurrentPage>': {
+            'content': div.innerHTML,
+            'next_url': '<mt:NextLink>'
+        }
+    };
+    var timer = window.setTimeout("getResults(" + <mt:CurrentPage> + ")", 1*1000);
+    //-->
+    </script>
+</mt:IfMoreResults>
+
+<mt:Include module="Footer">
