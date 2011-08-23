@@ -24,8 +24,10 @@
 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script type="text/javascript" src="<mt:BlogURL>patrick.js"></script>
 
+<mt:If tag="FBAppID">
 <script src="http://connect.facebook.net/en_US/all.js#appId=<mt:FBAppID>&amp;xfbml=1"></script>
 <meta property="fb:app_id"      content="<mt:FBAppID>">
+</mt:If>
 
 <mt:Ignore>
     Set fallback values for the FB open graph variables, just in case they 
