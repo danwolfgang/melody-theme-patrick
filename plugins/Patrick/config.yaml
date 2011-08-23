@@ -396,12 +396,14 @@ template_sets:
             nav_menu_archives:
                 label: 'Display Site Archives Link?'
                 type: checkbox
+                default: 1
                 tag: NavMenuArchives
                 fieldset: header
                 order: 13
             nav_menu_categories:
                 label: 'Display Categories Link?'
                 type: checkbox
+                default: 1
                 tag: NavMenuCategories
                 fieldset: header
                 order: 14
