@@ -27,15 +27,23 @@
                 titles.
             </mt:Ignore>
             <mt:If name="main_index">
-                <h1 id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName smarty_pants="1"></a></h1>
-                <mt:If tag="BlogDescription">
-                <h2 id="header-description"><mt:BlogDescription smarty_pants="1"></h2>
-                </mt:If>
+                <h1 id="header-name">
+                    <a href="<mt:BlogURL>" accesskey="1">
+                        <mt:BlogName smarty_pants="1">
+                    </a>
+                </h1>
             <mt:Else>
-                <div id="header-name"><a href="<mt:BlogURL>" accesskey="1"><mt:BlogName smarty_pants="1"></a></div>
-                <mt:If tag="BlogDescription">
-                <div id="header-description"><mt:BlogDescription smarty_pants="1"></div>
-                </mt:If>
+                <div id="header-name">
+                    <a href="<mt:BlogURL>" accesskey="1">
+                        <mt:BlogName smarty_pants="1">
+                    </a>
+                </div>
+            </mt:If>
+
+            <mt:If tag="BlogDescription">
+                <div id="header-description">
+                    <mt:BlogDescription smarty_pants="1">
+                </div>
             </mt:If>
 
                 <mt:Include module="Header Navigation Menu">
