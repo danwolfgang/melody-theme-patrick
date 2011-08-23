@@ -67,7 +67,7 @@ body {
     <mt:Var name="body_bg_color">
     color: <mt:BodyTextColor>;
 <mt:BodyTextFontFont>
-    font-family: <mt:Var name="typeface">;
+    font-family: <mt:Var name="typeface">, sans-serif;
     font-size: <mt:Var name="size">px;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
     <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
@@ -178,7 +178,7 @@ a:active { color: <mt:LinkStateColorActive>; }
 
 #header-name {
 <mt:SubheadFontFont>
-    font-family: <mt:Var name="typeface">;
+    font-family: <mt:Var name="typeface">, sans-serif;
     font-size: <mt:Var name="size">%;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
     <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
@@ -374,7 +374,7 @@ h3,
 h4,
 .featured-entries li div.meta div.title {
 <mt:SubheadFontFont>
-    font-family: <mt:Var name="typeface">;
+    font-family: <mt:Var name="typeface">, sans-serif;
     <mt:If name="variation" like="Bold">font-weight: bold;</mt:If>
     <mt:If name="variation" like="Italic">font-style: italic;</mt:If>
 </mt:SubheadFontFont>
@@ -455,7 +455,7 @@ li {
     display: inline;
     font-weight: bold;
 <mt:BodyTextFontFont>
-    font-family: <mt:Var name="typeface">;
+    font-family: <mt:Var name="typeface">, sans-serif;
 </mt:BodyTextFontFont>
     letter-spacing: <mt:BodyTextLetterSpacing>px;
     margin: 0 0 0 0;
