@@ -242,7 +242,7 @@ template_sets:
                 order: 11
             body_text_letterspacing:
                 label: 'Body Text Letter Spacing'
-                hint: 'Fine-tune the body text font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
+                hint: 'Fine-tune the body text font display by adjusting the space between each character. 0.0 is &ldquo;normal.&rdquo;'
                 type: select
                 # Use the '0.0' value because '0' doesn't save properly.
                 values: '-1.0,-0.9,-0.8,-0.7,-0.6,-0.5,-0.4,-0.3,-0.2,-0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0'
@@ -276,11 +276,11 @@ template_sets:
                 order: 16
             subhead_letterspacing:
                 label: 'Subhead Letter Spacing'
-                hint: 'Fine-tune the subhead font display by adjusting the space between each character. 0 is &ldquo;normal.&rdquo;'
+                hint: 'Fine-tune the subhead font display by adjusting the space between each character. 0.0 is &ldquo;normal.&rdquo;'
                 type: select
                 # Use the '0.0' value because '0' doesn't save properly.
                 values: '-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0.0,1,2,3,4,5,6,7,8,9,10'
-                default: '0'
+                default: '0.0'
                 tag: SubheadLetterSpacing
                 republish: styles
                 fieldset: design
