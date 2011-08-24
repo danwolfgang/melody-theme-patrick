@@ -972,7 +972,7 @@ template_sets:
             # Facebook Options
             fb_app_id:
                 label: 'Facebook Application ID'
-                hint: 'The Facebook Application ID is required for some features like comment moderation and analytics tracking.'
+                hint: 'A Facebook Application ID is required for some features like comment moderation and analytics tracking. <a href="https://www.facebook.com/developers/createapp.php">Create a Facebook Applications</a>.'
                 type: text
                 tag: FBAppID
                 fieldset: facebook
@@ -1083,7 +1083,7 @@ template_sets:
                 label: 'Width'
                 hint: 'The width of the Like/Send button. Some guidelines based on the Layout Style: <code>standard</code>: 225 pixels minimum; <code>button_count</code>: 90 pixels minimum; <code>box_count</code>: 55 pixel minimum. Enter an integer.'
                 type: text
-                default: '90'
+                default: '225'
                 tag: FacebookLikeWidth
                 order: 37
                 fieldset: facebook
