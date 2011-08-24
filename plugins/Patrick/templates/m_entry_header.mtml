@@ -25,12 +25,15 @@
         <mt:If tag="EntryMetaTagsDisplay" eq="Below the entry title but above the entry content">
             <mt:Include module="Meta: Tags">
         </mt:If>
+
+        <div class="social-media">
         <mt:If tag="EnableTwitterRetweetButton" eq="Below the entry title but above the entry content">
             <mt:Include module="Meta: Twitter">
         </mt:If>
         <mt:If tag="EntryMetaFBLikeDisplay" eq="Below the entry title but above the entry content">
             <mt:Include module="Meta: Facebook Like">
         </mt:If>
+        </div>
     </div>
 
 <mt:If tag="EntryCallbackBelowHeader">
