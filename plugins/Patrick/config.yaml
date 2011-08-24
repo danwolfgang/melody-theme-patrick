@@ -920,25 +920,55 @@ template_sets:
                 tag: WidgetDisplayStyle
                 fieldset: widgets
                 order: 1
+            widget_highlighted_entry_separator:
+                label: 'Highlighted Entry Widget'
+                hint: 'The purpose of the highlighted entry widget is actually to highlight an image: a thumbnail of an image associated with the selected entry is shown in the widget.'
+                type: separator
+                fieldset: widgets
+                order: 10
+            widget_highlighted_entry_title:
+                label: 'Highlighted Image Widget Title'
+                hint: 'Specify a title for the highlighted entry widget. Leave this field blank for no title.'
+                type: text
+                tag: WidgetHighlightedEntryTitle
+                republish: main_index
+                fieldset: widgets
+                order: 11
+            widget_highlighted_entry_entry:
+                label: 'Highlighted Entry Linked Entry'
+                hint: 'Select an entry to display in this widget.'
+                type: entry
+                tag: WidgetHighlightedEntryEntry
+                republish: main_index
+                fieldset: widgets
+                order: 12
+            widget_highlighted_text:
+                label: 'Highlighted Entry Text'
+                hint: 'Add a description of the highlighted entry. HTML allowed.'
+                type: textarea
+                tag: WidgetHighlightedEntryText
+                republish: main_index
+                fieldset: widgets
+                order: 13
             widget_ad_separator:
                 label: 'Advertisiting Widget'
                 type: separator
                 fieldset: widgets
-                order: 10
+                order: 20
             widget_ad_title:
                 label: 'Ad Widget Title'
                 hint: 'A title for the Ad Widget is optional; &ldquo;Sponsor&rdquo; is popular title text.'
                 type: text
                 tag: WidgetAdTitle
                 fieldset: widgets
-                order: 11
+                order: 21
             widget_ad_textarea:
                 label: 'Ad Widget Textarea'
                 hint: 'The advertising widget can display one or many ads. This is simply a textarea to paste ad code into.'
                 type: textarea
                 tag: WidgetAdTextarea
                 fieldset: widgets
-                order: 12
+                order: 22
             # Facebook Options
             fb_app_id:
                 label: 'Facebook Application ID'
@@ -1291,6 +1321,7 @@ template_sets:
                 second_column:
                     label: 'Second Column'
                     widgets:
+                        - 'Highlighted Entry'
                         - 'Previous-Next Navigation'
                         - 'Facebook Recommendations'
                         - 'Twitter Follow'
@@ -1323,6 +1354,12 @@ template_sets:
                         include_with_ssi: 1
                 w_fb_recommendations:
                     label: 'Facebook Recommendations'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 5
+                        include_with_ssi: 1
+                w_highlighted_entry:
+                    label: 'Highlighted Entry'
                     cache:
                         expire_type: 1
                         expire_interval: 5
