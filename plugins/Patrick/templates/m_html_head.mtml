@@ -35,7 +35,7 @@
 </mt:Ignore>
 <mt:Unless name="og_title"><mt:BlogName setvar="og_title"></mt:Unless>
 <mt:Unless name="og_url"><mt:BlogURL setvar="og_url"></mt:Unless>
-<mt:Unless name="og_image"><mt:FBOGImageAsset><mt:AssetURL setvar="og_image"></mt:FBOGImageAsset></mt:Unless>
+<mt:Unless name="og_image"><mt:If tag="FBOGImage"><mt:FBOGImageAsset><mt:AssetURL setvar="og_image"></mt:FBOGImageAsset></mt:If></mt:Unless>
 <mt:Unless name="og_description"><mt:BlogDescription setvar="og_description"></mt:Unless>
 
 <meta property="og:type"        content="<mt:FBOGObjectType>">
