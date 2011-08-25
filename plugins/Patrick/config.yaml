@@ -1219,6 +1219,10 @@ template_sets:
                             build_type: 4
                             file_template: '%y/%i'
             index:
+                atom:
+                    label: 'Atom Feed'
+                    outfile: atom.xml
+                    build_type: 4
                 archive_index:
                     label: 'Site Archives'
                     outfile: 'archives.php'
