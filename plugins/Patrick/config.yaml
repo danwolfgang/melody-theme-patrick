@@ -4,7 +4,7 @@ id: patrick
 description: 'Patrick is a framework-style theme for Melody'
 author_name: 'Dan Wolfgang'
 author_link: 'http://danandsherree.com'
-version: 0.1
+version: 0.2.0
 static_version: 1
 
 config_types:
