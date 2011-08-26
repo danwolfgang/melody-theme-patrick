@@ -20,7 +20,10 @@
 <mt:CallbackBodyBottom>
 
 <mt:Ignore> This div is used by all the FBML. </mt:Ignore>
+<mt:If tag="FBAppID">
 <div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js#appId=<mt:FBAppID>&amp;xfbml=1"></script>
+</mt:If>
 
 </body>
 </html>
