@@ -1237,7 +1237,7 @@ template_sets:
                     label: '.htaccess'
                     outfile: '.htaccess'
                     rebuild_me: 1
-                    build_type: 1
+                    build_type: manual
                 javascript:
                     label: 'Javascript'
                     outfile: 'patrick.js'
@@ -1252,7 +1252,7 @@ template_sets:
                     label: 'Styles'
                     outfile: styles.css
                     rebuild_me: 1
-                    build_type: 1
+                    build_type: manual
                     custom_css: 1
             individual:
                 entry:
