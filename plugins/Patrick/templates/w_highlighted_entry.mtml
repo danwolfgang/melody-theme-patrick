@@ -18,10 +18,13 @@
             <div class="highlighted-image-container">
                 <a href="<mt:EntryPermalink>">
                 <mt:EntryAssets type="image" limit="1">
+                    <mt:Ignore>
+                        The image width needs to accommodate for the border.
+                    </mt:Ignore>
                     <mt:If tag="ColumnLayout" eq="Two columns">
-                        <mt:Var name="image_width" value="300">
+                        <mt:Var name="image_width" value="294">
                     <mt:Else tag="ColumnLayout" eq="Three columns">
-                        <mt:Var name="image_width" value="180">
+                        <mt:Var name="image_width" value="174">
                     </mt:If>
                     <img src="<mt:AssetThumbnailURL width="$image_width">"
                         alt="<mt:EntryTitle>"
