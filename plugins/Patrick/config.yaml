@@ -1299,7 +1299,11 @@ template_sets:
                     label: 'Header Navigation Menu'
                 m_html_head:
                     label: 'HTML Head'
+                m_html_head_google_fonts:
+                    label: 'HTML Head: Google Fonts'
                     cache:
+                        expire_type: 1
+                        expire_interval: 1
                         include_with_ssi: 1
                 m_meta_byline:
                     label: 'Meta: Byline'

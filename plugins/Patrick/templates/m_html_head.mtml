@@ -2,15 +2,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="generator" content="<mt:ProductName version="1">" />
 
-<mt:SetVarBlock name="subhead_typeface"><mt:SubheadFontFont><mt:Unless name="typeface" like="(Arial|Georgia|Tahoma|Verdana)"><mt:Var name="typeface" replace=" ","+"></mt:Unless></mt:SubHeadFontFont></mt:SetVarBlock>
-
-<mt:SetVarBlock name="body_typeface"><mt:BodyTextFontFont><mt:Unless name="typeface" like="(Arial|Georgia|Tahoma|Verdana)"><mt:Var name="typeface" replace=" ","+"></mt:Unless></mt:BodyTextFontFont></mt:SetVarBlock>
-
-<mt:SetVarBlock name="google_typeface"><mt:Var name="subhead_typeface"><mt:If name="body_typeface">|<mt:Var name="body_typeface"></mt:If></mt:SetVarBlock>
-
-<mt:If name="google_typeface">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=<mt:Var name="google_typeface">">
-</mt:If>
+<mt:Include module="HTML Head: Google Fonts">
 
 <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
 
