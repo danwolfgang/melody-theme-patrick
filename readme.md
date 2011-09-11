@@ -44,6 +44,14 @@ configured and running.
 
 ### Optional
 
+The following plugins are required for the ability to publish other web site
+activity to entries:
+
+* [Action Streams](https://github.com/markpasc/mt-plugin-action-streams/downloads)
+* [Structured Content
+  Wizard](https://github.com/endevver/mt-plugin-content-wizard/downloads)
+  version 1.1.3 or greater
+
 The following plugins are not required, but are useful plugins that I use
 to run [danandsherree.com](http://danandsherree.com).
 

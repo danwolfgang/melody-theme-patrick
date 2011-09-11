@@ -1,0 +1,11 @@
+<mt:ASPastDays setvar="past_days"><mt:ASAuthor setvar="author_id"><mt:ActionStreams author_ids="$author_id" days="$past_days" direction="ascend">
+<mt:if name="__first__"><div class="action-stream hfeed">
+    <ul class="action-stream-list"></mt:if>
+        <mt:If name="action_type" like="/community/"><mt:Else><li class="hentry service-icon service-<mt:Var name="service_type">">
+<mt:Ignore>
+    'name=""' means don't display the user name. The regex 
+    capitalizes the first letter of the action.
+</mt:Ignore>            <mt:StreamAction name="" regex_replace="/^\s*([a-z]{1})(.*)/","\u$1$2"> on <mt:StreamActionDate format="%A, %B %e">.
+        </li></mt:If><mt:if name="__last__">
+    </ul>
+</div></mt:if></mt:ActionStreams>

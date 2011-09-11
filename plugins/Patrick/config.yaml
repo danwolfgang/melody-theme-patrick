@@ -30,6 +30,7 @@ template_sets:
         thumbnail: thumb.jpg
         paypal_email: dan@danandsherree.com
         blog_preferences: patrick_preferences
+        structured_content_wizards: wizard.yaml
         options:
             fieldsets:
                 colors:
@@ -1271,6 +1272,8 @@ template_sets:
                             build_type: 1
                             file_template: '%-c/%-f'
             module:
+                m_action_stream_to_entry:
+                    label: 'Wizard: Action Stream to Entry'
                 # m_ajax_comment:
                 #     label: 'AJAX Comment'
                 m_comment_detail:

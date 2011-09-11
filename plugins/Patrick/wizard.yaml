@@ -1,0 +1,22 @@
+action_stream_to_entry:
+    label: 'Action Stream to Entry'
+    asset_output_template: m_action_stream_to_entry
+    order: 1
+    steps:
+        step1:
+            label: 'Action Stream to Entry'
+            fields:
+                author:
+                    type: author
+                    label: 'Author'
+                    hint: 'Select the author whose Action Stream you want to publish in an entry.'
+                    order: 1
+                    tag: ASAuthor
+                past_days:
+                    type: select
+                    values: '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30'
+                    label: 'Number of Days to Display'
+                    hint: 'Select the number of days to display in the Action Stream.'
+                    order: 2
+                    tag: ASPastDays
+                    default: 7
