@@ -583,6 +583,7 @@ h3.widget-header + .widget-content {
     z-index: 1; /* To put the link on top of the .meta */
     color: <mt:BodyTextColor>;
     text-decoration: none;
+    text-shadow: <mt:Var name="accent_color"> 0px 0px 5px;
 }
 
 .featured-entries li .meta {
@@ -601,7 +602,7 @@ h3.widget-header + .widget-content {
 }
 
 .featured-entries li .meta-inner div {
-    text-shadow: -1px 0 <mt:Var name="accent_color">, 0 1px <mt:Var name="accent_color">, 1px 0 <mt:Var name="accent_color">, 0 -1px <mt:Var name="accent_color">;
+    text-shadow: <mt:Var name="accent_color"> 0px 0px 2px;
 }
 
 #featured-entries-nav {
