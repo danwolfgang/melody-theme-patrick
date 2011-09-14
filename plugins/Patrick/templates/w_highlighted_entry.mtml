@@ -17,7 +17,8 @@
         <mt:Entries lastn="9999" id="$selected_entry">
             <div class="highlighted-image-container">
                 <a href="<mt:EntryPermalink>">
-                <mt:EntryAssets type="image" limit="1">
+            <mt:EntryAssets type="image" limit="1">
+                <mt:If tag="WidgetHighlightedEntryFormat" eq="Large">
                     <mt:Ignore>
                         The image width needs to accommodate for the border.
                     </mt:Ignore>
@@ -29,7 +30,14 @@
                     <img src="<mt:AssetThumbnailURL width="$image_width">"
                         alt="<mt:EntryTitle>"
                         title="<mt:EntryTitle>" />
-                </mt:EntryAssets>
+                <mt:Else>
+                    <img src="<mt:AssetThumbnailURL width="80" square="1">"
+                        width="80" height="80"
+                        alt="<mt:EntryTitle>"
+                        title="<mt:EntryTitle>"
+                        class="left" />
+                </mt:If>
+            </mt:EntryAssets>
                 </a>
             </div>
         </mt:Entries>

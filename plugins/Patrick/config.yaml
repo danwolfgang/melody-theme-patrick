@@ -935,6 +935,16 @@ template_sets:
                 republish: main_index
                 fieldset: widgets
                 order: 11
+            widget_highlighted_entry_format:
+                label: 'Highlighted Entry Format'
+                hint: 'The Small format places a square-cropped 80 x 80 pixel image to the left of the Highlighted Entry Text. The Large format places an image the full width of the widget above the Highlighted Entry Text.'
+                type: radio
+                values: 'Small,Large'
+                default: Small
+                tag: WidgetHighlightedEntryFormat
+                republish: main_index
+                fieldset: widgets
+                order: 12
             widget_highlighted_entry_entry:
                 label: 'Highlighted Entry Linked Entry'
                 hint: 'Select an entry to display in this widget.'
@@ -942,7 +952,7 @@ template_sets:
                 tag: WidgetHighlightedEntryEntry
                 republish: main_index
                 fieldset: widgets
-                order: 12
+                order: 13
             widget_highlighted_text:
                 label: 'Highlighted Entry Text'
                 hint: 'Add a description of the highlighted entry. HTML allowed.'
@@ -950,7 +960,7 @@ template_sets:
                 tag: WidgetHighlightedEntryText
                 republish: main_index
                 fieldset: widgets
-                order: 13
+                order: 14
             widget_ad_separator:
                 label: 'Advertisiting Widget'
                 type: separator
