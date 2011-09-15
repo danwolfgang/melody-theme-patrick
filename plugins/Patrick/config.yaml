@@ -1196,6 +1196,7 @@ template_sets:
                 rows: 20
                 tag: htaccess
                 fieldset: htaccess
+                republish: htaccess
                 order: 1
             # Callbacks
             callback_head_bottom:
