@@ -1,0 +1,19 @@
+<mt:PictaculousPalette format="rgb">
+    <mt:SetVarBlock name="header_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="header_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="alpha_column_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="alpha_column_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="beta_column_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="beta_column_background">);
+    </mt:SetVarBlock>
+    <mt:SetVarBlock name="gamma_column_bg_color" strip_linefeeds="1">
+        background-color: rgb(<mt:Var name="gamma_column_background">);
+    </mt:SetVarBlock>
+</mt:PictaculousPalette>
+
+#header { <mt:Var name="header_bg_color"> }
+#alpha { <mt:Var name="alpha_column_bg_color"> }
+#beta { <mt:Var name="beta_column_bg_color"> }
+#gamma { <mt:Var name="gamma_column_bg_color"> }

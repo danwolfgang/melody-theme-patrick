@@ -4,7 +4,7 @@ id: patrick
 description: 'Patrick is a framework-style theme for Melody'
 author_name: 'Dan Wolfgang'
 author_link: 'http://danandsherree.com'
-version: 0.4.1
+version: 0.4.2
 static_version: 1
 
 config_types:
@@ -96,10 +96,9 @@ template_sets:
                 color_names: 'Body Background, Container Background, Header Background, Footer Background, Alpha Column Background, Beta Column Background, Gamma Column Background, Widget Background, Carousel Navigation, Carousel Navigation (Active), Accent Color'
                 default_colors: '#ffffff, #000000'
                 tag: Pictaculous
-                republish: styles
+                republish: 'styles, styles_ie'
                 fieldset: colors
                 order: 2
-                republish: styles
             color_palette_override_separator:
                 label: 'Text Color'
                 hint: 'Want to use one of the Pictaculous Palette colors for text? Hover over the Pictaculous color to see the hex value, which you can then enter in the colorpicker for these text color fields.'
@@ -1266,6 +1265,10 @@ template_sets:
                     rebuild_me: 1
                     build_type: manual
                     custom_css: 1
+                styles_ie:
+                    label: 'Styles for IE'
+                    outfile: styles_ie.css
+                    build_type: manual
             individual:
                 entry:
                     label: 'Entry'
