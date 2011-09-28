@@ -1253,7 +1253,7 @@ template_sets:
                     label: 'Javascript'
                     outfile: 'patrick.js'
                     rebuild_me: 1
-                    build_type: 4
+                    build_type: manual
                 main_index:
                     label: 'Main Index'
                     outfile: 'index.php'
