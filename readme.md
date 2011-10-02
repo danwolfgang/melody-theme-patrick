@@ -52,6 +52,11 @@ activity to entries:
   Wizard](https://github.com/endevver/mt-plugin-content-wizard/downloads)
   version 1.1.3 or greater
 
+The [CleanSweep](https://github.com/endevver/mt-plugin-cleansweep/downloads)
+plugin is required to catch 404 File Not Found errors on your site and
+appropriately redirect them. This plugin uses the 404 page that is created
+when you apply the Patrick theme to a blog.
+
 The following plugins are not required, but are useful plugins that I use
 to run [danandsherree.com](http://danandsherree.com).
 

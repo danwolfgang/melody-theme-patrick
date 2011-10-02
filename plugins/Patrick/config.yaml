@@ -1454,6 +1454,11 @@ template_sets:
                 uploaded_image_popup_template:
                     filename: s_uploaded_image_popup.mtml
                     label: 'Uploaded Image Popup Template'
+        content:
+            page:
+                404:
+                    label: '404 File Not Found'
+                    body: 'The URL you specified could not be found.'
 
 blog_preferences:
     patrick_preferences:
