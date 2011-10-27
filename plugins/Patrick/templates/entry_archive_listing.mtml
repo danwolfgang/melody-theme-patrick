@@ -6,10 +6,10 @@
 <div class="entry-header">
     <h1><mt:Var name="html_title"></h1>
     <div class="meta">
-        <p>
-            This category contains <mt:ArchiveCount> entries<mt:IfArchiveType type="Category"><mt:HasParentCategory>, and the parent category is <mt:ParentCategory><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></mt:ParentCategory></mt:HasParentCategory></mt:IfArchiveType>.
-        </p>
     <mt:IfArchiveType type="Category">
+        <p>
+            This category contains <mt:ArchiveCount> entries<mt:HasParentCategory>, and the parent category is <mt:ParentCategory><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></mt:ParentCategory></mt:HasParentCategory>.
+        </p>
         <mt:HasSubCategories>
             <mt:SubCategories>
                 <mt:SubCatIsFirst>
@@ -29,6 +29,11 @@
                 </mt:SubCatIsLast>
             </mt:SubCategories>
         </mt:HasSubCategories>
+    <mt:Else>
+        <mt:Ignore> Any other type of archive. </mt:Ignore>
+        <p>
+            This archive contains <mt:ArchiveCount> entries.
+        </p>
     </mt:IfArchiveType>
     </div>
 </div>
