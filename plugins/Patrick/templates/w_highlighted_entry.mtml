@@ -28,13 +28,13 @@
                         <mt:Var name="image_width" value="174">
                     </mt:If>
                     <img src="<mt:AssetThumbnailURL width="$image_width">"
-                        alt="<mt:EntryTitle>"
-                        title="<mt:EntryTitle>" />
+                        alt="<mt:EntryTitle remove_html="1">"
+                        title="<mt:EntryTitle remove_html="1">" />
                 <mt:Else>
                     <img src="<mt:AssetThumbnailURL width="80" square="1">"
                         width="80" height="80"
-                        alt="<mt:EntryTitle>"
-                        title="<mt:EntryTitle>"
+                        alt="<mt:EntryTitle remove_html="1">"
+                        title="<mt:EntryTitle remove_html="1">"
                         class="left" />
                 </mt:If>
             </mt:EntryAssets>
