@@ -4,6 +4,14 @@
 <mt:EntryAssets type="image" lastn="1"><mt:AssetURL setvar="og_image"></mt:EntryAssets>
 <mt:EntryExcerpt setvar="og_description">
 <mt:SetVarBlock name="html_title"><mt:EntryTitle remove_html="1"></mt:SetVarBlock>
+<mt:SetVarBlock name="html_head" append="1">
+    <script type="text/javascript" src="<mt:PluginStaticWebPath component="Patrick">js/colorbox/jquery.colorbox-min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('a[href$="jpg"]').colorbox();
+    });
+    </script>
+</mt:SetVarBlock>
 
 <mt:Include module="Header">
 
