@@ -437,6 +437,7 @@ template_sets:
                 type: textarea
                 default: 'A few links to help you find all the good stuff on this site:'
                 tag: FooterAlphaText
+                republish: main_index
                 fieldset: footer
                 order: 11
             footer_alpha_links:
@@ -444,6 +445,7 @@ template_sets:
                 hint: 'Add some links to this column.'
                 type: link-group
                 tag: FooterAlphaLinks
+                republish: main_index
                 fieldset: footer
                 order: 12
             footer_alpha_link_home:
@@ -452,6 +454,7 @@ template_sets:
                 type: checkbox
                 default: 1
                 tag: FooterAlphaLinkHome
+                republish: main_index
                 fieldset: footer
                 order: 13
             footer_alpha_link_archives:
@@ -460,6 +463,7 @@ template_sets:
                 type: checkbox
                 default: 1
                 tag: FooterAlphaLinkArchives
+                republish: main_index
                 fieldset: footer
                 order: 14
             footer_alpha_link_categories:
@@ -468,6 +472,7 @@ template_sets:
                 type: checkbox
                 default: 1
                 tag: FooterAlphaLinkCategories
+                republish: main_index
                 fieldset: footer
                 order: 15
             footer_alpha_highlighted_entry_widget:
@@ -475,6 +480,7 @@ template_sets:
                 hint: 'Display the Highlighted Entry Widget in this column. The Highlighted Entry Widget is configured in the <a href="#sidebar_widgets">Sidebar Widgets</a> area.'
                 type: checkbox
                 tag: FooterAlphaHiglightedEntryWidget
+                republish: main_index
                 fieldset: footer
                 order: 16
             footer_beta_separator:
@@ -487,6 +493,7 @@ template_sets:
                 hint: 'Add your own text to the this column. HTML allowed.'
                 type: textarea
                 tag: FooterBetaText
+                republish: main_index
                 fieldset: footer
                 order: 21
             footer_beta_links:
@@ -494,6 +501,7 @@ template_sets:
                 hint: 'Add some links to this column.'
                 type: link-group
                 tag: FooterBetaLinks
+                republish: main_index
                 fieldset: footer
                 order: 22
             footer_beta_link_home:
@@ -501,6 +509,7 @@ template_sets:
                 hint: 'Include a link to the home page.'
                 type: checkbox
                 tag: FooterBetaLinkHome
+                republish: main_index
                 fieldset: footer
                 order: 23
             footer_beta_link_archives:
@@ -508,6 +517,7 @@ template_sets:
                 hint: 'Include a link to the archives page.'
                 type: checkbox
                 tag: FooterBetaLinkArchives
+                republish: main_index
                 fieldset: footer
                 order: 24
             footer_beta_link_categories:
@@ -515,6 +525,7 @@ template_sets:
                 hint: 'Include a link to the categories page.'
                 type: checkbox
                 tag: FooterBetaLinkCategories
+                republish: main_index
                 fieldset: footer
                 order: 25
             footer_beta_highlighted_entry_widget:
@@ -522,6 +533,7 @@ template_sets:
                 hint: 'Display the Highlighted Entry Widget in this column. The Highlighted Entry Widget is configured in the <a href="#sidebar_widgets">Sidebar Widgets</a> area.'
                 type: checkbox
                 tag: FooterBetaHiglightedEntryWidget
+                republish: main_index
                 fieldset: footer
                 order: 26
             footer_gamma_separator:
@@ -534,6 +546,7 @@ template_sets:
                 hint: 'Add your own text to the this column. HTML allowed.'
                 type: textarea
                 tag: FooterGammaText
+                republish: main_index
                 fieldset: footer
                 order: 31
             footer_gamma_links:
@@ -541,6 +554,7 @@ template_sets:
                 hint: 'Add some links to this column.'
                 type: link-group
                 tag: FooterGammaLinks
+                republish: main_index
                 fieldset: footer
                 order: 32
             footer_gamma_link_home:
@@ -548,6 +562,7 @@ template_sets:
                 hint: 'Include a link to the home page.'
                 type: checkbox
                 tag: FooterGammaLinkHome
+                republish: main_index
                 fieldset: footer
                 order: 33
             footer_gamma_link_archives:
@@ -555,6 +570,7 @@ template_sets:
                 hint: 'Include a link to the archives page.'
                 type: checkbox
                 tag: FooterGammaLinkArchives
+                republish: main_index
                 fieldset: footer
                 order: 34
             footer_gamma_link_categories:
@@ -562,6 +578,7 @@ template_sets:
                 hint: 'Include a link to the categories page.'
                 type: checkbox
                 tag: FooterGammaLinkCategories
+                republish: main_index
                 fieldset: footer
                 order: 35
             footer_gamma_highlighted_entry_widget:
@@ -569,6 +586,7 @@ template_sets:
                 hint: 'Display the Highlighted Entry Widget in this column. The Highlighted Entry Widget is configured in the <a href="#sidebar_widgets">Sidebar Widgets</a> area.'
                 type: checkbox
                 tag: FooterGammaHiglightedEntryWidget
+                republish: main_index
                 fieldset: footer
                 order: 36
             # Home Page Formatting
