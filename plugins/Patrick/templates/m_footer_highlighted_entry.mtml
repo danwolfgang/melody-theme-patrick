@@ -1,0 +1,44 @@
+<mt:If tag="WidgetHighlightedEntryEntry">
+    <div class="widget-highlighted-image">
+    <mt:If tag="WidgetHighlightedEntryTitle">
+        <h3 class="widget-header"><mt:WidgetHighlightedEntryTitle></h3>
+    </mt:If>
+        <div class="widget-content">
+
+        <mt:Ignore>
+            The selected entry is used to get into the entry context. The 
+            `lastn` seems to get picked up from an earlier use on the page. 
+            In the case of the home page, the number specified is the last 
+            use in the listing, and on an entry page, `lastn` is always 1. So,
+            `lastn` needs to be specified here as a big number so that it can
+            be found in the context.
+        </mt:Ignore>
+        <mt:WidgetHighlightedEntryEntry setvar="selected_entry">
+        <mt:Entries lastn="9999" id="$selected_entry">
+            <div class="highlighted-image-container">
+                <a href="<mt:EntryPermalink>">
+            <mt:EntryAssets type="image" limit="1">
+                <mt:If tag="WidgetHighlightedEntryFormat" eq="Large">
+                    <mt:Ignore>
+                        The image width needs to accommodate for the border.
+                    </mt:Ignore>
+                    <img src="<mt:AssetThumbnailURL width="288">"
+                        alt="<mt:EntryTitle remove_html="1">"
+                        title="<mt:EntryTitle remove_html="1">" />
+                <mt:Else>
+                    <img src="<mt:AssetThumbnailURL width="80" square="1">"
+                        width="80" height="80"
+                        alt="<mt:EntryTitle remove_html="1">"
+                        title="<mt:EntryTitle remove_html="1">"
+                        class="left" />
+                </mt:If>
+            </mt:EntryAssets>
+                </a>
+            </div>
+        </mt:Entries>
+
+            <mt:WidgetHighlightedEntryText filters="markdown_with_smartypants">
+
+        </div>
+    </div>
+</mt:If>

@@ -470,6 +470,13 @@ template_sets:
                 tag: FooterAlphaLinkCategories
                 fieldset: footer
                 order: 15
+            footer_alpha_highlighted_entry_widget:
+                label: 'Highlighted Entry Widget'
+                hint: 'Display the Highlighted Entry Widget in this column. The Highlighted Entry Widget is configured in the <a href="#sidebar_widgets">Sidebar Widgets</a> area.'
+                type: checkbox
+                tag: FooterAlphaHiglightedEntryWidget
+                fieldset: footer
+                order: 16
             footer_beta_separator:
                 label: 'Second Column'
                 type: separator
@@ -510,6 +517,13 @@ template_sets:
                 tag: FooterBetaLinkCategories
                 fieldset: footer
                 order: 25
+            footer_beta_highlighted_entry_widget:
+                label: 'Highlighted Entry Widget'
+                hint: 'Display the Highlighted Entry Widget in this column. The Highlighted Entry Widget is configured in the <a href="#sidebar_widgets">Sidebar Widgets</a> area.'
+                type: checkbox
+                tag: FooterBetaHiglightedEntryWidget
+                fieldset: footer
+                order: 26
             footer_gamma_separator:
                 label: 'Third Column'
                 type: separator
@@ -550,6 +564,13 @@ template_sets:
                 tag: FooterGammaLinkCategories
                 fieldset: footer
                 order: 35
+            footer_gamma_highlighted_entry_widget:
+                label: 'Highlighted Entry Widget'
+                hint: 'Display the Highlighted Entry Widget in this column. The Highlighted Entry Widget is configured in the <a href="#sidebar_widgets">Sidebar Widgets</a> area.'
+                type: checkbox
+                tag: FooterGammaHiglightedEntryWidget
+                fieldset: footer
+                order: 36
             # Home Page Formatting
             home_entries_separator:
                 label: 'Entry Display Configuration'
@@ -1314,6 +1335,8 @@ template_sets:
                         expire_type: 1
                         expire_interval: 1
                         include_with_ssi: 1
+                m_footer_highlighted_entry:
+                    label: 'Footer Content: Highlighted Entry'
                 m_header:
                     label: 'Header'
                 m_header_nav_menu:
