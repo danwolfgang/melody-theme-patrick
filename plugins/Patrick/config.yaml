@@ -1310,6 +1310,10 @@ template_sets:
                     label: 'Footer'
                 m_footer_content:
                     label: 'Footer Content'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 1
+                        include_with_ssi: 1
                 m_header:
                     label: 'Header'
                 m_header_nav_menu:
