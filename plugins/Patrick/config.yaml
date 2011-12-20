@@ -995,6 +995,7 @@ template_sets:
                 label: 'Highlighted Entry Text'
                 hint: 'Add a description of the highlighted entry. HTML allowed.'
                 type: textarea
+                rows: 5
                 tag: WidgetHighlightedEntryText
                 republish: main_index
                 fieldset: widgets
