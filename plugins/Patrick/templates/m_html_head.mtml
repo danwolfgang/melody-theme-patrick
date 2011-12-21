@@ -17,8 +17,11 @@
 <script type="text/javascript" src="<mt:jQueryURL>"></script>
 <script type="text/javascript" src="<mt:StaticWebPath>jquery/jquery.form.js"></script>
 <script type="text/javascript" src="<mt:PluginStaticWebPath component="Patrick">js/jquery.equalizecols.js"></script>
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script type="text/javascript" src="<mt:BlogURL>patrick.js"></script>
+
+<mt:If tag="TwitterUsername">
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</mt:If>
 
 <mt:If tag="FBAppID">
 <meta property="fb:app_id"      content="<mt:FBAppID>">
