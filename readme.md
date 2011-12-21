@@ -1,9 +1,9 @@
 # Patrick, a theme framework for Melody
 
-Patrick is a theme for Melody, sure, but it's also more than that. With nearly
-100 Theme Options, infinite color schemes, and "callback" fields, Patrick is a
-flexible theme framework that makes it easy to create a unique site from this
-one design.
+Patrick is a theme for Melody (and Movable Type), sure, but it's also more
+than that. With nearly 100 Theme Options, infinite color schemes, and
+"callback" fields, Patrick is a flexible theme framework that makes it easy to
+create a unique site from this one design.
 
 * Integration with [Pictaculous](http://pictaculous.com) to create a unique
   color palette. Within Theme Options > Color Palette, supply an image URL to
@@ -27,19 +27,37 @@ one design.
 
 # Prerequisites
 
-Patrick requires [Melody](http://openmelody.org) 1.0 or greater. It is not
-compatible with Movable Type.
+Patrick requires [Melody](http://openmelody.org) 1.0 or greater.
 
 This theme publishes some templates through the Publish Queue, so you'll want
 to have
 [`run-periodic-tasks`](http://www.movabletype.org/documentation/administrator/setting-up-run-periodic-taskspl.html)
 configured and running.
 
+## Movable Type 4 Compatibility
+
+Patrick has been successfully tested with Movable Type Open Source 4.37. In
+addition to the below plugin requirements, Movable Type users will also need:
+
+* [Melody Compatibility
+  Layer](https://github.com/endevver/mt-plugin-melody-compat)
+
+Additionally, the version of jQuery supplied with Movable Type at
+`[MT_HOME]/mt-static/jquery/jquery.js` is old. So old, in fact, that the color
+palette picker and font picker in Theme Options won't work. To resolve this,
+update the copy of jQuery. An updated copy of jQuery is supplied with Patrick;
+simply copy from `plugins/Patrick/static/js/jquery.js` to
+`[MT_HOME]/mt-static/jquery/jquery.js`.
+
 ## Plugins
 
 * [Config
-  Assistant](https://github.com/openmelody/mt-plugin-config-assistant/downloads)
+  Assistant](https://github.com/openmelody/mt-plugin-configassistant)
   version 2.2.2 or greater (note that this version is newer than what comes 
+  with Melody 1.0.2)
+* [Custom CSS](https://github.com/endevver/mt-plugin-customcss/downloads)
+* [Theme Manager](https://github.com/openmelody/mt-plugin-theme-manager)
+  version 1.1.10 or greater (note that this version is newer than what comes
   with Melody 1.0.2)
 
 ### Optional
@@ -47,7 +65,8 @@ configured and running.
 The following plugins are required for the ability to publish other web site
 activity to entries:
 
-* [Action Streams](https://github.com/markpasc/mt-plugin-action-streams/downloads)
+* [Action
+  Streams](https://github.com/markpasc/mt-plugin-action-streams/downloads)
 * [Structured Content
   Wizard](https://github.com/endevver/mt-plugin-content-wizard/downloads)
   version 1.1.3 or greater
@@ -60,7 +79,6 @@ when you apply the Patrick theme to a blog.
 The following plugins are not required, but are useful plugins that I use
 to run [danandsherree.com](http://danandsherree.com).
 
-* [Custom CSS](https://github.com/endevver/mt-plugin-customcss/downloads)
 * [Default
   Category](https://github.com/danwolfgang/mt-plugin-default-category/downloads)
 * [Hot Date](https://github.com/danwolfgang/mt-plugin-hot-date/downloads)
@@ -81,14 +99,18 @@ Plugin Installation Guide][] provides detailed installation instructions.
 # Use
 
 Once Patrick is installed, create a new blog or assign the theme to an
-existing blog.
+existing blog (go to the blog and choose Design > Theme Dashbaord, then Apply
+Theme).
 
 Patrick has many, many Theme Options. Refer to the Theme Documentation (found
-in Theme Dashboard > Documentation) for details of the options and how they
-interact with each other.
+in Theme Dashboard > Theme Documentation) for details of the options and how
+they interact with each other.
 
 
 # Designer and Developer Options
+
+(Just want to use Patrick? Ignore this section. These capabilities are built
+in to Patrick and are documented for others to use.)
 
 Patrick includes some new config types for Config Assistant that other theme
 designers and developers can use. The following is information for developers
