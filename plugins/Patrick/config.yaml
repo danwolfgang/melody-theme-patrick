@@ -56,9 +56,11 @@ template_sets:
                     order: 10
                 entry_formatting:
                     label: 'Entry Formatting'
+                    hint: "After updating the Entry Formatting options, republish your blog's Entries."
                     order: 11
                 page_formatting:
                     label: 'Page Formatting'
+                    hint: "After updating the Page Formatting options, republish your blog's Pages."
                     order: 12
                 index_formatting:
                     label: 'Index Formatting'
