@@ -4,8 +4,8 @@ id: patrick
 description: 'Patrick is a framework-style theme for Melody and Movable Type.'
 author_name: 'Dan Wolfgang'
 author_link: 'http://danandsherree.com'
-plugin_link: 'http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.html'
 version: 0.7.1
+plugin_link: 'http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.php'
 static_version: 3
 
 config_types:
@@ -24,7 +24,7 @@ applications:
 template_sets:
     patrick:
         label: Patrick
-        description: 'Patrick is a framework-style theme for Melody. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
+        description: 'Patrick is a framework-style theme for Melody and Movable Type. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
         documentation: docs.html
         base_path: templates
         preview: preview.jpg
