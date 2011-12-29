@@ -24,6 +24,7 @@ create a unique site from this one design.
   Recommendations social plugins along with Open Graph meta are included. The
   Twitter retweet button is also included.
 
+[See some screenshots!](http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.php)
 
 # Prerequisites
 
