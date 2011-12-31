@@ -1,9 +1,9 @@
 # Patrick, a theme framework for Melody
 
 Patrick is a theme for Melody (and Movable Type), sure, but it's also more
-than that. With nearly 100 Theme Options, infinite color schemes, and
-"callback" fields, Patrick is a flexible theme framework that makes it easy to
-create a unique site from this one design.
+than that. With over 100 Theme Options, infinite color schemes, and "callback"
+fields, Patrick is a flexible theme framework that makes it easy to create a
+unique site from this one design.
 
 * Integration with [Pictaculous](http://pictaculous.com) to create a unique
   color palette. Within Theme Options > Color Palette, supply an image URL to
@@ -24,7 +24,10 @@ create a unique site from this one design.
   Recommendations social plugins along with Open Graph meta are included. The
   Twitter retweet button is also included.
 
-[See some screenshots!](http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.php)
+[See some
+screenshots!](http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.php)
+of the configuration options and examples, and see the theme in action on [Dan
+& Sherree & Patrick](http://danandsherree.com).
 
 # Prerequisites
 
