@@ -1490,6 +1490,10 @@ template_sets:
                         include_with_ssi: 1
                 w_twitter_follow:
                     label: 'Twitter Follow'
+                    cache:
+                        expire_type: 1
+                        expire_interval: 360
+                        include_with_ssi: 1
             system:
                 # comment_preview:
                 #     filename: s_comment_preview.mtml
