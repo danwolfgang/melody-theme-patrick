@@ -9,12 +9,13 @@
     <mt:IfArchiveType type="Category">
         <mt:CategoryDescription filters="markdown_with_smartypants">
         <p>
-            This category contains <mt:ArchiveCount> entries<mt:HasParentCategory>, and the parent category is <mt:ParentCategory><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></mt:ParentCategory></mt:HasParentCategory>.
+            This category contains <mt:ArchiveCount> entries<mt:HasParentCategory>,
+            the parent category is <mt:ParentCategory><a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel></a></mt:ParentCategory></mt:HasParentCategory><mt:HasSubCategories>,
+            and has the following subcategories</mt:HasSubCategories>.
         </p>
         <mt:HasSubCategories>
             <mt:SubCategories>
                 <mt:SubCatIsFirst>
-        <p>This category has the following subcategories:</p>
         <ul class="subcategories">
                 </mt:SubCatIsFirst>
                 <mt:If tag="CategoryCount">
