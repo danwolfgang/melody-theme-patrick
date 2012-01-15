@@ -1,4 +1,22 @@
+<mt:If tag="DisplayYearOnCategoryArchives">
+    <mt:IfArchiveType type="Category">
+        <mt:EntryDate format="%Y" setvar="cur_year">
+        <mt:If name="cur_year" ne="$old_year">
+</ul>
+
+<h3><mt:Var name="cur_year"></h3>
+<ul>
+        </mt:If>
+    </mt:IfArchiveType>
+</mt:If>
+
 <li>
     <span class="date"><mt:EntryDate format="%b %e %Y"></span>
     <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1"></a>
 </li>
+
+<mt:If tag="DisplayYearOnCategoryArchives">
+    <mt:IfArchiveType type="Category">
+        <mt:EntryDate format="%Y" setvar="old_year">
+    </mt:IfArchiveType>
+</mt:If>

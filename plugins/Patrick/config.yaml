@@ -66,10 +66,14 @@ template_sets:
                     label: 'Index Formatting'
                     hint: 'Index pages can also be formatted with custom text.'
                     order: 13
+                archives_formatting:
+                    label: 'Archives Formatting'
+                    hint: "Yearly, Monthly, and Category entry archive configuration. Updating these sections requires republishing this blog's archives."
+                    order: 14
                 widgets:
                     label: 'Sidebar Widgets'
                     hint: 'Contents of the sidebar can be controlled by organizing Widget Sets.'
-                    order: 14
+                    order: 15
                 facebook:
                     label: 'Facebook'
                     hint: 'This theme has many configuration options for Facebook integration.'
@@ -952,6 +956,14 @@ template_sets:
                 republish: archive_index
                 fieldset: index_formatting
                 order: 12
+            # Archives Formatting
+            display_year_on_category_archives:
+                label: 'Display Year on Category Archives'
+                hint: 'Displaying a year separator in category archives can be helpful to break up large categories into easily-browsable chunks.'
+                type: checkbox
+                tag: DisplayYearOnCategoryArchives
+                fieldset: archives_formatting
+                order: 1
             # Sidebar Widgets
             widget_display_style:
                 label: 'Widget Display Style'
