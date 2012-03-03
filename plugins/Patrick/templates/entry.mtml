@@ -8,7 +8,11 @@
     <script type="text/javascript" src="<mt:PluginStaticWebPath component="Patrick">js/colorbox/jquery.colorbox-min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        $('a[href$="jpg"]').colorbox();
+        $('a[href$="jpg"]').colorbox({
+            scalePhotos: 1,
+            maxWidth: '100%',
+            maxHeight: '100%'
+        });
     });
     </script>
 </mt:SetVarBlock>

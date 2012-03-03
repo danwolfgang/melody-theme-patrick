@@ -5,7 +5,7 @@ description: 'Patrick is a framework-style theme for Melody and Movable Type.'
 author_name: 'Dan Wolfgang'
 author_link: 'http://danandsherree.com'
 plugin_link: 'http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.php'
-version: 1.0.2
+version: 1.0.3
 static_version: 3
 
 config_types:
