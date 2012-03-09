@@ -1,6 +1,6 @@
 <li class="entry-featured<mt:EntryCategories> <mt:CategoryLabel dirify="-"></mt:EntryCategories>"
     <mt:SetVarBlock name="image_width"><mt:If tag="ColumnLayout" eq="Three columns">510<mt:Else tag="ColumnLayout" eq="Two columns">600<mt:Else>930</mt:If></mt:SetVarBlock>
-    <mt:EntryAssets type="image" lastn="1">style="background-image: url(<mt:AssetThumbnailURL width="$image_width">);"</mt:EntryAssets>
+    <mt:EntryAssets type="image" sort_by="created_on" sort_order="ascend" limit="1">style="background-image: url(<mt:AssetThumbnailURL width="$image_width">);"</mt:EntryAssets>
     >
 
     <h2><a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1"></a></h2>
