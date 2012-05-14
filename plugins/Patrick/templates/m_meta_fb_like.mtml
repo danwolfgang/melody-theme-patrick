@@ -1,7 +1,7 @@
 <fb:like href="<mt:EntryPermalink>"
     <mt:If tag="FacebookSendButton">send="true"</mt:If>
     width="<mt:FacebookLikeWidth>"
-    <mt:If tag="FacebookLikeShowFaces">show_faces="true"</mt:If>
+    show_faces="<mt:If tag="FacebookLikeShowFaces">true<mt:Else>false</mt:If>"
     <mt:If tag="FacebookLikeAction" eq="recommend">action="recommend"<mt:Else>action="like"</mt:If>
     <mt:If tag="FacebookLikeColorScheme" eq="dark">colorscheme="dark"</mt:if>
 ></fb:like>
