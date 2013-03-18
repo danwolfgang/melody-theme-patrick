@@ -334,7 +334,7 @@ sub pictaculous {
     # image used to build the color palette. The value is filled in from the
     # $value field with the big object with all of the palettes.
     $out .= "    <div id=\"$field_id-image-nav-container\">\n";
-    $out .= "        <h4>Specify a Source Image</strong></h4>\n";
+    $out .= "        <h4>Specify a Source Image</h4>\n";
     $out .= "        <label for=\"$field_id-image\">Enter the URL of an image to create color palette options, then click &ldquo;get palettes from this image.&rdquo;</label>\n";
     $out .= "        <input type=\"text\" id=\"$field_id-image\" name=\"$field_id-image\" class=\"full-width\" style=\"width: 580px\" />\n";
     $out .= "        <div style=\" height: 20px;\" id=\"$field_id-actions\"><a href=\"javascript:void(0)\" id=\"$field_id-get-palette\">Get palettes from this image</a> <span id=\"$field_id-spinner\" class=\"hidden\" style=\"vertical-align: middle;\"><img src=\"" . $static . "images/indicator.white.gif\" width=\"16\" height=\"16\" /></span></div>\n";
