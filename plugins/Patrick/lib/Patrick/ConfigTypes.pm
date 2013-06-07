@@ -778,8 +778,8 @@ END
 
 sub pictaculous_ajax {
     my ($app) = shift;
-    my $q = $app->query;
-    
+    my $q     = $app->can('query') ? $app->query : $app->param;
+
     # Give up if no image was specified.
     if ( !$q->param('image') ) {
         return '<p>Select an image before proceeding.</p>';

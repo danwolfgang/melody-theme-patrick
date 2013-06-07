@@ -31,27 +31,20 @@ of the configuration options and examples, and see the theme in action on [Dan
 
 # Prerequisites
 
-Patrick requires [Melody](http://openmelody.org) 1.0 or greater.
+Patrick works with Movable Type Open Source and Movable Type Pro 4.2+.
+
+The version of jQuery supplied with Movable Type at
+`[MT_HOME]/mt-static/jquery/jquery.js` is old. So old, in fact, that the color
+palette picker and font picker in Theme Options won't work. To resolve this,
+update the copy of jQuery. An updated copy of jQuery is supplied with Patrick;
+simply copy from `plugins/Patrick/static/js/jquery.js` to
+`[MT_HOME]/mt-static/jquery/jquery.js`.
 
 This theme publishes some templates through the Publish Queue, so you'll want
 to have
 [`run-periodic-tasks`](http://www.movabletype.org/documentation/administrator/setting-up-run-periodic-taskspl.html)
 configured and running.
 
-## Movable Type 4 Compatibility
-
-Patrick has been successfully tested with Movable Type Open Source 4.37. In
-addition to the below plugin requirements, Movable Type users will also need:
-
-* [Melody Compatibility
-  Layer](https://github.com/endevver/mt-plugin-melody-compat)
-
-Additionally, the version of jQuery supplied with Movable Type at
-`[MT_HOME]/mt-static/jquery/jquery.js` is old. So old, in fact, that the color
-palette picker and font picker in Theme Options won't work. To resolve this,
-update the copy of jQuery. An updated copy of jQuery is supplied with Patrick;
-simply copy from `plugins/Patrick/static/js/jquery.js` to
-`[MT_HOME]/mt-static/jquery/jquery.js`.
 
 ## Plugins
 
