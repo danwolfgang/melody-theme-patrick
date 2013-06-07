@@ -1,9 +1,9 @@
-# Patrick, a theme framework for Melody
+# Patrick, a theme framework for Movable Type
 
-Patrick is a theme for Melody (and Movable Type), sure, but it's also more
-than that. With over 100 Theme Options, infinite color schemes, and "callback"
-fields, Patrick is a flexible theme framework that makes it easy to create a
-unique site from this one design.
+Patrick is a theme for Movable Type, sure, but it's also more than that. With
+over 100 Theme Options, infinite color schemes, and "callback" fields, Patrick
+is a flexible theme framework that makes it easy to create a unique site from
+this one design.
 
 * Integration with [Pictaculous](http://pictaculous.com) to create a unique
   color palette. Within Theme Options > Color Palette, supply an image URL to
@@ -50,12 +50,10 @@ configured and running.
 
 * [Config
   Assistant](https://github.com/openmelody/mt-plugin-configassistant)
-  version 2.2.2 or greater (note that this version is newer than what comes 
-  with Melody 1.0.2)
+  version 2.2.2 or greater
 * [Custom CSS](https://github.com/endevver/mt-plugin-customcss/downloads)
 * [Theme Manager](https://github.com/openmelody/mt-plugin-theme-manager)
-  version 1.1.10 or greater (note that this version is newer than what comes
-  with Melody 1.0.2)
+  version 1.1.10 or greater
 
 ### Optional
 
@@ -87,11 +85,11 @@ to run [danandsherree.com](http://danandsherree.com).
 
 # Installation
 
-The Patrick theme is installed just like any other plugin in Melody. The [Easy
-Plugin Installation Guide][] provides detailed installation instructions.
+The Patrick theme is installed just like any other plugin in Movable Type. The
+[Easy Plugin Installation Guide][] provides detailed installation instructions.
 
 [Easy Plugin Installation Guide]:
-    https://github.com/openmelody/melody/wiki/install-EasyPluginInstallGuide
+    http://tinyurl.com/easy-plugin-install
 
 # Use
 

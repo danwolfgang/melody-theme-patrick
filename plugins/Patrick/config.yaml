@@ -1,7 +1,7 @@
 name: 'Patrick'
 key: patrick
 id: patrick
-description: 'Patrick is a framework-style theme for Melody and Movable Type.'
+description: 'Patrick is a framework-style theme for Movable Type.'
 author_name: 'Dan Wolfgang'
 author_link: 'http://danandsherree.com'
 plugin_link: 'http://eatdrinksleepmovabletype.com/plugins/theme_patrick/index.php'
@@ -24,7 +24,7 @@ applications:
 template_sets:
     patrick:
         label: Patrick
-        description: 'Patrick is a framework-style theme for Melody and Movable Type. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
+        description: 'Patrick is a framework-style theme for Movable Type. A great deal of customization can be done through the Theme Options, though many additional features are available to work with also: custom CSS, custom .htaccess, and &ldquo;callback&rdquo; points.'
         documentation: docs.html
         base_path: templates
         preview: preview.jpg
@@ -88,7 +88,7 @@ template_sets:
                     order: 30
                 callbacks:
                     label: 'Blog Callbacks'
-                    hint: 'Blog callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
+                    hint: 'Blog callbacks allow you to add additional HTML, CSS, and Javascript to further customize the blog (such as with the latest social networking site badge or analytics). Note that Movable Type template tags can be used here.'
                     order: 31
             # Color Palette
             color_palette_separator:
@@ -328,7 +328,7 @@ template_sets:
             # Header
             header_callback_top:
                 label: 'Header Callback Top'
-                hint: 'The header callback area allows you to add additional HTML, CSS, and Javascript to further customize the header area (such as with an advertisement). Note that Melody template tags can be used here. Be sure the Header Image and Header Height acccount for the space required by the contents of this field.'
+                hint: 'The header callback area allows you to add additional HTML, CSS, and Javascript to further customize the header area (such as with an advertisement). Note that Movable type template tags can be used here. Be sure the Header Image and Header Height acccount for the space required by the contents of this field.'
                 type: textarea
                 tag: HeaderCallbackTop
                 fieldset: header
@@ -803,7 +803,7 @@ template_sets:
                 order: 5
             entry_callback_separator:
                 label: 'Entry Callbacks'
-                hint: 'Entry callbacks allow you to add additional HTML, CSS, and Javascript to further customize the entry area (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
+                hint: 'Entry callbacks allow you to add additional HTML, CSS, and Javascript to further customize the entry area (such as with the latest social networking site badge or analytics). Note that Movable Type template tags can be used here.'
                 type: separator
                 fieldset: entry_formatting
                 order: 10
@@ -876,7 +876,7 @@ template_sets:
                 order: 3
             page_callback_separator:
                 label: 'Page Callbacks'
-                hint: 'Page callbacks allow you to add additional HTML, CSS, and Javascript to further customize the page area (such as with the latest social networking site badge or analytics). Note that Melody template tags can be used here.'
+                hint: 'Page callbacks allow you to add additional HTML, CSS, and Javascript to further customize the page area (such as with the latest social networking site badge or analytics). Note that Movable Type template tags can be used here.'
                 type: separator
                 fieldset: page_formatting
                 order: 10
