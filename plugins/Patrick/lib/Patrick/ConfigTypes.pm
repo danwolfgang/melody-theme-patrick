@@ -55,7 +55,7 @@ sub _load_tags {
 
                             my $blog = $ctx->stash('blog');
                             my $bset = $blog->template_set;
-                            $ctx->stash( 'field', $bset . '_' . $opt );
+                            $ctx->stash( 'config_type', $bset . '_' . $opt );
                             $ctx->stash( 'plugin_ns', find_theme_plugin($bset)->id );
 
                             use ConfigAssistant::Plugin;
@@ -118,7 +118,7 @@ sub _load_tags {
 
                             my $blog = $ctx->stash('blog');
                             my $bset = $blog->template_set;
-                            $ctx->stash( 'field', $bset . '_' . $opt );
+                            $ctx->stash( 'config_type', $bset . '_' . $opt );
                             $ctx->stash( 'plugin_ns', find_theme_plugin($bset)->id );
 
                             use ConfigAssistant::Plugin;
